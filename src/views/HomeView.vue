@@ -148,42 +148,40 @@
     </div>
   </section>
 
-
- <section class="send-to-directory-section">
-    <div class="directory-container">
+<section class="destinations-section">
+    <div class="destinations-container">
       
-      <div class="directory-main-header">
-        <h2 class="directory-title">Countries you can send money to</h2>
-        <p class="directory-subtitle">Enjoy transparent conversions and localized payout methods across our growing Western corridors.</p>
+      <div class="destinations-header">
+        <h2 class="destinations-title">Wise works nearly everywhere</h2>
+        <button class="view-all-corridors-btn">Send money</button>
       </div>
 
-      <div class="region-directory-block">
-        <h3 class="region-continent-title">North America</h3>
-        <div class="directory-flag-grid">
-          <div v-for="(country, index) in northAmericaDestinations" :key="'na-' + index" class="directory-badge-card">
-            <div class="directory-flag-circle">
-              <img :src="country.flagUrl" :alt="country.name" class="directory-native-img" />
+      <div class="continent-directory-block">
+        <h3 class="continent-group-title">North America</h3>
+        <div class="destinations-flag-grid">
+          <div v-for="(country, index) in northAmericaSendFrom" :key="'na-' + index" class="destination-badge-card">
+            <div class="flag-circle-frame">
+              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="directory-action-link">Send money to {{ country.name }} ({{ country.currency }})</a>
+            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
           </div>
         </div>
       </div>
 
-      <div class="region-directory-block">
-        <h3 class="region-continent-title">Europe</h3>
-        <div class="directory-flag-grid">
-          <div v-for="(country, index) in europeDestinations" :key="'eu-' + index" class="directory-badge-card">
-            <div class="directory-flag-circle">
-              <img :src="country.flagUrl" :alt="country.name" class="directory-native-img" />
+      <div class="continent-directory-block">
+        <h3 class="continent-group-title">Europe</h3>
+        <div class="destinations-flag-grid">
+          <div v-for="(country, index) in europeSendFrom" :key="'eu-' + index" class="destination-badge-card">
+            <div class="flag-circle-frame">
+              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="directory-action-link">Send money to {{ country.name }} ({{ country.currency }})</a>
+            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
           </div>
         </div>
       </div>
 
     </div>
   </section>
-
 
   <section class="trust-mission-section">
     <div class="trust-mission-container">
@@ -837,139 +835,124 @@ northAmericaDestinations: [
     margin-bottom: 1rem;
   }
 }
-
-/* ==========================================================================
-   🗺️ DEDICATED REGIONAL DIRECTORY STYLE GUIDE (WISE REPLICA)
-   ========================================================================== */
-.send-to-directory-section {
+.destinations-section {
   width: 100%;
   background-color: #f8fafc;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   display: flex;
   justify-content: center;
-  border-top: 1px solid #e2e8f0;
 }
 
-.directory-container {
+.destinations-container {
   max-width: 1250px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem; /* Tighter padding flow consistent with corporate listings viewports */
 }
 
-.directory-main-header {
+.destinations-header {
   width: 100%;
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.directory-title {
-  font-size: 2.5rem;
+.destinations-title {
+  font-size: 2.8rem;
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: -1px;
-  margin-bottom: 0.5rem;
+  letter-spacing: -1.5px;
 }
 
-.directory-subtitle {
-  font-size: 1.1rem;
-  color: #64748b;
-  font-weight: 500;
+.view-all-corridors-btn {
+  background-color: #93f5d3; /* Soft green high-visibility token action badge */
+  border: none;
+  color: #052e16;
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 24px;
+  cursor: pointer;
 }
 
-.region-directory-block {
+/* Continent Category Divider Blocks */
+.continent-directory-block {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.region-continent-title {
-  font-size: 1.5rem;
+.continent-group-title {
+  font-size: 1.6rem;
   font-weight: 700;
   color: #334155;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
 }
 
-/* Identical 5-column responsive grid scaling matching the Wise screenshot */
-.directory-flag-grid {
+/* 🚨 EXACT LOOK: Standardized 5-column desktop directory layout frame matching the target layout */
+.destinations-flag-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 uniform across columns */
-  gap: 2.5rem 1.5rem;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 3rem 1.5rem;
   width: 100%;
 }
 
-.directory-badge-card {
+.destination-badge-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
-.directory-flag-circle {
-  width: 54px;
-  height: 54px;
+.flag-circle-frame {
+  width: 68px; /* Slightly larger dimensions matching your close-up reference precisely */
+  height: 68px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   background-color: #ffffff;
+  flex-shrink: 0;
 }
 
-.directory-native-img {
+.native-flag-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.directory-action-link {
-  font-size: 0.95rem;
+.destination-action-link {
+  font-size: 1rem;
   font-weight: 600;
   color: #0f172a;
-  text-decoration: underline; /* Hard anchor matching Wise structural reference */
+  text-decoration: underline; /* Forces hard anchor underlines on default layout views */
   line-height: 1.4;
   transition: color 0.15s ease;
 }
 
-.directory-action-link:hover {
-  color: #00d09c; /* Interactive brand turn accent */
+.destination-action-link:hover {
+  color: #00d09c;
 }
 
-/* ==========================================================================
-   📱 DIRECTORY RESPONSIVE PHONE VIEWPORT OVERRIDES
-   ========================================================================== */
+/* Mobile responsive fallback safety rules hooks remaining cleanly sandboxed */
 @media (max-width: 1024px) {
-  .directory-flag-grid {
-    grid-template-columns: repeat(3, 1fr) !important; /* Drops cleanly to 3 columns on medium tablets */
-  }
+  .destinations-flag-grid { grid-template-columns: repeat(3, 1fr) !important; }
 }
-
 @media (max-width: 768px) {
-  .send-to-directory-section {
-    padding: 3.5rem 1.25rem !important;
-  }
-  
-  .directory-title {
-    font-size: 1.85rem !important;
-  }
-  
-  .directory-flag-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* Responsive 2-column mobile optimization */
-    gap: 2rem 1rem !important;
-  }
-
-  .directory-flag-circle {
-    width: 46px !important;
-    height: 46px !important;
-  }
-
-  .directory-action-link {
-    font-size: 0.88rem !important;
-  }
+  .destinations-title { font-size: 2rem !important; }
+  .destinations-flag-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem 1rem !important; }
+  .flag-circle-frame { width: 52px !important; height: 52px !important; }
+  .destination-action-link { font-size: 0.9rem !important; }
 }
+
 
 .trust-mission-section {
   width: 100%;
