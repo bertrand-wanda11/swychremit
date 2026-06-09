@@ -296,66 +296,73 @@
     </footer>
 
 </template>
-
 <script>
 export default {
   name: 'HomeView',
+  
   data() {
     return {
+      // 🧮 Calculator Variables
       sendAmount: 1000,
       exchangeRate: 1485.50,
       fee: 2.99,
       receiveAmount: 0,
+      
+      // 🚨 Footer Region Dropdown States
       isRegionOpen: false,
       selectedRegion: "International",
-northAmericaDestinations: [
-        { name: "United States", currency: "USD", flagUrl: "https://flagcdn.com/w80/us.png" },
-        { name: "Canada", currency: "CAD", flagUrl: "https://flagcdn.com/w80/ca.png" }
+      
+      // 🇺🇸 North American Countries List (ONLY US & Canada)
+      northAmericaSendFrom: [
+        { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
+        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
       ],
-
-      // 🇪🇺 European "Send To" Corridors List
-      europeDestinations: [
-        { name: "United Kingdom", currency: "GBP", flagUrl: "https://flagcdn.com/w80/gb.png" },
-        { name: "Austria", currency: "EUR", flagUrl: "https://flagcdn.com/w80/at.png" },
-        { name: "Belgium", currency: "EUR", flagUrl: "https://flagcdn.com/w80/be.png" },
-        { name: "Bulgaria", currency: "BGN", flagUrl: "https://flagcdn.com/w80/bg.png" },
-        { name: "Croatia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/hr.png" },
-        { name: "Cyprus", currency: "EUR", flagUrl: "https://flagcdn.com/w80/cy.png" },
-        { name: "Czech Republic", currency: "CZK", flagUrl: "https://flagcdn.com/w80/cz.png" },
-        { name: "Denmark", currency: "DKK", flagUrl: "https://flagcdn.com/w80/dk.png" },
-        { name: "Estonia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/ee.png" },
-        { name: "Finland", currency: "EUR", flagUrl: "https://flagcdn.com/w80/fi.png" },
-        { name: "France", currency: "EUR", flagUrl: "https://flagcdn.com/w80/fr.png" },
-        { name: "Germany", currency: "EUR", flagUrl: "https://flagcdn.com/w80/de.png" },
-        { name: "Greece", currency: "EUR", flagUrl: "https://flagcdn.com/w80/gr.png" },
-        { name: "Hungary", currency: "HUF", flagUrl: "https://flagcdn.com/w80/hu.png" },
-        { name: "Iceland", currency: "ISK", flagUrl: "https://flagcdn.com/w80/is.png" },
-        { name: "Ireland", currency: "EUR", flagUrl: "https://flagcdn.com/w80/ie.png" },
-        { name: "Italy", currency: "EUR", flagUrl: "https://flagcdn.com/w80/it.png" },
-        { name: "Latvia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lv.png" },
-        { name: "Liechtenstein", currency: "CHF", flagUrl: "https://flagcdn.com/w80/li.png" },
-        { name: "Lithuania", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lt.png" },
-        { name: "Luxembourg", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lu.png" },
-        { name: "Malta", currency: "EUR", flagUrl: "https://flagcdn.com/w80/mt.png" },
-        { name: "Monaco", currency: "MC", flagUrl: "https://flagcdn.com/w80/mc.png" },
-        { name: "Netherlands", currency: "EUR", flagUrl: "https://flagcdn.com/w80/nl.png" },
-        { name: "Norway", currency: "NOK", flagUrl: "https://flagcdn.com/w80/no.png" },
-        { name: "Poland", currency: "PLN", flagUrl: "https://flagcdn.com/w80/pl.png" },
-        { name: "Portugal", currency: "EUR", flagUrl: "https://flagcdn.com/w80/pt.png" },
-        { name: "Romania", currency: "RON", flagUrl: "https://flagcdn.com/w80/ro.png" },
-        { name: "San Marino", currency: "SM", flagUrl: "https://flagcdn.com/w80/sm.png" },
-        { name: "Slovakia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/sk.png" },
-        { name: "Slovenia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/si.png" },
-        { name: "Spain", currency: "EUR", flagUrl: "https://flagcdn.com/w80/es.png" },
-        { name: "Sweden", currency: "SEK", flagUrl: "https://flagcdn.com/w80/se.png" },
-        { name: "Switzerland", currency: "CHF", flagUrl: "https://flagcdn.com/w80/ch.png" },
-        { name: "Vatican City", currency: "EUR", flagUrl: "https://flagcdn.com/w80/va.png" }
-      ],
-      }
+      
+      // 🇪🇺 European Countries List (ONLY the ones from your list)
+      europeSendFrom: [
+        { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
+        { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
+        { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
+        { name: "Bulgaria", flagUrl: "https://flagcdn.com/w80/bg.png" },
+        { name: "Croatia", flagUrl: "https://flagcdn.com/w80/hr.png" },
+        { name: "Cyprus", flagUrl: "https://flagcdn.com/w80/cy.png" },
+        { name: "Czech Republic (Czechia)", flagUrl: "https://flagcdn.com/w80/cz.png" },
+        { name: "Denmark", flagUrl: "https://flagcdn.com/w80/dk.png" },
+        { name: "Estonia", flagUrl: "https://flagcdn.com/w80/ee.png" },
+        { name: "Finland", flagUrl: "https://flagcdn.com/w80/fi.png" },
+        { name: "France", flagUrl: "https://flagcdn.com/w80/fr.png" },
+        { name: "Germany", flagUrl: "https://flagcdn.com/w80/de.png" },
+        { name: "Greece", flagUrl: "https://flagcdn.com/w80/gr.png" },
+        { name: "Hungary", flagUrl: "https://flagcdn.com/w80/hu.png" },
+        { name: "Iceland", flagUrl: "https://flagcdn.com/w80/is.png" },
+        { name: "Ireland", flagUrl: "https://flagcdn.com/w80/ie.png" },
+        { name: "Italy", flagUrl: "https://flagcdn.com/w80/it.png" },
+        { name: "Latvia", flagUrl: "https://flagcdn.com/w80/lv.png" },
+        { name: "Liechtenstein", flagUrl: "https://flagcdn.com/w80/li.png" },
+        { name: "Lithuania", flagUrl: "https://flagcdn.com/w80/lt.png" },
+        { name: "Luxembourg", flagUrl: "https://flagcdn.com/w80/lu.png" },
+        { name: "Malta", flagUrl: "https://flagcdn.com/w80/mt.png" },
+        { name: "Monaco", flagUrl: "https://flagcdn.com/w80/mc.png" },
+        { name: "Netherlands", flagUrl: "https://flagcdn.com/w80/nl.png" },
+        { name: "Norway", flagUrl: "https://flagcdn.com/w80/no.png" },
+        { name: "Poland", flagUrl: "https://flagcdn.com/w80/pl.png" },
+        { name: "Portugal", flagUrl: "https://flagcdn.com/w80/pt.png" },
+        { name: "Romania", flagUrl: "https://flagcdn.com/w80/ro.png" },
+        { name: "San Marino", flagUrl: "https://flagcdn.com/w80/sm.png" },
+        { name: "Slovakia", flagUrl: "https://flagcdn.com/w80/sk.png" },
+        { name: "Slovenia", flagUrl: "https://flagcdn.com/w80/si.png" },
+        { name: "Spain", flagUrl: "https://flagcdn.com/w80/es.png" },
+        { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
+        { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
+        { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
+      ]
+    }
   },
+
   created() {
     this.calculateConversion()
   },
+
   methods: {
     calculateConversion() {
       const netSend = this.sendAmount - this.fee
@@ -378,6 +385,7 @@ northAmericaDestinations: [
   }
 }
 </script>
+
 
 <style scoped>
 .hero-split-canvas {
