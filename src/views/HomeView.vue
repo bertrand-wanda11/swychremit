@@ -149,24 +149,35 @@
   </section>
 
 
-  <section class="destinations-section">
-    <div class="destinations-container">
+ <section class="send-to-directory-section">
+    <div class="directory-container">
       
-      <div class="destinations-header">
-        <h2 class="destinations-title">SwyChr Remit works nearly everywhere</h2>
-        <button class="view-all-corridors-btn">See all currencies</button>
+      <div class="directory-main-header">
+        <h2 class="directory-title">Countries you can send money to</h2>
+        <p class="directory-subtitle">Enjoy transparent conversions and localized payout methods across our growing Western corridors.</p>
       </div>
 
-      <div class="destinations-flag-grid">
-        <div 
-          v-for="(country, index) in standardDestinations" 
-          :key="index" 
-          class="destination-badge-card"
-        >
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+      <div class="region-directory-block">
+        <h3 class="region-continent-title">North America</h3>
+        <div class="directory-flag-grid">
+          <div v-for="(country, index) in northAmericaDestinations" :key="'na-' + index" class="directory-badge-card">
+            <div class="directory-flag-circle">
+              <img :src="country.flagUrl" :alt="country.name" class="directory-native-img" />
+            </div>
+            <a href="#" class="directory-action-link">Send money to {{ country.name }} ({{ country.currency }})</a>
           </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+
+      <div class="region-directory-block">
+        <h3 class="region-continent-title">Europe</h3>
+        <div class="directory-flag-grid">
+          <div v-for="(country, index) in europeDestinations" :key="'eu-' + index" class="directory-badge-card">
+            <div class="directory-flag-circle">
+              <img :src="country.flagUrl" :alt="country.name" class="directory-native-img" />
+            </div>
+            <a href="#" class="directory-action-link">Send money to {{ country.name }} ({{ country.currency }})</a>
+          </div>
         </div>
       </div>
 
@@ -288,7 +299,8 @@
 
 </template>
 
-<script>export default {
+<script>
+export default {
   name: 'HomeView',
   data() {
     return {
@@ -298,45 +310,50 @@
       receiveAmount: 0,
       isRegionOpen: false,
       selectedRegion: "International",
-      standardDestinations: [
-        { name: "Andorra", flagUrl: "https://flagcdn.com/w80/ad.png" },
-        { name: "Argentina", flagUrl: "https://flagcdn.com/w80/ar.png" },
-        { name: "Australia", flagUrl: "https://flagcdn.com/w80/au.png" },
-        { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
-        { name: "Bangladesh", flagUrl: "https://flagcdn.com/w80/bd.png" },
-        { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
-        { name: "Botswana", flagUrl: "https://flagcdn.com/w80/bw.png" },
-        { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" },
-        { name: "Bulgaria", flagUrl: "https://flagcdn.com/w80/bg.png" },
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" },
-        { name: "Chile", flagUrl: "https://flagcdn.com/w80/cl.png" },
-        { name: "China", flagUrl: "https://flagcdn.com/w80/cn.png" },
-        { name: "Colombia", flagUrl: "https://flagcdn.com/w80/co.png" },
-        { name: "Costa Rica", flagUrl: "https://flagcdn.com/w80/cr.png" },
-        { name: "Croatia", flagUrl: "https://flagcdn.com/w80/hr.png" },
-        { name: "Cyprus", flagUrl: "https://flagcdn.com/w80/cy.png" },
-        { name: "Czech Republic", flagUrl: "https://flagcdn.com/w80/cz.png" },
-        { name: "Denmark", flagUrl: "https://flagcdn.com/w80/dk.png" },
-        { name: "Egypt", flagUrl: "https://flagcdn.com/w80/eg.png" },
-        { name: "Estonia", flagUrl: "https://flagcdn.com/w80/ee.png" },
-        { name: "Finland", flagUrl: "https://flagcdn.com/w80/fi.png" },
-        { name: "France", flagUrl: "https://flagcdn.com/w80/fr.png" },
-        { name: "Georgia", flagUrl: "https://flagcdn.com/w80/ge.png" },
-        { name: "Germany", flagUrl: "https://flagcdn.com/w80/de.png" },
-        { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
-        { name: "Greece", flagUrl: "https://flagcdn.com/w80/gr.png" },
-        { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
-        { name: "Indonesia", flagUrl: "https://flagcdn.com/w80/id.png" },
-        { name: "Japan", flagUrl: "https://flagcdn.com/w80/jp.png" },
-        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
-        { name: "Malaysia", flagUrl: "https://flagcdn.com/w80/my.png" },
-        { name: "Mexico", flagUrl: "https://flagcdn.com/w80/mx.png" },
-        { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
-        { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
-        { name: "United States", flagUrl: "https://flagcdn.com/w80/us.png" },
-        { name: "Zambia", flagUrl: "https://flagcdn.com/w80/zm.png" }
-      ]
-    }
+northAmericaDestinations: [
+        { name: "United States", currency: "USD", flagUrl: "https://flagcdn.com/w80/us.png" },
+        { name: "Canada", currency: "CAD", flagUrl: "https://flagcdn.com/w80/ca.png" }
+      ],
+
+      // 🇪🇺 European "Send To" Corridors List
+      europeDestinations: [
+        { name: "United Kingdom", currency: "GBP", flagUrl: "https://flagcdn.com/w80/gb.png" },
+        { name: "Austria", currency: "EUR", flagUrl: "https://flagcdn.com/w80/at.png" },
+        { name: "Belgium", currency: "EUR", flagUrl: "https://flagcdn.com/w80/be.png" },
+        { name: "Bulgaria", currency: "BGN", flagUrl: "https://flagcdn.com/w80/bg.png" },
+        { name: "Croatia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/hr.png" },
+        { name: "Cyprus", currency: "EUR", flagUrl: "https://flagcdn.com/w80/cy.png" },
+        { name: "Czech Republic", currency: "CZK", flagUrl: "https://flagcdn.com/w80/cz.png" },
+        { name: "Denmark", currency: "DKK", flagUrl: "https://flagcdn.com/w80/dk.png" },
+        { name: "Estonia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/ee.png" },
+        { name: "Finland", currency: "EUR", flagUrl: "https://flagcdn.com/w80/fi.png" },
+        { name: "France", currency: "EUR", flagUrl: "https://flagcdn.com/w80/fr.png" },
+        { name: "Germany", currency: "EUR", flagUrl: "https://flagcdn.com/w80/de.png" },
+        { name: "Greece", currency: "EUR", flagUrl: "https://flagcdn.com/w80/gr.png" },
+        { name: "Hungary", currency: "HUF", flagUrl: "https://flagcdn.com/w80/hu.png" },
+        { name: "Iceland", currency: "ISK", flagUrl: "https://flagcdn.com/w80/is.png" },
+        { name: "Ireland", currency: "EUR", flagUrl: "https://flagcdn.com/w80/ie.png" },
+        { name: "Italy", currency: "EUR", flagUrl: "https://flagcdn.com/w80/it.png" },
+        { name: "Latvia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lv.png" },
+        { name: "Liechtenstein", currency: "CHF", flagUrl: "https://flagcdn.com/w80/li.png" },
+        { name: "Lithuania", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lt.png" },
+        { name: "Luxembourg", currency: "EUR", flagUrl: "https://flagcdn.com/w80/lu.png" },
+        { name: "Malta", currency: "EUR", flagUrl: "https://flagcdn.com/w80/mt.png" },
+        { name: "Monaco", currency: "MC", flagUrl: "https://flagcdn.com/w80/mc.png" },
+        { name: "Netherlands", currency: "EUR", flagUrl: "https://flagcdn.com/w80/nl.png" },
+        { name: "Norway", currency: "NOK", flagUrl: "https://flagcdn.com/w80/no.png" },
+        { name: "Poland", currency: "PLN", flagUrl: "https://flagcdn.com/w80/pl.png" },
+        { name: "Portugal", currency: "EUR", flagUrl: "https://flagcdn.com/w80/pt.png" },
+        { name: "Romania", currency: "RON", flagUrl: "https://flagcdn.com/w80/ro.png" },
+        { name: "San Marino", currency: "SM", flagUrl: "https://flagcdn.com/w80/sm.png" },
+        { name: "Slovakia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/sk.png" },
+        { name: "Slovenia", currency: "EUR", flagUrl: "https://flagcdn.com/w80/si.png" },
+        { name: "Spain", currency: "EUR", flagUrl: "https://flagcdn.com/w80/es.png" },
+        { name: "Sweden", currency: "SEK", flagUrl: "https://flagcdn.com/w80/se.png" },
+        { name: "Switzerland", currency: "CHF", flagUrl: "https://flagcdn.com/w80/ch.png" },
+        { name: "Vatican City", currency: "EUR", flagUrl: "https://flagcdn.com/w80/va.png" }
+      ],
+      }
   },
   created() {
     this.calculateConversion()
@@ -821,141 +838,136 @@
   }
 }
 
-.destinations-section {
+/* ==========================================================================
+   🗺️ DEDICATED REGIONAL DIRECTORY STYLE GUIDE (WISE REPLICA)
+   ========================================================================== */
+.send-to-directory-section {
   width: 100%;
-  background-color: #f8fafc; 
-  padding: 6rem 2rem;
+  background-color: #f8fafc;
+  padding: 5rem 2rem;
   display: flex;
   justify-content: center;
+  border-top: 1px solid #e2e8f0;
 }
 
-.destinations-container {
+.directory-container {
   max-width: 1250px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 4rem;
 }
 
-
-.destinations-header {
+.directory-main-header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  text-align: left;
 }
 
-.destinations-title {
+.directory-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #7B1FA2;
+  color: #0f172a;
   letter-spacing: -1px;
+  margin-bottom: 0.5rem;
 }
 
-.view-all-corridors-btn {
-  background-color: transparent;
-  border: 1px solid #cbd5e1;
-  color:  #7B1FA2;
-  padding: 0.7rem 1.6rem;
-  font-size: 0.95rem;
+.directory-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.region-directory-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.region-continent-title {
+  font-size: 1.5rem;
   font-weight: 700;
-  border-radius: 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: #334155;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
 }
 
-.view-all-corridors-btn:hover {
-  background-color: #e2fef7;
-  border-color: #00d09c;
-}
-
-
-.destinations-flag-grid {
+/* Identical 5-column responsive grid scaling matching the Wise screenshot */
+.directory-flag-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 2.5rem 2rem;
+  grid-template-columns: repeat(5, 1fr); /* 5 uniform across columns */
+  gap: 2.5rem 1.5rem;
   width: 100%;
 }
 
-.destination-badge-card {
+.directory-badge-card {
   display: flex;
-  align-items: center;
-  gap: 1.2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-
-.flag-circle-frame {
-  width: 48px;
-  height: 48px;
+.directory-flag-circle {
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.05);
-  background-color: #e2e8f0;
-  border: 1px solid #f1f5f9;
-  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
 }
 
-.native-flag-img {
+.directory-native-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
-.destination-action-link {
-  font-size: 1.1rem;
+.directory-action-link {
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #334155;
-  text-decoration: none;
+  color: #0f172a;
+  text-decoration: underline; /* Hard anchor matching Wise structural reference */
+  line-height: 1.4;
   transition: color 0.15s ease;
 }
 
-.destination-action-link:hover {
-  color: #00d09c;
-  text-decoration: underline;
+.directory-action-link:hover {
+  color: #00d09c; /* Interactive brand turn accent */
 }
 
+/* ==========================================================================
+   📱 DIRECTORY RESPONSIVE PHONE VIEWPORT OVERRIDES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .directory-flag-grid {
+    grid-template-columns: repeat(3, 1fr) !important; /* Drops cleanly to 3 columns on medium tablets */
+  }
+}
 
-@media (max-width: 992px) {
-  .destinations-section {
-    padding: 4rem 1.2rem;
+@media (max-width: 768px) {
+  .send-to-directory-section {
+    padding: 3.5rem 1.25rem !important;
+  }
+  
+  .directory-title {
+    font-size: 1.85rem !important;
+  }
+  
+  .directory-flag-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Responsive 2-column mobile optimization */
+    gap: 2rem 1rem !important;
   }
 
-  .destinations-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+  .directory-flag-circle {
+    width: 46px !important;
+    height: 46px !important;
   }
 
-  .destinations-title {
-    font-size: 1.85rem;
-    letter-spacing: -0.5px;
-  }
-
-  .view-all-corridors-btn {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .destinations-flag-grid {
-    grid-template-columns: 1fr !important; 
-    gap: 1.5rem;
-    padding: 0 0.5rem;
-  }
-
-  .destination-badge-card {
-    background-color: #ffffff;
-    padding: 1rem 1.2rem;
-    border-radius: 16px;
-    border: 1px solid #f1f5f9;
-  }
-
-  .destination-action-link {
-    font-size: 1rem;
+  .directory-action-link {
+    font-size: 0.88rem !important;
   }
 }
 
