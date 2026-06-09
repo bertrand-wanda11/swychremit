@@ -152,7 +152,7 @@
     <div class="destinations-container">
       
       <div class="destinations-header">
-        <h2 class="destinations-title">Wise works nearly everywhere</h2>
+        <h2 class="destinations-title">Send Money From Europe  To Africa Seamlessly Via Swychremit</h2>
         <button class="view-all-corridors-btn">Send money</button>
       </div>
 
@@ -187,7 +187,7 @@
   <div class="destinations-container">
     
     <div class="continent-directory-block">
-      <h3 class="continent-group-title">Africa</h3>
+      <h3 class="continent-group-title">Send Money From Europe  To Africa Seamlessly Via Swychremit</h3>
       <div class="destinations-flag-grid">
         <div v-for="(country, index) in africaSendTo" :key="'af-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
@@ -962,14 +962,14 @@ asiaSendTo: [
 .destinations-title {
   font-size: 2.8rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #7B1FA2; 
   letter-spacing: -1.5px;
 }
 
 .view-all-corridors-btn {
-  background-color: #93f5d3; /* Soft green high-visibility token action badge */
+  background-color:#7B1FA2;  /* Soft green high-visibility token action badge */
   border: none;
-  color: #052e16;
+  color: #ffffff;
   padding: 0.75rem 1.8rem;
   font-size: 1rem;
   font-weight: 700;
