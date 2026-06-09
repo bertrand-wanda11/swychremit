@@ -183,6 +183,48 @@
     </div>
   </section>
 
+  <section class="additional-destinations-section">
+  <div class="destinations-container">
+    
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">Africa</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in africaSendTo" :key="'af-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">South America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in southAmericaSendTo" :key="'sa-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">Asia</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in asiaSendTo" :key="'as-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
   <section class="trust-mission-section">
     <div class="trust-mission-container">
 
@@ -296,6 +338,8 @@
     </footer>
 
 </template>
+
+
 <script>
 export default {
   name: 'HomeView',
@@ -355,7 +399,51 @@ export default {
         { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
         { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
         { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
-      ]
+      ],
+
+      // 🌍 Africa Standalone Array List
+africaSendTo: [
+  { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
+  { name: "Botswana", flagUrl: "https://flagcdn.com/w80/bw.png" },
+  { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
+  { name: "Burundi", flagUrl: "https://flagcdn.com/w80/bi.png" },
+  { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
+  { name: "Congo Brazzaville", flagUrl: "https://flagcdn.com/w80/cg.png" },
+  { name: "Democratic Republic of Congo", flagUrl: "https://flagcdn.com/w80/cd.png" },
+  { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
+  { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
+  { name: "Guinea Bissau", flagUrl: "https://flagcdn.com/w80/gw.png" },
+  { name: "Guinea Conakry", flagUrl: "https://flagcdn.com/w80/gn.png" },
+  { name: "Ivory Coast", flagUrl: "https://flagcdn.com/w80/ci.png" },
+  { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
+  { name: "Liberia", flagUrl: "https://flagcdn.com/w80/lr.png" },
+  { name: "Madagascar", flagUrl: "https://flagcdn.com/w80/mg.png" },
+  { name: "Malawi", flagUrl: "https://flagcdn.com/w80/mw.png" },
+  { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
+  { name: "Mozambique", flagUrl: "https://flagcdn.com/w80/mz.png" },
+  { name: "Namibia", flagUrl: "https://flagcdn.com/w80/na.png" },
+  { name: "Niger", flagUrl: "https://flagcdn.com/w80/ne.png" },
+  { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
+  { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
+  { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
+  { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" },
+  { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
+  { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
+  { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
+  { name: "Zambia", flagUrl: "https://flagcdn.com/w80/zm.png" },
+  { name: "Zimbabwe", flagUrl: "https://flagcdn.com/w80/zw.png" }
+],
+
+// 🌎 South America Standalone Array List
+southAmericaSendTo: [
+  { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" }
+],
+
+// 🌏 Asia Standalone Array List
+asiaSendTo: [
+  { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
+  { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" }
+]
     }
   },
 
@@ -384,7 +472,10 @@ export default {
     }
   }
 }
+
+
 </script>
+
 <style scoped>
 .hero-split-canvas {
   width: 100%;
@@ -841,6 +932,7 @@ export default {
     margin-bottom: 1rem;
   }
 }
+
 .destinations-section {
   width: 100%;
   background-color: #f8fafc;
@@ -959,6 +1051,13 @@ export default {
   .destination-action-link { font-size: 0.9rem !important; }
 }
 
+.additional-destinations-section {
+  width: 100%;
+  background-color: #ffffff; /* Alternates cleanly with the soft gray upper layout section */
+  padding: 4rem 2rem 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
 
 .trust-mission-section {
   width: 100%;
