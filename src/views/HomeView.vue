@@ -385,8 +385,6 @@ export default {
   }
 }
 </script>
-
-
 <style scoped>
 .hero-split-canvas {
   width: 100%;
