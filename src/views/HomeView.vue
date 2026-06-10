@@ -1021,9 +1021,10 @@ export default {
 }
 
 .secondary-destinations-section .destinations-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
-  color: #3b1565;
+  color: #7B1FA2; 
+  letter-spacing: -1.5px;
   margin-bottom: 2rem;
 }
 
