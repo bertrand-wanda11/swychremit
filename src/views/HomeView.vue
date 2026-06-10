@@ -167,42 +167,19 @@
     </div>
   </section>
 
-  <section class="additional-destinations-section">
+  <section class="secondary-destinations-section">
   <div class="destinations-container">
     
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">Send Money From Europe  To Africa Seamlessly Via Swychremit</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in africaSendTo" :key="'af-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
+    <div class="destinations-header">
+      <h2 class="destinations-title">Global Dynamic Corridors</h2>
     </div>
 
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">South America</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in southAmericaSendTo" :key="'sa-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+    <div class="destinations-flag-grid">
+      <div v-for="(country, index) in customCorridorsList" :key="'cc-' + index" class="destination-badge-card">
+        <div class="flag-circle-frame">
+          <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
         </div>
-      </div>
-    </div>
-
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">Asia</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in asiaSendTo" :key="'as-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
+        <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
       </div>
     </div>
 
@@ -380,7 +357,51 @@ export default {
       ]
     };
   },
-
+customCorridorsList: [
+  { name: "North America", flagUrl: "https://flagcdn.com/w80/un.png" }, // Unified Global icon
+  { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" },
+  { name: "South America", flagUrl: "https://flagcdn.com/w80/un.png" }, // Unified Global icon
+  { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" },
+  { name: "Asia", flagUrl: "https://flagcdn.com/w80/un.png" },          // Unified Global icon
+  { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
+  { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" },
+  { name: "Europe", flagUrl: "https://flagcdn.com/w80/eu.png" },         // European Union flag
+  { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
+  { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
+  { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
+  { name: "Bulgaria", flagUrl: "https://flagcdn.com/w80/bg.png" },
+  { name: "Croatia", flagUrl: "https://flagcdn.com/w80/hr.png" },
+  { name: "Cyprus", flagUrl: "https://flagcdn.com/w80/cy.png" },
+  { name: "Czech Republic (Czechia)", flagUrl: "https://flagcdn.com/w80/cz.png" },
+  { name: "Denmark", flagUrl: "https://flagcdn.com/w80/dk.png" },
+  { name: "Estonia", flagUrl: "https://flagcdn.com/w80/ee.png" },
+  { name: "Finland", flagUrl: "https://flagcdn.com/w80/fi.png" },
+  { name: "France", flagUrl: "https://flagcdn.com/w80/fr.png" },
+  { name: "Germany", flagUrl: "https://flagcdn.com/w80/de.png" },
+  { name: "Greece", flagUrl: "https://flagcdn.com/w80/gr.png" },
+  { name: "Hungary", flagUrl: "https://flagcdn.com/w80/hu.png" },
+  { name: "Iceland", flagUrl: "https://flagcdn.com/w80/is.png" },
+  { name: "Ireland", flagUrl: "https://flagcdn.com/w80/ie.png" },
+  { name: "Italy", flagUrl: "https://flagcdn.com/w80/it.png" },
+  { name: "Latvia", flagUrl: "https://flagcdn.com/w80/lv.png" },
+  { name: "Liechtenstein", flagUrl: "https://flagcdn.com/w80/li.png" },
+  { name: "Lithuania", flagUrl: "https://flagcdn.com/w80/lt.png" },
+  { name: "Luxembourg", flagUrl: "https://flagcdn.com/w80/lu.png" },
+  { name: "Malta", flagUrl: "https://flagcdn.com/w80/mt.png" },
+  { name: "Monaco", flagUrl: "https://flagcdn.com/w80/mc.png" },
+  { name: "Netherlands", flagUrl: "https://flagcdn.com/w80/nl.png" },
+  { name: "Norway", flagUrl: "https://flagcdn.com/w80/no.png" },
+  { name: "Poland", flagUrl: "https://flagcdn.com/w80/pl.png" },
+  { name: "Portugal", flagUrl: "https://flagcdn.com/w80/pt.png" },
+  { name: "Romania", flagUrl: "https://flagcdn.com/w80/ro.png" },
+  { name: "San Marino", flagUrl: "https://flagcdn.com/w80/sm.png" },
+  { name: "Slovakia", flagUrl: "https://flagcdn.com/w80/sk.png" },
+  { name: "Slovenia", flagUrl: "https://flagcdn.com/w80/si.png" },
+  { name: "Spain", flagUrl: "https://flagcdn.com/w80/es.png" },
+  { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
+  { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
+  { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
+],
   created() {
     this.calculateConversion();
   },
