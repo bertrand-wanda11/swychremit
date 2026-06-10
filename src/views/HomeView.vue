@@ -1008,13 +1008,12 @@ customCorridorsList: [
 
 .secondary-destinations-section {
   width: 100%;
-  background-color: #ffffff; /* Uniform clean layout frame */
+  background-color: #ffffff;
   padding: 4rem 2rem 6rem 2rem;
   display: flex;
   justify-content: center;
 }
 
-/* Ensure the layout structure keeps font and spacing sizes identical */
 .secondary-destinations-section .destinations-container {
   max-width: 1200px;
   width: 100%;
