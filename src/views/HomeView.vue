@@ -167,7 +167,8 @@
     </div>
   </section>
 
-  <section class="secondary-destinations-section">
+
+<section class="secondary-destinations-section">
   <div class="destinations-container">
     
     <div class="destinations-header">
@@ -179,12 +180,13 @@
         <div class="flag-circle-frame">
           <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
         </div>
-        <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
       </div>
     </div>
 
   </div>
 </section>
+
 
   <section class="trust-mission-section">
     <div class="trust-mission-container">
@@ -1004,13 +1006,27 @@ customCorridorsList: [
   .destination-action-link { font-size: 0.9rem !important; }
 }
 
-.additional-destinations-section {
+.secondary-destinations-section {
   width: 100%;
-  background-color: #ffffff; /* Alternates cleanly with the soft gray upper layout section */
+  background-color: #ffffff; /* Uniform clean layout frame */
   padding: 4rem 2rem 6rem 2rem;
   display: flex;
   justify-content: center;
 }
+
+/* Ensure the layout structure keeps font and spacing sizes identical */
+.secondary-destinations-section .destinations-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.secondary-destinations-section .destinations-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #3b1565;
+  margin-bottom: 2rem;
+}
+
 
 .trust-mission-section {
   width: 100%;
