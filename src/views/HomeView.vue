@@ -180,7 +180,7 @@
         <div class="flag-circle-frame">
           <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
         </div>
-        <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
+        <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
       </div>
     </div>
 
