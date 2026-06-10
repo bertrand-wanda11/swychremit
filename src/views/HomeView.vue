@@ -147,36 +147,20 @@
 
     </div>
   </section>
-
 <section class="destinations-section">
     <div class="destinations-container">
       
       <div class="destinations-header">
-        <h2 class="destinations-title">Send Money From Europe  To Africa Seamlessly Via Swychremit</h2>
+        <h2 class="destinations-title">SwyChr Remit works nearly everywhere</h2>
         <button class="view-all-corridors-btn">Send money</button>
       </div>
 
-      <div class="continent-directory-block">
-        <h3 class="continent-group-title">North America</h3>
-        <div class="destinations-flag-grid">
-          <div v-for="(country, index) in northAmericaSendFrom" :key="'na-' + index" class="destination-badge-card">
-            <div class="flag-circle-frame">
-              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-            </div>
-            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in sendFromCountries" :key="'sf-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' asset'" class="native-flag-img" />
           </div>
-        </div>
-      </div>
-
-      <div class="continent-directory-block">
-        <h3 class="continent-group-title">Europe</h3>
-        <div class="destinations-flag-grid">
-          <div v-for="(country, index) in europeSendFrom" :key="'eu-' + index" class="destination-badge-card">
-            <div class="flag-circle-frame">
-              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-            </div>
-            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-          </div>
+          <a href="#" class="destination-action-link">Send Money from {{ country.name }}</a>
         </div>
       </div>
 
@@ -339,31 +323,25 @@
 
 </template>
 
-
 <script>
 export default {
-  name: 'HomeView',
-  
+  name: "HomeView",
+
   data() {
     return {
-      // 🧮 Calculator Variables
       sendAmount: 1000,
       exchangeRate: 1485.50,
       fee: 2.99,
       receiveAmount: 0,
-      
-      // 🚨 Footer Region Dropdown States
       isRegionOpen: false,
       selectedRegion: "International",
-      
-      // 🇺🇸 North American Countries List (ONLY US & Canada)
-      northAmericaSendFrom: [
+
+
+      sendFromCountries: [
+        { name: "North America", flagUrl: "https://flagcdn.com/w80/un.png" },
         { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
-      ],
-      
-      // 🇪🇺 European Countries List (ONLY the ones from your list)
-      europeSendFrom: [
+        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" },
+        { name: "Europe", flagUrl: "https://flagcdn.com/w80/eu.png" },
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
@@ -399,81 +377,35 @@ export default {
         { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
         { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
         { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
-      ],
-
-      // 🌍 Africa Standalone Array List
-africaSendTo: [
-  { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
-  { name: "Botswana", flagUrl: "https://flagcdn.com/w80/bw.png" },
-  { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
-  { name: "Burundi", flagUrl: "https://flagcdn.com/w80/bi.png" },
-  { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
-  { name: "Congo Brazzaville", flagUrl: "https://flagcdn.com/w80/cg.png" },
-  { name: "Democratic Republic of Congo", flagUrl: "https://flagcdn.com/w80/cd.png" },
-  { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
-  { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
-  { name: "Guinea Bissau", flagUrl: "https://flagcdn.com/w80/gw.png" },
-  { name: "Guinea Conakry", flagUrl: "https://flagcdn.com/w80/gn.png" },
-  { name: "Ivory Coast", flagUrl: "https://flagcdn.com/w80/ci.png" },
-  { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
-  { name: "Liberia", flagUrl: "https://flagcdn.com/w80/lr.png" },
-  { name: "Madagascar", flagUrl: "https://flagcdn.com/w80/mg.png" },
-  { name: "Malawi", flagUrl: "https://flagcdn.com/w80/mw.png" },
-  { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
-  { name: "Mozambique", flagUrl: "https://flagcdn.com/w80/mz.png" },
-  { name: "Namibia", flagUrl: "https://flagcdn.com/w80/na.png" },
-  { name: "Niger", flagUrl: "https://flagcdn.com/w80/ne.png" },
-  { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
-  { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
-  { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
-  { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" },
-  { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
-  { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
-  { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
-  { name: "Zambia", flagUrl: "https://flagcdn.com/w80/zm.png" },
-  { name: "Zimbabwe", flagUrl: "https://flagcdn.com/w80/zw.png" }
-],
-
-// 🌎 South America Standalone Array List
-southAmericaSendTo: [
-  { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" }
-],
-
-// 🌏 Asia Standalone Array List
-asiaSendTo: [
-  { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
-  { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" }
-]
-    }
+      ]
+    };
   },
 
   created() {
-    this.calculateConversion()
+    this.calculateConversion();
   },
 
   methods: {
     calculateConversion() {
-      const netSend = this.sendAmount - this.fee
+      const netSend = this.sendAmount - this.fee;
       if (netSend > 0) {
-        this.receiveAmount = parseFloat((netSend * this.exchangeRate).toFixed(2))
+        this.receiveAmount = parseFloat((netSend * this.exchangeRate).toFixed(2));
       } else {
-        this.receiveAmount = 0
+        this.receiveAmount = 0;
       }
     },
     toggleRegionDropdown() {
-      this.isRegionOpen = !this.isRegionOpen
+      this.isRegionOpen = !this.isRegionOpen;
     },
     selectRegion(regionName) {
-      this.selectedRegion = regionName
-      this.isRegionOpen = false
+      this.selectedRegion = regionName;
+      this.isRegionOpen = false;
     },
     closeRegionDropdown() {
-      this.isRegionOpen = false
+      this.isRegionOpen = false;
     }
   }
-}
-
-
+};
 </script>
 
 <style scoped>
