@@ -151,7 +151,7 @@
     <div class="destinations-container">
       
       <div class="destinations-header">
-        <h2 class="destinations-title">SwyChr Remit works nearly everywhere</h2>
+        <h2 class="destinations-title">Send From</h2>
         <button class="view-all-corridors-btn">Send money</button>
       </div>
 
@@ -172,7 +172,7 @@
   <div class="destinations-container">
     
     <div class="destinations-header">
-      <h2 class="destinations-title">Global Dynamic Corridors</h2>
+      <h2 class="destinations-title">Send To</h2>
     </div>
 
     <div class="destinations-flag-grid">
