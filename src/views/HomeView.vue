@@ -149,39 +149,6 @@
   </section>
 
 
-<section class="secondary-destinations-section">
-  <div class="destinations-container">
-    
-    <div class="destinations-header">
-      <h2 class="destinations-title">Send From</h2>
-    </div>
-
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">North America</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in northAmericaCustom" :key="'na-cust-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">Europe</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in europeCustom" :key="'eu-cust-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 
 <section class="spreadsheet-grouped-section">
@@ -192,13 +159,25 @@
     </div>
 
     <div class="continent-row-block">
-      <h3 class="continent-group-title">North America</h3>
+      <h3 class="continent-group-title">Africa</h3>
       <div class="destinations-flag-grid">
-        <div v-for="(country, index) in northAmericaGroup" :key="'na-g-' + index" class="destination-badge-card">
+        <div v-for="(country, index) in spreadsheetAfrica" :key="'af-s-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
-          <a href="#" class="destination-action-link">Send money to{{ country.name }}</a>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">North America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in spreadsheetNorthAmerica" :key="'na-s-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
         </div>
       </div>
     </div>
@@ -206,11 +185,11 @@
     <div class="continent-row-block">
       <h3 class="continent-group-title">South America</h3>
       <div class="destinations-flag-grid">
-        <div v-for="(country, index) in southAmericaGroup" :key="'sa-g-' + index" class="destination-badge-card">
+        <div v-for="(country, index) in spreadsheetSouthAmerica" :key="'sa-s-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
-          <a href="#" class="destination-action-link">Send money to{{ country.name }}</a>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
         </div>
       </div>
     </div>
@@ -218,7 +197,7 @@
     <div class="continent-row-block">
       <h3 class="continent-group-title">Asia</h3>
       <div class="destinations-flag-grid">
-        <div v-for="(country, index) in asiaGroup" :key="'as-g-' + index" class="destination-badge-card">
+        <div v-for="(country, index) in spreadsheetAsia" :key="'as-s-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
@@ -230,17 +209,18 @@
     <div class="continent-row-block">
       <h3 class="continent-group-title">Europe</h3>
       <div class="destinations-flag-grid">
-        <div v v-for="(country, index) in europeGroup" :key="'eu-g-' + index" class="destination-badge-card">
+        <div v-for="(country, index) in spreadsheetEurope" :key="'eu-s-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
-          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
 
 <footer class="site-footer" @click="closeRegionDropdown">
       <div class="footer-container">
@@ -400,24 +380,56 @@ export default {
         { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
       ],
       
-     // 🗺️ North America Group
-      northAmericaGroup: [
+   spreadsheetAfrica: [
+        { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
+        { name: "Botswana", flagUrl: "https://flagcdn.com/w80/bw.png" },
+        { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
+        { name: "Burundi", flagUrl: "https://flagcdn.com/w80/bi.png" },
+        { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
+        { name: "Congo Brazzaville", flagUrl: "https://flagcdn.com/w80/cg.png" },
+        { name: "Democratic Republic of Congo", flagUrl: "https://flagcdn.com/w80/cd.png" },
+        { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
+        { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
+        { name: "Guinea Bissau", flagUrl: "https://flagcdn.com/w80/gw.png" },
+        { name: "Guinea Conakry", flagUrl: "https://flagcdn.com/w80/gn.png" },
+        { name: "Ivory Coast", flagUrl: "https://flagcdn.com/w80/ci.png" },
+        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
+        { name: "Liberia", flagUrl: "https://flagcdn.com/w80/lr.png" },
+        { name: "Madagascar", flagUrl: "https://flagcdn.com/w80/mg.png" },
+        { name: "Malawi", flagUrl: "https://flagcdn.com/w80/mw.png" },
+        { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
+        { name: "Mozambique", flagUrl: "https://flagcdn.com/w80/mz.png" },
+        { name: "Namibia", flagUrl: "https://flagcdn.com/w80/na.png" },
+        { name: "Niger", flagUrl: "https://flagcdn.com/w80/ne.png" },
+        { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
+        { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
+        { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
+        { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" },
+        { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
+        { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
+        { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
+        { name: "Zambia", flagUrl: "https://flagcdn.com/w80/zm.png" },
+        { name: "Zimbabwe", flagUrl: "https://flagcdn.com/w80/zw.png" }
+      ],
+
+      // 🗺️ North America Group
+      spreadsheetNorthAmerica: [
         { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
       ],
 
       // 🌎 South America Group
-      southAmericaGroup: [
+      spreadsheetSouthAmerica: [
         { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" }
       ],
 
       // 🌏 Asia Group
-      asiaGroup: [
+      spreadsheetAsia: [
         { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
         { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" }
       ],
 
       // 🇪🇺 Europe Group
-      europeGroup: [
+      spreadsheetEurope: [
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
@@ -940,10 +952,12 @@ export default {
   }
 }
 
+
+
 .spreadsheet-grouped-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 4rem 2rem 6rem 2rem;
+  padding: 4rem 2rem;
   display: flex;
   justify-content: center;
 }
@@ -953,23 +967,23 @@ export default {
   width: 100%;
 }
 
-/* Forces each continental block wrapper to stack, but lets contents flow in rows */
+.spreadsheet-grouped-section .destinations-title{
+    color: #7B1FA2; 
+}
+
 .continent-row-block {
   margin-top: 3.5rem;
   width: 100%;
   text-align: left;
 }
-
 .spreadsheet-grouped-section .continent-group-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color:  #7B1FA2;
+  color: #7B1FA2; 
   margin-bottom: 2rem;
   border-bottom: 2px solid #f5f5f5;
   padding-bottom: 0.5rem;
 }
-
-/* This is the magic line that snaps the flags back into 5 horizontal row columns */
 .continent-row-block .destinations-flag-grid {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr) !important;
@@ -977,58 +991,15 @@ export default {
   width: 100%;
 }
 
-
-/* ==========================================================================
-   📱 CONTINENT ROWS MOBILE RESPONSIVENESS BREAKPOINTS
-   ========================================================================== */
-
-/* 1. Tablets and Medium Screens (Max width: 992px) */
+/* Responsive Overrides */
 @media (max-width: 992px) {
-  .spreadsheet-grouped-section .continent-group-title {
-    font-size: 1.5rem; /* Slightly scales down the titles */
-  }
-
-  /* Transition rows from 5 columns down to 3 columns on tablets */
-  .continent-row-block .destinations-flag-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem !important;
-  }
+  .continent-row-block .destinations-flag-grid { grid-template-columns: repeat(3, 1fr) !important; }
 }
-
-/* 2. Mobile Phones (Max width: 600px) */
 @media (max-width: 600px) {
-  .spreadsheet-grouped-section {
-    padding: 2rem 1rem 4rem 1rem !important; /* Shaves off extra spacing on mobile margins */
-  }
-
-  .spreadsheet-grouped-section .destinations-title {
-    font-size: 1.8rem !important;
-    text-align: center;
-  }
-
-  .spreadsheet-grouped-section .continent-group-title {
-    font-size: 1.3rem;
-    text-align: center; /* Centers category headers on mobile frames */
-    margin-bottom: 1.2rem;
-  }
-
-  /* Snaps the country cards into a tidy, readable 2-column mobile grid layout */
-  .continent-row-block .destinations-flag-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
-  }
-
-  /* Centers the flag icon stacked right on top of its respective link text */
-  .spreadsheet-grouped-section .destination-badge-card {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 1rem 0.5rem !important;
-  }
-
-  .spreadsheet-grouped-section .destination-action-link {
-    font-size: 0.85rem !important;
-    margin-top: 0.5rem;
-  }
+  .spreadsheet-grouped-section { padding: 2rem 1rem !important; }
+  .spreadsheet-grouped-section .continent-group-title { text-align: center; }
+  .continent-row-block .destinations-flag-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+  .spreadsheet-grouped-section .destination-badge-card { flex-direction: column !important; text-align: center !important; }
 }
 
 
