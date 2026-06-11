@@ -147,40 +147,36 @@
 
     </div>
   </section>
-<section class="destinations-section">
-    <div class="destinations-container">
-      
-      <div class="destinations-header">
-        <h2 class="destinations-title">Send From</h2>
-        <button class="view-all-corridors-btn">Send money</button>
-      </div>
-
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in sendFromCountries" :key="'sf-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' asset'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send Money from {{ country.name }}</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
 
 <section class="secondary-destinations-section">
   <div class="destinations-container">
     
     <div class="destinations-header">
-      <h2 class="destinations-title">Send To</h2>
+      <h2 class="destinations-title">Send From</h2>
     </div>
 
-    <div class="destinations-flag-grid">
-      <div v-for="(country, index) in customCorridorsList" :key="'cc-' + index" class="destination-badge-card">
-        <div class="flag-circle-frame">
-          <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">North America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in northAmericaCustom" :key="'na-cust-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
         </div>
-        <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">Europe</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in europeCustom" :key="'eu-cust-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
+        </div>
       </div>
     </div>
 
@@ -188,18 +184,64 @@
 </section>
 
 
-  <section class="trust-mission-section">
-    <div class="trust-mission-container">
 
-      <div class="wise-mission-banner-card">
-        <div class="mission-graphic-float">🌍✨</div>
-        <h2 class="mission-giant-title">MEET MONEY<br>WITHOUT BORDERS</h2>
-        <p class="mission-support-copy">We're building the best way to move, manage, and scale your financial assets across continents. Minimum fees. Maximum ease. Full speed.</p>
-        <button class="mission-action-pill">Learn about our mission</button>
-      </div>
-
+<section class="spreadsheet-grouped-section">
+  <div class="destinations-container">
+    
+    <div class="destinations-header">
+      <h2 class="destinations-title">Send To</h2>
     </div>
-  </section>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">North America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in northAmericaGroup" :key="'na-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">South America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in southAmericaGroup" :key="'sa-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">Asia</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in asiaGroup" :key="'as-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to{{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-directory-block">
+      <h3 class="continent-group-title">Europe</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in europeGroup" :key="'eu-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <footer class="site-footer" @click="closeRegionDropdown">
       <div class="footer-container">
@@ -316,11 +358,12 @@ export default {
       selectedRegion: "International",
 
 
-      sendFromCountries: [
-        { name: "North America", flagUrl: "https://flagcdn.com/w80/un.png" },
-        { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" },
-        { name: "Europe", flagUrl: "https://flagcdn.com/w80/eu.png" },
+     northAmericaCustom: [
+        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
+      ],
+
+      // 🇪🇺 Europe Custom List Items
+      europeCustom: [
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
@@ -358,15 +401,24 @@ export default {
         { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
       ],
       
-       customCorridorsList: [
-        { name: "North America", flagUrl: "https://flagcdn.com/w80/un.png" }, 
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" },
-        { name: "South America", flagUrl: "https://flagcdn.com/w80/un.png" }, 
-        { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" },
-        { name: "Asia", flagUrl: "https://flagcdn.com/w80/un.png" },          
+     // 🗺️ North America Group
+      northAmericaGroup: [
+        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
+      ],
+
+      // 🌎 South America Group
+      southAmericaGroup: [
+        { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" }
+      ],
+
+      // 🌏 Asia Group
+      asiaGroup: [
         { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
-        { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" },
-        { name: "Europe", flagUrl: "https://flagcdn.com/w80/eu.png" },         
+        { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" }
+      ],
+
+      // 🇪🇺 Europe Group
+      europeGroup: [
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
@@ -402,7 +454,7 @@ export default {
         { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
         { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
         { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
-      ] // <--- Closing the array inside the return block object frame
+      ]
     };
   },
   created() {
@@ -889,122 +941,92 @@ export default {
   }
 }
 
-.destinations-section {
+
+.spreadsheet-grouped-section {
   width: 100%;
-  background-color: #f8fafc;
-  padding: 6rem 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.destinations-container {
-  max-width: 1250px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem; /* Tighter padding flow consistent with corporate listings viewports */
-}
-
-.destinations-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.destinations-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #7B1FA2; 
-  letter-spacing: -1.5px;
-}
-
-.view-all-corridors-btn {
-  background-color:#7B1FA2;  /* Soft green high-visibility token action badge */
-  border: none;
-  color: #ffffff;
-  padding: 0.75rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 24px;
-  cursor: pointer;
-}
-
-/* Continent Category Divider Blocks */
-.continent-directory-block {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.continent-group-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #334155;
-  padding-bottom: 0.6rem;
-}
-
-/* 🚨 EXACT LOOK: Standardized 5-column desktop directory layout frame matching the target layout */
-.destinations-flag-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 3rem 1.5rem;
-  width: 100%;
-}
-
-.destination-badge-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.1rem;
-}
-
-.flag-circle-frame {
-  width: 68px; /* Slightly larger dimensions matching your close-up reference precisely */
-  height: 68px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
-  border: 1px solid #e2e8f0;
   background-color: #ffffff;
-  flex-shrink: 0;
+  padding: 4rem 2rem 6rem 2rem;
+  display: flex;
+  justify-content: center;
 }
 
-.native-flag-img {
+.spreadsheet-grouped-section .destinations-container {
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
-.destination-action-link {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0f172a;
-  text-decoration: underline; /* Forces hard anchor underlines on default layout views */
-  line-height: 1.4;
-  transition: color 0.15s ease;
+.spreadsheet-grouped-section .continent-directory-block {
+  margin-top: 3.5rem;
+  width: 100%;
+  text-align: left;
 }
 
-.destination-action-link:hover {
-  color: #00d09c;
+.spreadsheet-grouped-section .continent-group-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3b1565;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 0.5rem;
 }
 
-/* Mobile responsive fallback safety rules hooks remaining cleanly sandboxed */
-@media (max-width: 1024px) {
-  .destinations-flag-grid { grid-template-columns: repeat(3, 1fr) !important; }
+/* ==========================================================================
+   📱 MOBILE & TABLET RESPONSIVENESS BREAKPOINTS
+   ========================================================================== */
+
+/* 1. Tablets and Medium Screens (Max width: 992px) */
+@media (max-width: 992px) {
+  .secondary-destinations-section .destinations-title,
+  .spreadsheet-grouped-section .destinations-title {
+    font-size: 2rem; /* Scales down section headings nicely */
+  }
+
+  /* Drop from 5 columns down to 3 columns on smaller tablet screens */
+  .secondary-destinations-section .destinations-flag-grid,
+  .spreadsheet-grouped-section .destinations-flag-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem;
+  }
 }
-@media (max-width: 768px) {
-  .destinations-title { font-size: 2rem !important; }
-  .destinations-flag-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 2rem 1rem !important; }
-  .flag-circle-frame { width: 52px !important; height: 52px !important; }
-  .destination-action-link { font-size: 0.9rem !important; }
+
+/* 2. Mobile Phones (Max width: 600px) */
+@media (max-width: 600px) {
+  .secondary-destinations-section,
+  .spreadsheet-grouped-section {
+    padding: 2.5rem 1rem 4rem 1rem; /* Reduces large side paddings on mobile frames */
+  }
+
+  .secondary-destinations-section .destinations-title,
+  .spreadsheet-grouped-section .destinations-title {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #7B1FA2;
+  }
+
+  .continent-group-title {
+    font-size: 1.4rem;
+    text-align: center; /* Centers category headers on mobile views */
+    margin-bottom: 1.2rem;
+  }
+
+  /* Forces a clean, stacked 2-column or 1-column layout on tiny screens */
+  .secondary-destinations-section .destinations-flag-grid,
+  .spreadsheet-grouped-section .destinations-flag-grid {
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 1rem;
+  }
+
+  /* Adjusts the country item badges to center content for small screens */
+  .destination-badge-card {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 1rem 0.5rem !important;
+  }
+
+  .destination-action-link {
+    font-size: 0.85rem !important;
+    margin-top: 0.5rem;
+  }
 }
 
 .secondary-destinations-section {
@@ -1020,12 +1042,17 @@ export default {
   width: 100%;
 }
 
-.secondary-destinations-section .destinations-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #7B1FA2; 
-  letter-spacing: -1.5px;
-  margin-bottom: 2rem;
+.continent-directory-block {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: left;
+}
+
+.continent-group-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #7B1FA2;
+  margin-bottom: 1.5rem;
 }
 
 
