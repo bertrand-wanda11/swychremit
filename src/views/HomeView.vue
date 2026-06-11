@@ -149,6 +149,39 @@
   </section>
 
 
+  <section class="send-from-grouped-section">
+  <div class="destinations-container">
+    
+    <div class="destinations-header">
+      <h2 class="destinations-title">Send From</h2>
+    </div>
+
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">North America</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in sendFromNorthAmerica" :key="'na-sf-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">Europe</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in sendFromEurope" :key="'eu-sf-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 <section class="spreadsheet-grouped-section">
@@ -337,12 +370,13 @@ export default {
       selectedRegion: "International",
 
 
-     northAmericaCustom: [
+  sendFromNorthAmerica: [
+        { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
         { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
       ],
 
-      // 🇪🇺 Europe Custom List Items
-      europeCustom: [
+      // 🇪🇺 Send From - Europe Array
+      sendFromEurope: [
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
@@ -954,6 +988,71 @@ export default {
 
 
 
+.send-from-grouped-section {
+  width: 100%;
+  background-color: #fcfbfe; /* Gives a subtle visual contrast between blocks */
+  padding: 4rem 2rem 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.send-from-grouped-section .destinations-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.send-from-grouped-section .destinations-title{
+  color: #7B1FA2; 
+}
+
+.send-from-grouped-section .continent-row-block {
+  margin-top: 3.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.send-from-grouped-section .continent-group-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #7B1FA2; 
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f1f0f4;
+  padding-bottom: 0.5rem;
+}
+
+.send-from-grouped-section .destinations-flag-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* 📱 Responsive break points for phone and tablet optimization */
+@media (max-width: 992px) {
+  .send-from-grouped-section .destinations-flag-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .send-from-grouped-section {
+    padding: 2rem 1rem !important;
+  }
+  .send-from-grouped-section .continent-group-title {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  .send-from-grouped-section .destinations-flag-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  .send-from-grouped-section .destination-badge-card {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}
+
+
 .spreadsheet-grouped-section {
   width: 100%;
   background-color: #ffffff;
@@ -1001,7 +1100,6 @@ export default {
   .continent-row-block .destinations-flag-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
   .spreadsheet-grouped-section .destination-badge-card { flex-direction: column !important; text-align: center !important; }
 }
-
 
 
 
