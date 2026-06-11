@@ -184,7 +184,6 @@
 </section>
 
 
-
 <section class="spreadsheet-grouped-section">
   <div class="destinations-container">
     
@@ -192,34 +191,10 @@
       <h2 class="destinations-title">Send To</h2>
     </div>
 
-    <div class="continent-directory-block">
+    <div class="continent-row-block">
       <h3 class="continent-group-title">North America</h3>
       <div class="destinations-flag-grid">
         <div v-for="(country, index) in northAmericaGroup" :key="'na-g-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">South America</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in southAmericaGroup" :key="'sa-g-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">Asia</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in asiaGroup" :key="'as-g-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
@@ -228,14 +203,38 @@
       </div>
     </div>
 
-    <div class="continent-directory-block">
-      <h3 class="continent-group-title">Europe</h3>
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">South America</h3>
       <div class="destinations-flag-grid">
-        <div v-for="(country, index) in europeGroup" :key="'eu-g-' + index" class="destination-badge-card">
+        <div v-for="(country, index) in southAmericaGroup" :key="'sa-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money to{{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">Asia</h3>
+      <div class="destinations-flag-grid">
+        <div v-for="(country, index) in asiaGroup" :key="'as-g-' + index" class="destination-badge-card">
           <div class="flag-circle-frame">
             <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
           </div>
           <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="continent-row-block">
+      <h3 class="continent-group-title">Europe</h3>
+      <div class="destinations-flag-grid">
+        <div v v-for="(country, index) in europeGroup" :key="'eu-g-' + index" class="destination-badge-card">
+          <div class="flag-circle-frame">
+            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
+          </div>
+          <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
         </div>
       </div>
     </div>
@@ -941,7 +940,6 @@ export default {
   }
 }
 
-
 .spreadsheet-grouped-section {
   width: 100%;
   background-color: #ffffff;
@@ -955,7 +953,8 @@ export default {
   width: 100%;
 }
 
-.spreadsheet-grouped-section .continent-directory-block {
+/* Forces each continental block wrapper to stack, but lets contents flow in rows */
+.continent-row-block {
   margin-top: 3.5rem;
   width: 100%;
   text-align: left;
@@ -964,96 +963,75 @@ export default {
 .spreadsheet-grouped-section .continent-group-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #3b1565;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #f1f1f1;
+  color:  #7B1FA2;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f5f5f5;
   padding-bottom: 0.5rem;
 }
 
+/* This is the magic line that snaps the flags back into 5 horizontal row columns */
+.continent-row-block .destinations-flag-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 2rem;
+  width: 100%;
+}
+
+
 /* ==========================================================================
-   📱 MOBILE & TABLET RESPONSIVENESS BREAKPOINTS
+   📱 CONTINENT ROWS MOBILE RESPONSIVENESS BREAKPOINTS
    ========================================================================== */
 
 /* 1. Tablets and Medium Screens (Max width: 992px) */
 @media (max-width: 992px) {
-  .secondary-destinations-section .destinations-title,
-  .spreadsheet-grouped-section .destinations-title {
-    font-size: 2rem; /* Scales down section headings nicely */
+  .spreadsheet-grouped-section .continent-group-title {
+    font-size: 1.5rem; /* Slightly scales down the titles */
   }
 
-  /* Drop from 5 columns down to 3 columns on smaller tablet screens */
-  .secondary-destinations-section .destinations-flag-grid,
-  .spreadsheet-grouped-section .destinations-flag-grid {
+  /* Transition rows from 5 columns down to 3 columns on tablets */
+  .continent-row-block .destinations-flag-grid {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1.5rem;
+    gap: 1.5rem !important;
   }
 }
 
 /* 2. Mobile Phones (Max width: 600px) */
 @media (max-width: 600px) {
-  .secondary-destinations-section,
   .spreadsheet-grouped-section {
-    padding: 2.5rem 1rem 4rem 1rem; /* Reduces large side paddings on mobile frames */
+    padding: 2rem 1rem 4rem 1rem !important; /* Shaves off extra spacing on mobile margins */
   }
 
-  .secondary-destinations-section .destinations-title,
   .spreadsheet-grouped-section .destinations-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem !important;
     text-align: center;
-    color: #7B1FA2;
   }
 
-  .continent-group-title {
-    font-size: 1.4rem;
-    text-align: center; /* Centers category headers on mobile views */
+  .spreadsheet-grouped-section .continent-group-title {
+    font-size: 1.3rem;
+    text-align: center; /* Centers category headers on mobile frames */
     margin-bottom: 1.2rem;
   }
 
-  /* Forces a clean, stacked 2-column or 1-column layout on tiny screens */
-  .secondary-destinations-section .destinations-flag-grid,
-  .spreadsheet-grouped-section .destinations-flag-grid {
-    grid-template-columns: repeat(2, 1fr) !important; 
-    gap: 1rem;
+  /* Snaps the country cards into a tidy, readable 2-column mobile grid layout */
+  .continent-row-block .destinations-flag-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
   }
 
-  /* Adjusts the country item badges to center content for small screens */
-  .destination-badge-card {
+  /* Centers the flag icon stacked right on top of its respective link text */
+  .spreadsheet-grouped-section .destination-badge-card {
     flex-direction: column !important;
     text-align: center !important;
     padding: 1rem 0.5rem !important;
   }
 
-  .destination-action-link {
+  .spreadsheet-grouped-section .destination-action-link {
     font-size: 0.85rem !important;
     margin-top: 0.5rem;
   }
 }
 
-.secondary-destinations-section {
-  width: 100%;
-  background-color: #ffffff;
-  padding: 4rem 2rem 6rem 2rem;
-  display: flex;
-  justify-content: center;
-}
 
-.secondary-destinations-section .destinations-container {
-  max-width: 1200px;
-  width: 100%;
-}
-
-.continent-directory-block {
-  margin-top: 3rem;
-  width: 100%;
-  text-align: left;
-}
-
-.continent-group-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #7B1FA2;
-  margin-bottom: 1.5rem;
-}
 
 
 .trust-mission-section {
