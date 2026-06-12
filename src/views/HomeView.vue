@@ -1003,8 +1003,9 @@ export default {
 
 .send-from-grouped-section .destinations-title{
   color: #7B1FA2; 
-  font-size: 2rem;
   font-weight: 700;
+   font-size: 3rem;
+    letter-spacing: 0.5rem;
 }
 
 .send-from-grouped-section .continent-row-block {
@@ -1070,7 +1071,8 @@ export default {
 
 .spreadsheet-grouped-section .destinations-title{
     color: #7B1FA2; 
-    font-size: 2rem;
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
     font-weight: 700;
 }
 
