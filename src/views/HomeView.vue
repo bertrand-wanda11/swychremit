@@ -153,7 +153,7 @@
   <div class="destinations-container">
     
     <div class="destinations-header">
-      <h2 class="destinations-title">Send From</h2>
+      <h1 class="destinations-title">Send From</h1>
     </div>
 
     <div class="continent-row-block">
@@ -188,7 +188,7 @@
   <div class="destinations-container">
     
     <div class="destinations-header">
-      <h2 class="destinations-title">Send To</h2>
+      <h1 class="destinations-title">Send To</h1>
     </div>
 
     <div class="continent-row-block">
@@ -990,7 +990,7 @@ export default {
 
 .send-from-grouped-section {
   width: 100%;
-  background-color: #fcfbfe; /* Gives a subtle visual contrast between blocks */
+  background-color: #fcfbfe; 
   padding: 4rem 2rem 6rem 2rem;
   display: flex;
   justify-content: center;
@@ -1003,6 +1003,8 @@ export default {
 
 .send-from-grouped-section .destinations-title{
   color: #7B1FA2; 
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .send-from-grouped-section .continent-row-block {
@@ -1027,7 +1029,7 @@ export default {
   width: 100%;
 }
 
-/* 📱 Responsive break points for phone and tablet optimization */
+
 @media (max-width: 992px) {
   .send-from-grouped-section .destinations-flag-grid {
     grid-template-columns: repeat(3, 1fr) !important;
@@ -1068,6 +1070,8 @@ export default {
 
 .spreadsheet-grouped-section .destinations-title{
     color: #7B1FA2; 
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .continent-row-block {
@@ -1083,6 +1087,7 @@ export default {
   border-bottom: 2px solid #f5f5f5;
   padding-bottom: 0.5rem;
 }
+
 .continent-row-block .destinations-flag-grid {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr) !important;
