@@ -260,11 +260,11 @@ export default {
 }
 
 .legal-notice-paragraph {
-  font-size: 0.88rem;
+  font-size: 2rem;
   color: #ffffff;
   line-height: 1.5;
   opacity: 0.85;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .clickable-disclosure {
