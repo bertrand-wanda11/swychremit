@@ -7,7 +7,8 @@
         <div class="trust-pill-badge">⚡ Real-time secure financial network transfers</div>
         <h1 class="main-headline">Send money globally for less</h1>
         <p class="sub-intro-text">
-          Move your money where it matters. Save on cross-border bills, family support, or business expansions with guaranteed low fees and institutional exchange rates.
+          Move your money where it matters. Save on cross-border bills, family support, or business
+           expansions with guaranteed low fees and institutional exchange rates.
         </p>
 
         <div class="trust-metrics-row">
@@ -334,24 +335,25 @@
           </a>
         </div>
 
-        <div class="footer-compliance-wrapper">
-          <div class="compliance-text-block">
-            <p class="legal-notice-paragraph">
-              <h1>Legal Disclaimer:</h1>
-Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr Technology USA LLC is a technology company and software provider; it is not a licensed bank, money transmitter, or financial institution. Swychremit does not accept, hold, custody, or transmit fiat currency or customer funds. All financial transactions, foreign exchange executions, on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by independent, third-party regulated and licensed financial institutions and payment service providers in their respective jurisdictions. Swychremit utilizes blockchain technology and stablecoin (USDC) architecture strictly for backend cross-border routing efficiency. Availability of services is subject to local regulatory restrictions and successful compliance screening by our licensed partners.
-            </p>
-            <p class="legal-notice-paragraph">
-              2093 Philadelphia Pike #1016, Claymont, DE 19703, USA
-            </p>
-            <p class="legal-notice-paragraph clickable-disclosure">
-              For additional licensure information and disclosures, please visit
-            </p>
-          </div>
-          <div class="footer-attribution-brand">
-            <div class="yellow-brand-glyph">S</div>
-            <span class="copyright-date-stamp">© SwyChr 2026</span>
-          </div>
+      <div class="footer-compliance-wrapper">
+        <div class="compliance-text-block">
+          
+          <h2 class="legal-disclaimer-title">Legal Disclaimer:</h2>
+          
+          <p class="legal-notice-paragraph">
+            Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr Technology USA LLC is a technology company and software provider; it is not a licensed bank, money transmitter, or financial institution. Swychremit does not accept, hold, custody, or transmit fiat currency or customer funds. All financial transactions, foreign exchange executions, on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by independent, third-party regulated and licensed financial institutions and payment service providers in their respective jurisdictions. Swychremit utilizes blockchain technology and stablecoin (USDC) architecture strictly for backend cross-border routing efficiency. Availability of services is subject to local regulatory restrictions and successful compliance screening by our licensed partners.
+          </p>
+
+          <p class="legal-notice-paragraph">
+            2093 Philadelphia Pike #1016, Claymont, DE 19703, USA
+          </p>
+
+          <p class="legal-notice-paragraph clickable-disclosure">
+            For additional licensure information and disclosures, please visit
+          </p>
+
         </div>
+      </div>
       </div>
     </footer>
 
