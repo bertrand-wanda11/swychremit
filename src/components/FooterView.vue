@@ -253,14 +253,15 @@ export default {
 }
 
 .compliance-text-block {
-  max-width: 1200px;
+  max-width: 2000px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
 .legal-notice-paragraph {
-  font-size: 2rem;
+  width: 1500px;
+  font-size: 3rem;
   color: #ffffff;
   line-height: 1.5;
   opacity: 0.85;
