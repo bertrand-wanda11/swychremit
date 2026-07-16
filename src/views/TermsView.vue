@@ -175,7 +175,7 @@ export default {
 .terms-tagline {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #00d293; /* Swychr Mint Green */
+  color:  #7B1FA2;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   display: block;
