@@ -4,14 +4,12 @@
       <div class="nav-container">
         
         <div class="nav-left">
-          <div class="logo">SwyChr<span>Remit</span></div>
+          <router-link to="/" class="logo">SwyChr<span>Remit</span></router-link>
         </div>
 
-        
         <div class="nav-right">
           <div class="desktop-menu-links">
             
-         
             <div class="dropdown-wrapper">
               <button class="drop-trigger-btn" @click="toggleDropdown('features')">
                 Features <span class="chevron-arrow">▼</span>
@@ -25,7 +23,7 @@
                 <div class="mega-grid-col">
                   <h4>Perks</h4>
                   <a href="#">Zero Fees on First Transfer</a>
-                  <a href="#">Refer & Earn Bonus</a>
+                  <a href="#">Refer &amp; Earn Bonus</a>
                 </div>
               </div>
             </div>
@@ -37,20 +35,18 @@
               <div class="mega-menu-panel single-col" :class="{ 'is-visible': activeDropdown === 'company' }">
                 <a href="#">Our Story</a>
                 <a href="#">Careers</a>
-                <a href="#">Security & Trust</a>
+                <a href="#">Security &amp; Trust</a>
               </div>
             </div>
 
             <a href="#" class="nav-link">Help</a>
           </div>
 
-      
           <div class="auth-actions-cluster">
             <button class="download-pill-btn">
               <span class="dl-icon">📥</span> Download
             </button>
           </div>
-
 
           <button class="hamburger-toggle-btn" :class="{ 'is-active': isMobileMenuOpen }" @click="toggleMobileMenu" aria-label="Toggle Navigation Menu">
             <span class="bar-line"></span>
@@ -62,11 +58,9 @@
       </div>
     </header>
 
-   
     <div class="mobile-navigation-drawer" :class="{ 'is-open': isMobileMenuOpen }" @click.stop>
       <div class="drawer-inner-content">
         
-      
         <div class="drawer-accordion-item">
           <button class="drawer-link-trigger" @click="toggleMobileAccordion('features')">
             Features <span>{{ activeMobileAccordion === 'features' ? '▲' : '▼' }}</span>
@@ -75,11 +69,10 @@
             <a href="#">Multi-Currency Wallet</a>
             <a href="#">Receive Money Internationally</a>
             <a href="#">Zero Fees on First Transfer</a>
-            <a href="#">Refer & Earn Bonus</a>
+            <a href="#">Refer &amp; Earn Bonus</a>
           </div>
         </div>
 
-    
         <div class="drawer-accordion-item">
           <button class="drawer-link-trigger" @click="toggleMobileAccordion('company')">
             Company <span>{{ activeMobileAccordion === 'company' ? '▲' : '▼' }}</span>
@@ -87,7 +80,7 @@
           <div class="drawer-sub-links-box" :class="{ 'is-expanded': activeMobileAccordion === 'company' }">
             <a href="#">Our Story</a>
             <a href="#">Careers</a>
-            <a href="#">Security & Trust</a>
+            <a href="#">Security &amp; Trust</a>
           </div>
         </div>
 
@@ -102,20 +95,24 @@
       </div>
     </div>
 
-
     <main class="app-body-surface">
-      <HomeView />
+      <router-view />
     </main>
+
+    <FooterView />
   </div>
 </template>
 
+
 <script>
-import HomeView from './views/HomeView.vue'
+// 1. Remove the HomeView import so it can be loaded dynamically by Vue Router
+import FooterView from './components/FooterView.vue'
 
 export default {
   name: 'App',
   components: {
-    HomeView
+    // 2. Register the FooterView here so it wraps all pages
+    FooterView
   },
   data() {
     return {

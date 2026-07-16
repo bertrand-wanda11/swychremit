@@ -1,8 +1,6 @@
 <template>
   <section class="hero-split-canvas">
     <div class="hero-inner-layout">
-      
-  
       <div class="hero-copy-column">
         <div class="trust-pill-badge">⚡ Real-time secure financial network transfers</div>
         <h1 class="main-headline">Send money globally for less</h1>
