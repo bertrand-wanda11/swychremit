@@ -263,8 +263,8 @@
             <h3 class="column-title">LEGAL</h3>
             <ul class="link-list">
               <li><a href="#">Customer Complaints</a></li>
-              <li><a href="/terms">Terms & Conditions</a></li>
-              <li><a href="/privacy">Privacy Policy</a></li>
+              <li><router-link to="/terms">Terms & Conditions</router-link></li>
+              <li><router-link to="/privacy">Privacy Policy</router-link></li>
             </ul>
           </div>
           <div class="footer-column">
