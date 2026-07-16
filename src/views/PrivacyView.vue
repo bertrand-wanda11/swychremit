@@ -129,7 +129,7 @@ export default {
 .privacy-page {
   width: 100%;
   background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif; /* Explicit Montserrat Requirement */
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
