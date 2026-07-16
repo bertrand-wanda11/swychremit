@@ -348,10 +348,6 @@
             2093 Philadelphia Pike #1016, Claymont, DE 19703, USA
           </p>
 
-          <p class="legal-notice-paragraph clickable-disclosure">
-            For additional licensure information and disclosures, please visit
-          </p>
-
         </div>
       </div>
       </div>
@@ -1217,6 +1213,9 @@ export default {
   }
 }
 
+.legal-disclaimer-title{
+  color: #ffffff;
+}
 
 .site-footer {
   width: 100%;
