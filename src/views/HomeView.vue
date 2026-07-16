@@ -262,8 +262,8 @@
             <h3 class="column-title">LEGAL</h3>
             <ul class="link-list">
               <li><a href="#">Customer Complaints</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="/terms">Terms & Conditions</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
             </ul>
           </div>
           <div class="footer-column">
@@ -337,7 +337,8 @@
         <div class="footer-compliance-wrapper">
           <div class="compliance-text-block">
             <p class="legal-notice-paragraph">
-              © SwyChr Remit Corp. SwyChr Remit Corp. DBA SwyChr is licensed as a Money Transmitter by the New York State Department of Financial Services and in Puerto Rico (TM-055), a Foreign Transmittal Agency in Massachusetts, and a Currency Transmitter in Rhode Island. NMLS No. 1179663
+              <h1>Legal Disclaimer:</h1>
+Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr Technology USA LLC is a technology company and software provider; it is not a licensed bank, money transmitter, or financial institution. Swychremit does not accept, hold, custody, or transmit fiat currency or customer funds. All financial transactions, foreign exchange executions, on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by independent, third-party regulated and licensed financial institutions and payment service providers in their respective jurisdictions. Swychremit utilizes blockchain technology and stablecoin (USDC) architecture strictly for backend cross-border routing efficiency. Availability of services is subject to local regulatory restrictions and successful compliance screening by our licensed partners.
             </p>
             <p class="legal-notice-paragraph">
               2093 Philadelphia Pike #1016, Claymont, DE 19703, USA
