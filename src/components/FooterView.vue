@@ -13,9 +13,9 @@
           <div class="footer-column">
             <h3 class="column-title">COMPANY</h3>
             <ul class="link-list">
-              <li><a href="#">Our Story</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Security</a></li>
+              <li><a href="/ourstory">Our Story</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/security">Security</a></li>
               <li><a href="#">Countries</a></li>
               <li><a href="#">Careers</a></li>
             </ul>
@@ -25,7 +25,7 @@
             <ul class="link-list">
               <li><a href="#">FAQs</a></li>
               <li><a href="#">SwyChr Wallet FAQs</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
         </div>
