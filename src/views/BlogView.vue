@@ -121,7 +121,7 @@ const posts = ref([
     excerpt: 'As a freelancer or online business owner in Africa, paying for global services like AWS, Facebook Ads, or Google Workspace can be tough. Here is why SwyChr virtual cards solve that.',
     author: 'Amina',
     date: 'November 2, 2025',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67dd3f1244?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
     link: 'https://blog.swychr.com/'
   },
   {
