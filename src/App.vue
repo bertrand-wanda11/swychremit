@@ -141,8 +141,6 @@ export default {
 </script>
 
 <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-
-
 * {
   margin: 0;
   padding: 0;
@@ -196,6 +194,7 @@ body {
   color: #1e293b;
   letter-spacing: -0.5px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .logo span {
