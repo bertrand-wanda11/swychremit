@@ -92,13 +92,13 @@
         <a href="#" class="drawer-plain-link">Help</a>
 
         <div class="drawer-action-wrapper">
-                     <a 
+  <a 
   href="https://swychr.com/download" 
   target="_blank" 
   rel="noopener" 
   class="download-pill-btn full-width-btn"
 >
-  <span class="dl-icon">📥</span> Download SwyChr App
+  <span >📥</span> Download SwyChr App
 </a>
         </div>
 
