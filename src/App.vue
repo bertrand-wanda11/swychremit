@@ -43,9 +43,14 @@
           </div>
 
           <div class="auth-actions-cluster">
-            <button class="download-pill-btn">
-              <span class="dl-icon">📥</span> Download
-            </button>
+            <a 
+  href="https://swychr.com/download" 
+  target="_blank" 
+  rel="noopener" 
+  class="download-pill-btn"
+>
+  <span class="dl-icon">📥</span> Download
+</a>
           </div>
 
           <button class="hamburger-toggle-btn" :class="{ 'is-active': isMobileMenuOpen }" @click="toggleMobileMenu" aria-label="Toggle Navigation Menu">
@@ -301,6 +306,7 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.2s;
+  text-decoration: none !important;
 }
 
 .download-pill-btn:hover {
