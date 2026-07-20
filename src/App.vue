@@ -92,9 +92,14 @@
         <a href="#" class="drawer-plain-link">Help</a>
 
         <div class="drawer-action-wrapper">
-          <button class="download-pill-btn full-width-btn">
-            <span>📥</span> Download SwyChr App
-          </button>
+                     <a 
+  href="https://swychr.com/download" 
+  target="_blank" 
+  rel="noopener" 
+  class="download-pill-btn full-width-btn"
+>
+  <span class="dl-icon">📥</span> Download SwyChr App
+</a>
         </div>
 
       </div>
@@ -110,13 +115,13 @@
 
 
 <script>
-// 1. Remove the HomeView import so it can be loaded dynamically by Vue Router
+
 import FooterView from './components/FooterView.vue'
 
 export default {
   name: 'App',
   components: {
-    // 2. Register the FooterView here so it wraps all pages
+
     FooterView
   },
   data() {
