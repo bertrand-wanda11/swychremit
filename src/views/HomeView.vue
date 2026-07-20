@@ -70,8 +70,14 @@
             </div>
           </div>
 
-          <button class="primary-calc-cta-btn">Download the App to get started</button>
-
+                   <a 
+  href="https://swychr.com/download" 
+  target="_blank" 
+  rel="noopener" 
+  class="primary-calc-cta-btn"
+>
+  <span></span> Download the App to get started
+</a>
         </div>
       </div>
 

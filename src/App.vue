@@ -92,14 +92,9 @@
         <a href="#" class="drawer-plain-link">Help</a>
 
         <div class="drawer-action-wrapper">
-  <a 
-  href="https://swychr.com/download" 
-  target="_blank" 
-  rel="noopener" 
-  class="download-pill-btn full-width-btn"
->
-  <span >📥</span> Download SwyChr App
-</a>
+          <button class="download-pill-btn full-width-btn">
+            <span>📥</span> Download SwyChr App
+          </button>
         </div>
 
       </div>
