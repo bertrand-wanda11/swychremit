@@ -5,7 +5,6 @@
           <div class="footer-column">
             <h3 class="column-title">LEGAL</h3>
             <ul class="link-list">
-              <li><a href="#">Customer Complaints</a></li>
               <li><router-link to="/terms">Terms & Conditions</router-link></li>
               <li><router-link to="/privacy">Privacy Policy</router-link></li>
             </ul>
@@ -16,15 +15,14 @@
               <li><a href="/ourstory">Our Story</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="/security">Security</a></li>
-              <li><a href="#">Countries</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="/careers">Careers</a></li>
             </ul>
           </div>
           <div class="footer-column">
             <h3 class="column-title">SUPPORT</h3>
             <ul class="link-list">
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">SwyChr Wallet FAQs</a></li>
+              <li><a href="/faq">FAQs</a></li>
+              <li><a href="/wallet">SwyChr Wallet FAQs</a></li>
               <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>

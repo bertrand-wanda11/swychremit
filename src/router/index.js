@@ -38,6 +38,21 @@ const router = createRouter({
             path: '/security',
             name: 'secuirty',
             component: () => import('../views/SecurityView.vue')
+        },
+        {
+            path: '/careers',
+            name: 'careers',
+            component: () => import('../views/CareersView.vue')
+        },
+        {
+            path: '/faq',
+            name: 'faq',
+            component: () => import('../views/FaqView.vue')
+        },
+        {
+            path: '/wallet',
+            name: 'wallet',
+            component: () => import('../views/WalletfaqView.vue')
         }
     ]
 })
