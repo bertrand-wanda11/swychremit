@@ -70,14 +70,9 @@
             </div>
           </div>
 
-                   <a 
-  href="https://swychr.com/download" 
-  target="_blank" 
-  rel="noopener" 
-  class="primary-calc-cta-btn"
->
-  <span></span> Download the App to get started
-</a>
+<router-link to="/download" class="primary-calc-cta-btn">
+  Download the App to get started
+</router-link>
         </div>
       </div>
 
