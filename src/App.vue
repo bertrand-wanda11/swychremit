@@ -43,14 +43,9 @@
           </div>
 
           <div class="auth-actions-cluster">
-            <a 
-  href="https://swychr.com/download" 
-  target="_blank" 
-  rel="noopener" 
-  class="download-pill-btn"
->
+<router-link to="/download" class="download-pill-btn">
   <span class="dl-icon">📥</span> Download
-</a>
+</router-link>
           </div>
 
           <button class="hamburger-toggle-btn" :class="{ 'is-active': isMobileMenuOpen }" @click="toggleMobileMenu" aria-label="Toggle Navigation Menu">
