@@ -69,10 +69,10 @@
               </div>
             </div>
           </div>
-
-<router-link to="/download" class="primary-calc-cta-btn">
+<router-link to="/download" class="calc-submit-btn">
   Download the App to get started
 </router-link>
+
         </div>
       </div>
 
@@ -646,6 +646,33 @@ export default {
 
 .primary-calc-cta-btn:hover {
   background-color: #0f172a;
+}
+
+.calc-submit-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  margin-top: 20px;
+  background-color: #8c1bc1;
+  color: #ffffff !important;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(140, 27, 193, 0.3);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.calc-submit-btn:hover {
+  background-color: #7916a8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(140, 27, 193, 0.4);
 }
 
 @media (max-width: 992px) {

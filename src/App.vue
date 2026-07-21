@@ -57,7 +57,7 @@
 
       </div>
     </header>
-
+  
     <div class="mobile-navigation-drawer" :class="{ 'is-open': isMobileMenuOpen }" @click.stop>
       <div class="drawer-inner-content">
         
