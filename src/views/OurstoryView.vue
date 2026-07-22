@@ -9,7 +9,7 @@
 
       <div class="story-text">
         <p>Swychremit was created with a clear mission: to dismantle the high fees and slow transfer speeds that burden families sending money across borders.</p>
-        <p>By connecting directly to local bank rails and mobile money wallets across Africa and worldwide, SwyChr Remit makes cross-border payments as easy as sending a message.</p>
+        <p>By connecting directly to local bank rails and mobile money wallets across Africa and worldwide, Swychremit makes cross-border payments as easy as sending a message.</p>
       </div>
 
       <div class="stats-row">

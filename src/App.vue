@@ -4,13 +4,13 @@
       <div class="nav-container">
         
         <div class="nav-left">
-          <router-link to="/" class="logo">Swychr<span>remit</span></router-link>
+          <router-link to="/" class="logo">Swych<span>remit</span></router-link>
         </div>
 
         <div class="nav-right">
           <div class="desktop-menu-links">   
 
-            <a href="#" class="nav-link">Help</a>
+            <a href="" class="nav-link">Help</a>
           </div>
 
           <div class="auth-actions-cluster">
