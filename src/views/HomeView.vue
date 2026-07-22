@@ -202,29 +202,9 @@
       </div>
     </div>
 
-    <div class="continent-row-block">
-      <h3 class="continent-group-title">North America</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in spreadsheetNorthAmerica" :key="'na-s-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
+   
 
-    <div class="continent-row-block">
-      <h3 class="continent-group-title">South America</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in spreadsheetSouthAmerica" :key="'sa-s-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
+ 
 
     <div class="continent-row-block">
       <h3 class="continent-group-title">Asia</h3>
@@ -238,17 +218,7 @@
       </div>
     </div>
 
-    <div class="continent-row-block">
-      <h3 class="continent-group-title">Europe</h3>
-      <div class="destinations-flag-grid">
-        <div v-for="(country, index) in spreadsheetEurope" :key="'eu-s-' + index" class="destination-badge-card">
-          <div class="flag-circle-frame">
-            <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-          </div>
-          <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-        </div>
-      </div>
-    </div>
+ 
 
   </div>
 </section>
