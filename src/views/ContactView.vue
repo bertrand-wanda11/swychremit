@@ -16,7 +16,7 @@
         <div class="contact-card">
           <div class="icon">💬</div>
           <h3>Live Chat</h3>
-          <p>Available on the SwyChr Mobile & Web App</p>
+          <p>Available on the Swychremit Mobile & Web App</p>
         </div>
       </div>
     </div>

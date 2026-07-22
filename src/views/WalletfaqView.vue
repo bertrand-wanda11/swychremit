@@ -1,15 +1,15 @@
 <template>
   <div class="page-container">
     <div class="content-card">
-      <div class="badge">SwyChr Wallet</div>
-      <h1>SwyChr Wallet FAQs</h1>
+      <div class="badge">Swychremit Wallet</div>
+      <h1>Swychremit Wallet FAQs</h1>
       <p class="lead">Manage multi-currency balances, wallet funding, and withdrawals.</p>
       
       <hr />
 
       <div class="faq-list">
         <div class="faq-box">
-          <h3>What is the SwyChr Wallet?</h3>
+          <h3>What is the Swychremit Wallet?</h3>
           <p>It allows you to store, convert, and hold funds in multiple currencies like USD, NGN, GBP, and EUR safely.</p>
         </div>
         <div class="faq-box">

@@ -5,8 +5,7 @@
         <div class="trust-pill-badge">⚡ Real-time secure financial network transfers</div>
         <h1 class="main-headline">Send money globally for less</h1>
         <p class="sub-intro-text">
-          Move your money where it matters. Save on cross-border bills, family support, or business
-           expansions with guaranteed low fees and institutional exchange rates.
+       Send your love where it matters most. Save on regular family support, emergency care, or school fees with guaranteed low rates and maximum payout to your loved ones.
         </p>
 
         <div class="trust-metrics-row">
@@ -85,8 +84,8 @@
       
 
       <div class="section-header-block">
-        <h2 class="section-main-title">Why millions trust SwyChr Remit</h2>
-        <p class="section-subtitle-text">Take control of your cross-border money transfers with lower fees, absolute security, and lightning-fast delivery.</p>
+        <h2 class="section-main-title">Why millions trust Swychremit</h2>
+        <p class="section-subtitle-text">Free Wallet to wallet transfer , hold  muticurrency balances and avail a range of digital products.</p>
       </div>
 
 
@@ -98,7 +97,7 @@
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
           </div>
           <h3>Save on global fees</h3>
-          <p>Send more money back home to anyone at a guaranteed fraction of the cost of traditional banks, with zero hidden surprises.</p>
+          <p>Send more money back home to anyone at a guaranteed fraction of the cost of traditional banks, with zero hidden fees.</p>
         </div>
 
       
@@ -107,14 +106,14 @@
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
           </div>
           <h3>Options at your fingertips</h3>
-          <p>Choose exactly how your recipient gets their money: direct to bank accounts, local mobile money wallets, or instant cash pickup hubs.</p>
+          <p>Choose exactly how your recipient gets their money: direct to bank accounts, local mobile money wallets, or instant cash pickup.</p>
         </div>
 
         <div class="feature-item-card">
           <div class="feature-icon-wrapper speed-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
           </div>
-          <h3>Instant execution delivery</h3>
+          <h3>Near instant delivery</h3>
           <p>Enjoy blazing-fast financial routing ecosystems. Most of our global corridor transfers are processed and delivered in minutes.</p>
         </div>
 
@@ -273,7 +272,6 @@ export default {
         { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
       ],
 
-      // 🇪🇺 Send From - Europe Array
       sendFromEurope: [
         { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
@@ -313,91 +311,13 @@ export default {
       ],
       
    spreadsheetAfrica: [
-        { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
-        { name: "Botswana", flagUrl: "https://flagcdn.com/w80/bw.png" },
-        { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
-        { name: "Burundi", flagUrl: "https://flagcdn.com/w80/bi.png" },
         { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
-        { name: "Congo Brazzaville", flagUrl: "https://flagcdn.com/w80/cg.png" },
-        { name: "Democratic Republic of Congo", flagUrl: "https://flagcdn.com/w80/cd.png" },
-        { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
-        { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
-        { name: "Guinea Bissau", flagUrl: "https://flagcdn.com/w80/gw.png" },
-        { name: "Guinea Conakry", flagUrl: "https://flagcdn.com/w80/gn.png" },
-        { name: "Ivory Coast", flagUrl: "https://flagcdn.com/w80/ci.png" },
-        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
-        { name: "Liberia", flagUrl: "https://flagcdn.com/w80/lr.png" },
-        { name: "Madagascar", flagUrl: "https://flagcdn.com/w80/mg.png" },
-        { name: "Malawi", flagUrl: "https://flagcdn.com/w80/mw.png" },
-        { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
-        { name: "Mozambique", flagUrl: "https://flagcdn.com/w80/mz.png" },
-        { name: "Namibia", flagUrl: "https://flagcdn.com/w80/na.png" },
-        { name: "Niger", flagUrl: "https://flagcdn.com/w80/ne.png" },
         { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
-        { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
-        { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
-        { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" },
-        { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
-        { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
-        { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
-        { name: "Zambia", flagUrl: "https://flagcdn.com/w80/zm.png" },
-        { name: "Zimbabwe", flagUrl: "https://flagcdn.com/w80/zw.png" }
       ],
 
-      // 🗺️ North America Group
-      spreadsheetNorthAmerica: [
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
-      ],
-
-      // 🌎 South America Group
-      spreadsheetSouthAmerica: [
-        { name: "Brazil", flagUrl: "https://flagcdn.com/w80/br.png" }
-      ],
-
-      // 🌏 Asia Group
       spreadsheetAsia: [
         { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
-        { name: "Philippines", flagUrl: "https://flagcdn.com/w80/ph.png" }
       ],
-
-      // 🇪🇺 Europe Group
-      spreadsheetEurope: [
-        { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
-        { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
-        { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
-        { name: "Bulgaria", flagUrl: "https://flagcdn.com/w80/bg.png" },
-        { name: "Croatia", flagUrl: "https://flagcdn.com/w80/hr.png" },
-        { name: "Cyprus", flagUrl: "https://flagcdn.com/w80/cy.png" },
-        { name: "Czech Republic (Czechia)", flagUrl: "https://flagcdn.com/w80/cz.png" },
-        { name: "Denmark", flagUrl: "https://flagcdn.com/w80/dk.png" },
-        { name: "Estonia", flagUrl: "https://flagcdn.com/w80/ee.png" },
-        { name: "Finland", flagUrl: "https://flagcdn.com/w80/fi.png" },
-        { name: "France", flagUrl: "https://flagcdn.com/w80/fr.png" },
-        { name: "Germany", flagUrl: "https://flagcdn.com/w80/de.png" },
-        { name: "Greece", flagUrl: "https://flagcdn.com/w80/gr.png" },
-        { name: "Hungary", flagUrl: "https://flagcdn.com/w80/hu.png" },
-        { name: "Iceland", flagUrl: "https://flagcdn.com/w80/is.png" },
-        { name: "Ireland", flagUrl: "https://flagcdn.com/w80/ie.png" },
-        { name: "Italy", flagUrl: "https://flagcdn.com/w80/it.png" },
-        { name: "Latvia", flagUrl: "https://flagcdn.com/w80/lv.png" },
-        { name: "Liechtenstein", flagUrl: "https://flagcdn.com/w80/li.png" },
-        { name: "Lithuania", flagUrl: "https://flagcdn.com/w80/lt.png" },
-        { name: "Luxembourg", flagUrl: "https://flagcdn.com/w80/lu.png" },
-        { name: "Malta", flagUrl: "https://flagcdn.com/w80/mt.png" },
-        { name: "Monaco", flagUrl: "https://flagcdn.com/w80/mc.png" },
-        { name: "Netherlands", flagUrl: "https://flagcdn.com/w80/nl.png" },
-        { name: "Norway", flagUrl: "https://flagcdn.com/w80/no.png" },
-        { name: "Poland", flagUrl: "https://flagcdn.com/w80/pl.png" },
-        { name: "Portugal", flagUrl: "https://flagcdn.com/w80/pt.png" },
-        { name: "Romania", flagUrl: "https://flagcdn.com/w80/ro.png" },
-        { name: "San Marino", flagUrl: "https://flagcdn.com/w80/sm.png" },
-        { name: "Slovakia", flagUrl: "https://flagcdn.com/w80/sk.png" },
-        { name: "Slovenia", flagUrl: "https://flagcdn.com/w80/si.png" },
-        { name: "Spain", flagUrl: "https://flagcdn.com/w80/es.png" },
-        { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
-        { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
-        { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
-      ]
     };
   },
   created() {
@@ -630,23 +550,7 @@ export default {
   font-weight: 700;
 }
 
-.primary-calc-cta-btn {
-  width: 100%;
-  padding: 1.2rem;
-  background-color: #7B1FA2; 
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.05rem;
-  border: none;
-  border-radius: 16px;
-  margin-top: 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.primary-calc-cta-btn:hover {
-  background-color: #0f172a;
-}
+ 
 
 .calc-submit-btn {
   display: flex !important;

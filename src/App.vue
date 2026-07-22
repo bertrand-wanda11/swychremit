@@ -4,40 +4,11 @@
       <div class="nav-container">
         
         <div class="nav-left">
-          <router-link to="/" class="logo">SwyChr<span>Remit</span></router-link>
+          <router-link to="/" class="logo">Swychr<span>remit</span></router-link>
         </div>
 
         <div class="nav-right">
-          <div class="desktop-menu-links">
-            
-            <div class="dropdown-wrapper">
-              <button class="drop-trigger-btn" @click="toggleDropdown('features')">
-                Features <span class="chevron-arrow">▼</span>
-              </button>
-              <div class="mega-menu-panel" :class="{ 'is-visible': activeDropdown === 'features' }">
-                <div class="mega-grid-col">
-                  <h4>Global Accounts</h4>
-                  <a href="#">Multi-Currency Wallet</a>
-                  <a href="#">Receive Money Internationally</a>
-                </div>
-                <div class="mega-grid-col">
-                  <h4>Perks</h4>
-                  <a href="#">Zero Fees on First Transfer</a>
-                  <a href="#">Refer &amp; Earn Bonus</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="dropdown-wrapper">
-              <button class="drop-trigger-btn" @click="toggleDropdown('company')">
-                Company <span class="chevron-arrow">▼</span>
-              </button>
-              <div class="mega-menu-panel single-col" :class="{ 'is-visible': activeDropdown === 'company' }">
-                <a href="#">Our Story</a>
-                <a href="#">Careers</a>
-                <a href="#">Security &amp; Trust</a>
-              </div>
-            </div>
+          <div class="desktop-menu-links">   
 
             <a href="#" class="nav-link">Help</a>
           </div>
@@ -88,7 +59,7 @@
 
         <div class="drawer-action-wrapper">
           <button class="download-pill-btn full-width-btn">
-            <span>📥</span> Download SwyChr App
+            <span>📥</span> Download Swychremit  App
           </button>
         </div>
 

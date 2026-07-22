@@ -1,12 +1,11 @@
 <template>
   <div class="download-page">
     <div class="download-card">
-      <div class="badge">SwyChr Remit Mobile App</div>
-      <h1>Get SwyChr Remit on Your Phone</h1>
+      <div class="badge">Swychremit  Mobile App</div>
+      <h1>Get Swychremit on Your Phone</h1>
       <p class="lead">Send money globally with low fees, high speeds, and real-time tracking.</p>
 
       <div class="qr-container">
-        <!-- Replace with your actual QR code image or keep the placeholder -->
         <div class="qr-box">📱 Scan to Download</div>
       </div>
 

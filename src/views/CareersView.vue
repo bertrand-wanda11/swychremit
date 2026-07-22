@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="content-card">
       <div class="badge">Join Our Team</div>
-      <h1>Careers at SwyChr</h1>
+      <h1>Careers at Swychremit</h1>
       <p class="lead">Help us make global remittances cheaper, faster, and accessible to everyone.</p>
       
       <hr />
@@ -13,7 +13,7 @@
             <h3>Senior Full Stack Developer (Vue.js / Node)</h3>
             <span class="job-tag">Engineering • Remote</span>
           </div>
-          <a href="mailto:careers@swychr.com?subject=Application: Senior Developer" class="apply-btn">Apply Now</a>
+          <a href="mailto:careers@swychr.com?subject=Application: Senior Developer" class="apply-btn">Closed</a>
         </div>
 
         <div class="job-item">
@@ -21,7 +21,7 @@
             <h3>Compliance & AML Analyst</h3>
             <span class="job-tag">Legal • Remote</span>
           </div>
-          <a href="mailto:careers@swychr.com?subject=Application: Compliance Analyst" class="apply-btn">Apply Now</a>
+          <a href="mailto:careers@swychr.com?subject=Application: Compliance Analyst" class="apply-btn">Closed</a>
         </div>
       </div>
     </div>

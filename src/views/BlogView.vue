@@ -4,10 +4,10 @@
     <!-- 🚀 Hero Banner -->
     <header class="blog-hero">
       <div class="hero-content">
-        <span class="blog-badge">SwyChr Insights</span>
+        <span class="blog-badge">Swychremit Insights</span>
         <h1>Glance through our blog and view the amazing contents of SwyChr</h1>
         <p class="hero-subtext">
-          Welcome to the SwyChr Blog. Stay updated on cross-border remittances, virtual card tips, and fintech news across Africa and worldwide.
+          Welcome to the Swychremit Blog. Stay updated on cross-border remittances, virtual card tips, and fintech news across Africa and worldwide.
         </p>
       </div>
     </header>
@@ -67,7 +67,7 @@
       <!-- 📥 Newsletter Subscription CTA -->
       <section class="newsletter-banner">
         <div class="newsletter-box">
-          <h2>Subscribe to SwyChr Pulse</h2>
+          <h2>Subscribe to Swychremit Pulse</h2>
           <p>Get the latest FX insights, financial guides, and product releases sent straight to your inbox.</p>
           <form @submit.prevent="handleSubscribe" class="subscribe-form">
             <input type="email" v-model="email" placeholder="Enter your email address" required />
@@ -96,7 +96,7 @@ const categories = ['All', 'Business', 'Payments', 'Virtual Cards', 'Company New
 const posts = ref([
   {
     id: 1,
-    title: 'Why SwyChr Is the Best App to Send Money from Virginia to Over 18 African Countries',
+    title: 'Why Swychremit Is the Best App to Send Money from Virginia to Over 18 African Countries',
     category: 'Business',
     excerpt: 'Are you looking for the easiest way to send money from Virginia to anywhere in Africa without long bank queues or exorbitant exchange rates?',
     author: 'Amina',
@@ -106,7 +106,7 @@ const posts = ref([
   },
   {
     id: 2,
-    title: 'Why SwyChr Is the Best App to Send Money from Texas to Over 18 African Countries',
+    title: 'Why Swychremit Is the Best App to Send Money from Texas to Over 18 African Countries',
     category: 'Business',
     excerpt: 'Send money seamlessly from Texas back home. Enjoy real-time direct-to-mobile-money transfers with zero hidden conversion costs.',
     author: 'Amina',
@@ -116,7 +116,7 @@ const posts = ref([
   },
   {
     id: 3,
-    title: '10 Reasons Why SwyChr Is the #1 Virtual Card Provider in Sub-Saharan Africa',
+    title: '10 Reasons Why Swychremit Is the #1 Virtual Card Provider in Sub-Saharan Africa',
     category: 'Virtual Cards',
     excerpt: 'As a freelancer or online business owner in Africa, paying for global services like AWS, Facebook Ads, or Google Workspace can be tough. Here is why SwyChr virtual cards solve that.',
     author: 'Amina',
@@ -126,9 +126,9 @@ const posts = ref([
   },
   {
     id: 4,
-    title: 'SwyChr Joins Google for Startups Cloud Program to Accelerate Growth',
+    title: 'Swychremit Joins Google for Startups Cloud Program to Accelerate Growth',
     category: 'Company News',
-    excerpt: 'We are thrilled to announce that SwyChr has officially been admitted into the Google for Startups Cloud Program, unlocking infrastructure support for our pan-African rails.',
+    excerpt: 'We are thrilled to announce that Swychremit has officially been admitted into the Google for Startups Cloud Program, unlocking infrastructure support for our pan-African rails.',
     author: 'Amina',
     date: 'May 30, 2025',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
@@ -136,7 +136,7 @@ const posts = ref([
   },
   {
     id: 5,
-    title: 'Borderless Money Moves: How SwyChr Makes Cash Transfers from Asia to Africa Effortless',
+    title: 'Borderless Money Moves: How Swychremit Makes Cash Transfers from Asia to Africa Effortless',
     category: 'Payments',
     excerpt: 'Connecting trade corridors between Asian suppliers and African merchants with instant local currency payouts.',
     author: 'Amina',
@@ -146,7 +146,7 @@ const posts = ref([
   },
   {
     id: 6,
-    title: 'Cameroon to Nigeria Transfers Just Got Simpler Thanks to SwyChr Direct Rails',
+    title: 'Cameroon to Nigeria Transfers Just Got Simpler Thanks to Swychremit Direct Rails',
     category: 'Payments',
     excerpt: 'Cross-border trade between Central and West Africa receives a major boost with instant XAF to NGN currency swaps.',
     author: 'Amina',
@@ -156,7 +156,7 @@ const posts = ref([
   }
 ]);
 
-/* ── Computed Filtering ───────────────────────────────────────────── */
+
 const filteredPosts = computed(() => {
   return posts.value.filter(post => {
     const matchesCategory = selectedCategory.value === 'All' || post.category === selectedCategory.value;
@@ -166,7 +166,6 @@ const filteredPosts = computed(() => {
   });
 });
 
-/* ── Methods ──────────────────────────────────────────────────────── */
 const handleSubscribe = () => {
   if (email.value) {
     subscribed.value = true;

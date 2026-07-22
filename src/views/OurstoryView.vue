@@ -8,13 +8,13 @@
       <hr />
 
       <div class="story-text">
-        <p>SwyChr Remit was created with a clear mission: to dismantle the high fees and slow transfer speeds that burden families sending money across borders.</p>
+        <p>Swychremit was created with a clear mission: to dismantle the high fees and slow transfer speeds that burden families sending money across borders.</p>
         <p>By connecting directly to local bank rails and mobile money wallets across Africa and worldwide, SwyChr Remit makes cross-border payments as easy as sending a message.</p>
       </div>
 
       <div class="stats-row">
         <div class="stat-box">
-          <h2>140+</h2>
+          <h2>50+</h2>
           <span>Supported Countries</span>
         </div>
         <div class="stat-box">
