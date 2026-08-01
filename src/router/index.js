@@ -3,6 +3,15 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
+
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0, left: 0 }
+        }
+    },
+
     routes: [
         {
             path: '/',
@@ -36,7 +45,7 @@ const router = createRouter({
         },
         {
             path: '/security',
-            name: 'secuirty',
+            name: 'security',
             component: () => import('../views/SecurityView.vue')
         },
         {
@@ -61,17 +70,5 @@ const router = createRouter({
         }
     ]
 })
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-    scrollBehavior(to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition;
-        } else {
-            return { top: 0, left: 0 };
-        }
-    }
-});
 
 export default router

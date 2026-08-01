@@ -183,7 +183,7 @@ const handleSubscribe = () => {
   color: #1a1a2e;
 }
 
-/* Hero Section */
+
 .blog-hero {
   background: linear-gradient(135deg, #1a0a2e 0%, #3b1160 50%, #8c1bc1 100%);
   color: #ffffff;
