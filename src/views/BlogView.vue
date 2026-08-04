@@ -370,6 +370,7 @@ const handleSubscribe = () => {
 }
 
 
+
 .newsletter-banner {
   background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
   border-radius: 20px;
