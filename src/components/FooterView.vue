@@ -30,31 +30,35 @@
         <hr class="footer-divider-line" />
 
         <div class="region-selection-row">
-          <span class="region-heading-label">CHOOSE YOUR REGION</span>
-          <div class="custom-select-wrapper" @click.stop>
-            <button class="select-dropdown-trigger" @click="toggleRegionDropdown">
-              {{ selectedRegion }} <span class="dropdown-carat">{{ isRegionOpen ? '▲' : '▼' }}</span>
-            </button>
-            <div class="region-options-panel" v-if="isRegionOpen">
-              <div class="region-option-item active-region" @click="selectRegion('International')">
-                <span class="globe-menu-icon">🌐</span>
-                <p class="region-text-main">International <span class="lang-subtext">English</span></p>
-              </div>
-              <div class="region-panel-heading">Countries</div>
-              <div class="region-option-item" @click="selectRegion('Brazil')">
-                <img src="https://flagcdn.com/w40/br.png" alt="Brazil" class="dropdown-flag-img" />
-                <p class="region-text-main">Brazil</p>
-              </div>
-              <div class="region-option-item" @click="selectRegion('Canada (EN)')">
-                <img src="https://flagcdn.com/w40/ca.png" alt="Canada" class="dropdown-flag-img" />
-                <p class="region-text-main">Canada <span class="lang-subtext">English</span></p>
-              </div>
-              <div class="region-option-item" @click="selectRegion('Canada (FR)')">
-                <img src="https://flagcdn.com/w40/ca.png" alt="Canada" class="dropdown-flag-img" />
-                <p class="region-text-main">Canada <span class="lang-subtext">Français</span></p>
-              </div>
-            </div>
-          </div>
+        <div class="region-selection-row">
+  <div class="custom-select-wrapper" @click.stop>
+    <!-- Trigger Button -->
+    <button class="select-dropdown-trigger" @click="toggleRegionDropdown">
+      <span class="globe-icon">🌐</span>
+      <span>{{ selectedLanguage.name }}</span>
+      <span class="dropdown-carat">{{ isRegionOpen ? '▲' : '▼' }}</span>
+    </button>
+
+    <!-- Language Dropdown Panel -->
+    <div class="region-options-panel" v-if="isRegionOpen">
+      <div class="region-panel-heading">Select Language</div>
+      
+      <div 
+        v-for="lang in availableLanguages" 
+        :key="lang.code"
+        class="region-option-item"
+        :class="{ 'active-region': selectedLanguage.code === lang.code }"
+        @click="selectLanguage(lang)"
+      >
+        <img :src="lang.flag" :alt="lang.name" class="dropdown-flag-img" />
+        <p class="region-text-main">
+          {{ lang.name }} 
+          <span class="lang-subtext">{{ lang.nativeName }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
         <div class="social-links-row">
@@ -98,22 +102,35 @@
     </footer>
 </template>
 
+
 <script>
 export default {
   name: "FooterView",
   data() {
     return {
       isRegionOpen: false,
-      selectedRegion: "International"
+      selectedLanguage: {
+        code: "en",
+        name: "English",
+        nativeName: "English",
+        flag: "https://flagcdn.com/w40/us.png"
+      },
+      availableLanguages: [
+        { code: "en", name: "English", nativeName: "English", flag: "https://flagcdn.com/w40/us.png" },
+        { code: "fr", name: "French", nativeName: "Français", flag: "https://flagcdn.com/w40/fr.png" },
+        { code: "es", name: "Spanish", nativeName: "Español", flag: "https://flagcdn.com/w40/es.png" },
+        { code: "pt", name: "Portuguese", nativeName: "Português", flag: "https://flagcdn.com/w40/br.png" }
+      ]
     };
   },
   methods: {
     toggleRegionDropdown() {
       this.isRegionOpen = !this.isRegionOpen;
     },
-    selectRegion(regionName) {
-      this.selectedRegion = regionName;
+    selectLanguage(lang) {
+      this.selectedLanguage = lang;
       this.isRegionOpen = false;
+      localStorage.setItem("swychr_lang", lang.code);
     },
     closeRegionDropdown() {
       this.isRegionOpen = false;
@@ -121,7 +138,6 @@ export default {
   }
 };
 </script>
-
 
 <style>   
 .legal-disclaimer-title{
@@ -197,32 +213,85 @@ export default {
 }
 
 
-.region-selection-row {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.region-heading-label {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-}
-
 .select-dropdown-trigger {
-  background: transparent;
-  border: 1.5px solid #ffffff;
-  color: #ffffff;
-  padding: 0.65rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 8px;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.globe-icon {
+  font-size: 1rem;
+}
+
+.region-options-panel {
+  position: absolute;
+  bottom: 125%;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+  padding: 0.4rem 0;
+  z-index: 1200;
+  border: 1px solid #e2e8f0;
+}
+
+.region-panel-heading {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94a3b8;
+  padding: 0.5rem 1rem 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.region-option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.region-option-item:hover {
+  background-color: #f8fafc;
+}
+
+.active-region {
+  background-color: #f3e8ff;
+  border-left: 3px solid #8c1bc1;
+}
+
+.dropdown-flag-img {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.region-text-main {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lang-subtext {
+  font-weight: 500;
+  color: #64748b;
+  font-size: 0.78rem;
 }
 
 .dropdown-carat {
