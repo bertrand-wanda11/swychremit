@@ -1,7 +1,7 @@
 <template>
   <div class="blog-container">
     
-    <!-- 🚀 Hero Banner -->
+
     <header class="blog-hero">
       <div class="hero-content">
         <span class="blog-badge">Swychremit Insights</span>
@@ -14,7 +14,7 @@
 
     <main class="blog-body">
       
-      <!-- 🔎 Category Filters & Search -->
+   
       <div class="blog-controls">
         <div class="category-pills">
           <button 
@@ -64,7 +64,6 @@
         </article>
       </div>
 
-      <!-- 📥 Newsletter Subscription CTA -->
       <section class="newsletter-banner">
         <div class="newsletter-box">
           <h2>Subscribe to Swychremit Pulse</h2>
@@ -83,8 +82,6 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-
-/* ── Reactive State ───────────────────────────────────────────────── */
 const selectedCategory = ref('All');
 const searchQuery = ref('');
 const email = ref('');
@@ -92,7 +89,7 @@ const subscribed = ref(false);
 
 const categories = ['All', 'Business', 'Payments', 'Virtual Cards', 'Company News'];
 
-/* ── Blog Data ────────────────────────────────────────────────────── */
+
 const posts = ref([
   {
     id: 1,
@@ -223,7 +220,7 @@ const handleSubscribe = () => {
   line-height: 1.6;
 }
 
-/* Controls (Filters & Search) */
+
 .blog-body {
   max-width: 1140px;
   margin: 0 auto;
@@ -372,7 +369,7 @@ const handleSubscribe = () => {
   transform: translateX(4px);
 }
 
-/* Newsletter Banner */
+
 .newsletter-banner {
   background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
   border-radius: 20px;

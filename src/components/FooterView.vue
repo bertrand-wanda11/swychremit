@@ -22,7 +22,6 @@
             <h3 class="column-title">SUPPORT</h3>
             <ul class="link-list">
               <li><a href="/faq">FAQs</a></li>
-              <li><a href="/wallet">SwyChr Wallet FAQs</a></li>
               <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
@@ -81,7 +80,16 @@
           <h2 class="legal-disclaimer-title">Legal Disclaimer:</h2>
           
           <p class="legal-notice-paragraph">
-            Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr Technology USA LLC is a technology company and software provider; it is not a licensed bank, money transmitter, or financial institution. Swychremit does not accept, hold, custody, or transmit fiat currency or customer funds. All financial transactions, foreign exchange executions, on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by independent, third-party regulated and licensed financial institutions and payment service providers in their respective jurisdictions. Swychremit utilizes blockchain technology and stablecoin (USDC) architecture strictly for backend cross-border routing efficiency. Availability of services is subject to local regulatory restrictions and successful compliance screening by our licensed partners.
+            Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr
+             Technology USA LLC is a technology company and software provider; it is not a licensed bank,
+              money transmitter, or financial institution. Swychremit does not accept, hold, custody, or 
+              transmit fiat currency or customer funds. All financial transactions, foreign exchange executions,
+               on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by 
+               independent, third-party regulated and licensed financial institutions and payment service 
+               providers in their respective jurisdictions. Swychremit utilizes blockchain technology and
+                stablecoin (USDC) architecture strictly for backend cross-border routing efficiency.
+                 Availability of services is subject to local regulatory restrictions and successful 
+                 compliance screening by our licensed partners.
           </p>
 
         </div>
@@ -251,19 +259,21 @@ export default {
 }
 
 .compliance-text-block {
-  max-width: 2000px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .legal-notice-paragraph {
-  width: 1150px;
-  font-size: 3rem;
+  width: 100%;
+  max-width: 1150px;
+  font-size: 0.9rem;
   color: #ffffff;
-  line-height: 1.5;
+  line-height: 1.6;
   opacity: 0.85;
-  font-weight: 700;
+  font-weight: 400;
+  box-sizing: border-box;
 }
 
 .clickable-disclosure {
@@ -368,6 +378,30 @@ export default {
   .social-links-row { justify-content: flex-start !important; gap: 1.5rem !important; }
   .footer-compliance-wrapper { flex-direction: column !important; align-items: flex-start !important; text-align: left !important; gap: 2.5rem !important; }
   .footer-attribution-brand { align-self: flex-start !important; align-items: flex-start !important; }
+
+
+  .footer-compliance-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 1.5rem !important;
+  }
+
+  .compliance-text-block {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .legal-disclaimer-title {
+    font-size: 1.4rem !important;
+  }
+
+  .legal-notice-paragraph {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
 }
 
 </style>

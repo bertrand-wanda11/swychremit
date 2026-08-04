@@ -146,17 +146,14 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* ==========================================================================
-   🖥️ DESKTOP LAYOUT AND THEME STYLING
-   ========================================================================== */
+
 .terms-page {
   width: 100%;
   background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif; /* Explicit Montserrat Requirement */
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
-/* Page Header Hero Banner */
 .terms-hero {
   width: 100%;
   background-color: #fcfbfe; 
@@ -185,7 +182,7 @@ export default {
 .terms-main-title {
   font-size: 2.8rem;
   font-weight: 800;
-  color: #1a0830; /* Swychr Deep Purple Slate */
+  color: #1a0830; 
   margin: 0 0 0.75rem 0;
   letter-spacing: -0.02em;
 }
@@ -196,7 +193,7 @@ export default {
   margin: 0;
 }
 
-/* Split-Screen Main Container */
+
 .terms-split-container {
   max-width: 1200px;
   width: 100%;
@@ -207,7 +204,7 @@ export default {
   box-sizing: border-box;
 }
 
-/* Left Sticky Sidebar */
+
 .terms-sidebar-nav {
   width: 280px;
   flex-shrink: 0;
@@ -216,7 +213,7 @@ export default {
 
 .sticky-wrapper {
   position: sticky;
-  top: 100px; /* Anchors sidebar while scrolling down */
+  top: 100px;
 }
 
 .nav-header {
@@ -249,11 +246,11 @@ export default {
 }
 
 .nav-anchor-link:hover {
-  color: #3b1565; /* Swychr Core Purple */
+  color: #3b1565;
   padding-left: 4px;
 }
 
-/* Right Content Body Column */
+
 .terms-content-body {
   flex: 1;
   text-align: left;
@@ -297,7 +294,7 @@ export default {
   margin: 0 0 1.5rem 0;
 }
 
-/* Nested elements formatting */
+
 .section-block-text::v-html p,
 .section-block-text p {
   font-size: 1rem;
@@ -328,7 +325,7 @@ export default {
 .section-block-text::v-html li::before,
 .section-block-text li::before {
   content: "•";
-  color: #00d293; /* Swychr Mint Green list bullets */
+  color: #00d293; 
   font-size: 1.5rem;
   position: absolute;
   left: 0;
@@ -345,9 +342,7 @@ export default {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   📱 TABLET & MOBILE RESPONSIVE ADAPTATIONS
-   ========================================================================== */
+
 @media (max-width: 850px) {
   .terms-split-container {
     flex-direction: column;
@@ -356,7 +351,7 @@ export default {
   }
 
   .terms-sidebar-nav {
-    display: none; /* Hides sidebar navigation on smaller layouts */
+    display: none;
   }
 
   .terms-hero {

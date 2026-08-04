@@ -10,7 +10,7 @@
         <div class="nav-right">
           <div class="desktop-menu-links">   
 
-            <a href="" class="nav-link">Help</a>
+            <a href="https://swychr.com/support" class="nav-link">Help</a>
           </div>
 
           <div class="auth-actions-cluster">
@@ -32,35 +32,17 @@
     <div class="mobile-navigation-drawer" :class="{ 'is-open': isMobileMenuOpen }" @click.stop>
       <div class="drawer-inner-content">
         
-        <div class="drawer-accordion-item">
-          <button class="drawer-link-trigger" @click="toggleMobileAccordion('features')">
-            Features <span>{{ activeMobileAccordion === 'features' ? '▲' : '▼' }}</span>
-          </button>
-          <div class="drawer-sub-links-box" :class="{ 'is-expanded': activeMobileAccordion === 'features' }">
-            <a href="#">Multi-Currency Wallet</a>
-            <a href="#">Receive Money Internationally</a>
-            <a href="#">Zero Fees on First Transfer</a>
-            <a href="#">Refer &amp; Earn Bonus</a>
-          </div>
-        </div>
+    
 
-        <div class="drawer-accordion-item">
-          <button class="drawer-link-trigger" @click="toggleMobileAccordion('company')">
-            Company <span>{{ activeMobileAccordion === 'company' ? '▲' : '▼' }}</span>
-          </button>
-          <div class="drawer-sub-links-box" :class="{ 'is-expanded': activeMobileAccordion === 'company' }">
-            <a href="#">Our Story</a>
-            <a href="#">Careers</a>
-            <a href="#">Security &amp; Trust</a>
-          </div>
-        </div>
+     
 
-        <a href="#" class="drawer-plain-link">Help</a>
+        <a href="https://swychr.com/support" class="drawer-plain-link">Help</a>
 
         <div class="drawer-action-wrapper">
-          <button class="download-pill-btn full-width-btn">
-            <span>📥</span> Download Swychremit  App
-          </button>
+    
+          <router-link to="/download" class="download-pill-btn full-width-btn">
+  <span class="dl-icon">📥</span>  Download Swychremit  App
+</router-link>
         </div>
 
       </div>

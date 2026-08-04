@@ -10,7 +10,7 @@
 
         <div class="trust-metrics-row">
           <div class="metric-item">
-            <strong>140+</strong>
+            <strong>50+</strong>
             <span>Supported Countries</span>
           </div>
           <div class="metric-item">
