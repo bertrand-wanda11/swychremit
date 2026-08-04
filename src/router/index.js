@@ -58,11 +58,7 @@ const router = createRouter({
             name: 'faq',
             component: () => import('../views/FaqView.vue')
         },
-        {
-            path: '/wallet',
-            name: 'wallet',
-            component: () => import('../views/WalletfaqView.vue')
-        },
+
         {
             path: '/download',
             name: 'download',
