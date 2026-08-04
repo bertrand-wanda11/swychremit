@@ -267,7 +267,7 @@ export default {
 
 .legal-notice-paragraph {
   width: 100%;
-  max-width: 1150px;
+  max-width: 85%;
   font-size: 0.9rem;
   color: #ffffff;
   line-height: 1.6;

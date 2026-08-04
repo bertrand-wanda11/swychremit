@@ -36,14 +36,23 @@
 
      
 
-        <a href="https://swychr.com/support" class="drawer-plain-link">Help</a>
+      <a 
+  href="https://swychr.com/support" 
+  class="drawer-plain-link" 
+  @click="closeMobileMenu"
+>
+  Help
+</a>
 
-        <div class="drawer-action-wrapper">
-    
-          <router-link to="/download" class="download-pill-btn full-width-btn">
-  <span class="dl-icon">📥</span>  Download Swychremit  App
-</router-link>
-        </div>
+<div class="drawer-action-wrapper">
+  <router-link 
+    to="/download" 
+    class="download-pill-btn full-width-btn" 
+    @click="closeMobileMenu"
+  >
+    <span class="dl-icon">📥</span> Download Swychremit App
+  </router-link>
+</div>
 
       </div>
     </div>
