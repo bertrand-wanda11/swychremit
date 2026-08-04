@@ -253,6 +253,7 @@ export default {
 
 .footer-compliance-wrapper {
   width:100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
