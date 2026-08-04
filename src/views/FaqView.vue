@@ -54,7 +54,7 @@ const toggleFaq = (index) => {
 
 const faqs = ref([
   { question: 'How long does a transfer take?', answer: 'Most transactions sent to mobile money or bank accounts complete within 60 seconds.' },
-  { question: 'What are the transaction fees?', answer: 'Our fees depend on the recipient corridor, with rates starting as low as $2.99.' },
+  { question: 'What are the transaction fees?', answer: 'Our standard transaction fees is 2% for every transaction done  via ecosystem.' },
   { question: 'How do I track my transfer?', answer: 'Use the transaction ID provided on your receipt or track it directly inside the mobile app.' },
   { question: 'Which payout methods are supported?', answer: 'We support direct bank transfers, mobile money wallets (M-Pesa, MTN Mobile Money, Orange Money, Airtel), and cash pickup locations across participating corridors.' },
   { question: 'What documents are required to verify my SwyChr account?', answer: 'You can verify your identity using a valid government-issued ID (Passport, National ID, or Driver\'s License) along with a proof of address issued within the last 3 months.' },
