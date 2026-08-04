@@ -252,6 +252,7 @@ export default {
 
 
 .footer-compliance-wrapper {
+  width:100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -259,6 +260,7 @@ export default {
 }
 
 .compliance-text-block {
+  width:100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -267,7 +269,7 @@ export default {
 
 .legal-notice-paragraph {
   width: 100%;
-  max-width: 85%;
+  max-width: 100%;
   font-size: 0.9rem;
   color: #ffffff;
   line-height: 1.6;
