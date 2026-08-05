@@ -3,26 +3,26 @@
     <div class="footer-container">
       <div class="footer-links-grid">
         <div class="footer-column">
-          <h3 class="column-title">LEGAL</h3>
+         <h3 class="column-title">{{ $t('footer.legal') }}</h3>
           <ul class="link-list">
-            <li><router-link to="/terms">Terms & Conditions</router-link></li>
-            <li><router-link to="/privacy">Privacy Policy</router-link></li>
+           <li><router-link to="/terms">{{ $t('footer.terms') }}</router-link></li>
+          <li><router-link to="/terms">{{ $t('footer.privacy') }}</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
-          <h3 class="column-title">COMPANY</h3>
+        <h3 class="column-title">{{ $t('footer.company') }}</h3>
           <ul class="link-list">
-            <li><router-link to="/ourstory">Our Story</router-link></li>
-            <li><router-link to="/blog">Blog</router-link></li>
-            <li><router-link to="/security">Security</router-link></li>
-            <li><router-link to="/careers">Careers</router-link></li>
+            <li><router-link to="/terms">{{ $t('footer.ourStory') }}</router-link></li>
+           <li><router-link to="/terms">{{ $t('footer.blog') }}</router-link></li>
+            <li><router-link to="/terms">{{ $t('footer.security') }}</router-link></li>
+            <li><router-link to="/terms">{{ $t('footer.careers') }}</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
-          <h3 class="column-title">SUPPORT</h3>
+         <h3 class="column-title">{{ $t('footer.support') }}</h3>
           <ul class="link-list">
-            <li><router-link to="/faq">FAQs</router-link></li>
-            <li><router-link to="/contact">Contact Us</router-link></li>
+               <li><router-link to="/terms">{{ $t('footer.faqs') }}</router-link></li>
+              <li><router-link to="/terms">{{ $t('footer.contact') }}</router-link></li>
           </ul>
         </div>
       </div>

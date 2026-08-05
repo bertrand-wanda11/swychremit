@@ -2,11 +2,9 @@
   <section class="hero-split-canvas">
     <div class="hero-inner-layout">
       <div class="hero-copy-column">
-        <div class="trust-pill-badge">⚡ Real-time secure financial network transfers</div>
-       <h1 class="main-headline">{{ $t('hero.title') }}</h1>
-<p class="sub-intro-text">
-{{ $t('hero.subtitle') }}
-</p>>
+    <div class="trust-pill-badge">{{ $t('hero.badge') }}</div>
+<h1 class="main-headline">{{ $t('hero.title') }}</h1>
+<p class="sub-intro-text">{{ $t('hero.subtitle') }}</p>
 
         <div class="trust-metrics-row">
         <div class="metric-item">
@@ -39,7 +37,8 @@
           </div>
 
           <div class="currency-input-container-block">
-            <label class="input-label-tag">You send exactly</label>
+          <label class="input-label-tag">{{ $t('hero.calc.send') }}</label>
+
             <div class="input-row-flex">
               <input type="number" v-model="sendAmount" class="numeric-field" @input="calculateConversion" />
               <div class="currency-selector-badge">
@@ -60,7 +59,7 @@
           </div>
 
           <div class="currency-input-container-block target-block-theme">
-            <label class="input-label-tag">Recipient gets</label>
+            <label class="input-label-tag">{{ $t('hero.calc.receive') }}</label>
             <div class="input-row-flex">
               <input type="number" :value="receiveAmount" class="numeric-field" readonly />
               <div class="currency-selector-badge clickable-badge">
@@ -69,7 +68,7 @@
             </div>
           </div>
 <router-link to="/download" class="calc-submit-btn">
-  Download the App to get started
+  {{ $t('hero.calc.btn') }}
 </router-link>
 
         </div>
@@ -84,8 +83,8 @@
       
 
     <div class="section-header-block">
-  <h2 class="section-main-title">{{ $t('features.title') }}</h2>
-  <p class="section-subtitle-text">{{ $t('features.subtitle') }}</p>
+ <h2 class="section-main-title">{{ $t('features.title') }}</h2>
+<p class="section-subtitle-text">{{ $t('features.subtitle') }}</p>
 </div>
 
 
@@ -96,8 +95,8 @@
           <div class="feature-icon-wrapper mint-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
           </div>
-          <h3>Save on global fees</h3>
-          <p>Send more money back home to anyone at a guaranteed fraction of the cost of traditional banks, with zero hidden fees.</p>
+         <h3>{{ $t('features.saveTitle') }}</h3>
+<p>{{ $t('features.saveDesc') }}</p>
         </div>
 
       
@@ -105,16 +104,16 @@
           <div class="feature-icon-wrapper blue-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
           </div>
-          <h3>Options at your fingertips</h3>
-          <p>Choose exactly how your recipient gets their money: direct to bank accounts, local mobile money wallets, or instant cash pickup.</p>
+         <h3>{{ $t('features.saveTitle') }}</h3>
+     <p>{{ $t('features.saveDesc') }}</p>
         </div>
 
         <div class="feature-item-card">
           <div class="feature-icon-wrapper speed-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
           </div>
-          <h3>Near instant delivery</h3>
-          <p>Enjoy blazing-fast financial routing ecosystems. Most of our global corridor transfers are processed and delivered in minutes.</p>
+        <h3>{{ $t('features.saveTitle') }}</h3>
+<p>{{ $t('features.saveDesc') }}</p>
         </div>
 
       
@@ -122,24 +121,24 @@
           <div class="feature-icon-wrapper security-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
           </div>
-          <h3>Protected bank custody</h3>
-          <p>We use rigorous 2-factor authentication, dedicated anti-fraud units, and safeguard your money inside established, licensed financial institutions.</p>
+        <h3>{{ $t('features.saveTitle') }}</h3>
+<p>{{ $t('features.saveDesc') }}</p>
         </div>
 
         <div class="feature-item-card">
           <div class="feature-icon-wrapper account-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           </div>
-          <h3>Onboard in minutes</h3>
-          <p>Skip lines completely. Link your preferred payment method, verify your identity safely via our app, and start sending right away.</p>
+     <h3>{{ $t('features.saveTitle') }}</h3>
+<p>{{ $t('features.saveDesc') }}</p>
         </div>
 
         <div class="feature-item-card">
           <div class="feature-icon-wrapper support-theme">
             <svg viewBox="0 0 24 24" class="f-svg"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
           </div>
-          <h3>Human support around the clock</h3>
-          <p>Our client service teams are online and available to chat 24/7 inside the app or via call lines whenever you need real-time assistance.</p>
+     <h3>{{ $t('features.saveTitle') }}</h3>
+<p>{{ $t('features.saveDesc') }}</p>
         </div>
 
       </div>
