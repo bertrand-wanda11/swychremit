@@ -14,7 +14,7 @@ const messages = {
             calc: { send: 'You send exactly', receive: 'Recipient gets', btn: 'Download the App to get started' }
         },
         features: {
-            title: 'Why millions trust Swychremit',
+            title: 'Why thousands trust Swychremit',
             subtitle: 'Free Wallet to wallet transfer, hold multicurrency balances and avail a range of digital products.',
             saveTitle: 'Save on global fees',
             saveDesc: 'Send more money back home to anyone at a guaranteed fraction of the cost of traditional banks.',
