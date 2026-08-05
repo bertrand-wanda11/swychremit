@@ -3,20 +3,20 @@
     <div class="hero-inner-layout">
       <div class="hero-copy-column">
         <div class="trust-pill-badge">⚡ Real-time secure financial network transfers</div>
-        <h1 class="main-headline">Send money globally for less</h1>
-        <p class="sub-intro-text">
-       Send your love where it matters most. Save on regular family support, emergency care, or school fees with guaranteed low rates and maximum payout to your loved ones.
-        </p>
+       <h1 class="main-headline">{{ $t('hero.title') }}</h1>
+<p class="sub-intro-text">
+{{ $t('hero.subtitle') }}
+</p>>
 
         <div class="trust-metrics-row">
-          <div class="metric-item">
-            <strong>50+</strong>
-            <span>Supported Countries</span>
-          </div>
-          <div class="metric-item">
-            <strong>4.8 ★</strong>
-            <span>App Store Rating</span>
-          </div>
+        <div class="metric-item">
+  <strong>50+</strong>
+  <span>{{ $t('hero.metrics.countries') }}</span>
+</div>
+<div class="metric-item">
+  <strong>4.8 ★</strong>
+  <span>{{ $t('hero.metrics.rating') }}</span>
+</div>
         </div>
 
         <div class="store-links-cluster">
@@ -83,10 +83,10 @@
     <div class="features-container">
       
 
-      <div class="section-header-block">
-        <h2 class="section-main-title">Why millions trust Swychremit</h2>
-        <p class="section-subtitle-text">Free Wallet to wallet transfer , hold  muticurrency balances and avail a range of digital products.</p>
-      </div>
+    <div class="section-header-block">
+  <h2 class="section-main-title">{{ $t('features.title') }}</h2>
+  <p class="section-subtitle-text">{{ $t('features.subtitle') }}</p>
+</div>
 
 
       <div class="features-card-grid">

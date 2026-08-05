@@ -9,9 +9,9 @@
 
         <div class="nav-right">
           <div class="desktop-menu-links">   
-
-            <a href="https://swychr.com/support" class="nav-link">Help</a>
-          </div>
+  <router-link to="/about" class="nav-link">{{ $t('nav.about') }}</router-link>
+  <a href="https://swychr.com/support" class="nav-link">{{ $t('nav.help') }}</a>
+</div>
 
           <div class="auth-actions-cluster">
 <router-link to="/download" class="download-pill-btn">
@@ -36,12 +36,20 @@
 
      
 
-      <a 
+<router-link 
+  to="/about" 
+  class="drawer-plain-link" 
+  @click="closeMobileMenu"
+>
+  {{ $t('nav.about') }}
+</router-link>
+
+<a 
   href="https://swychr.com/support" 
   class="drawer-plain-link" 
   @click="closeMobileMenu"
 >
-  Help
+  {{ $t('nav.help') }}
 </a>
 
 <div class="drawer-action-wrapper">
@@ -50,7 +58,7 @@
     class="download-pill-btn full-width-btn" 
     @click="closeMobileMenu"
   >
-    <span class="dl-icon">📥</span> Download Swychremit App
+    <span class="dl-icon">📥</span> {{ $t('nav.download') }}
   </router-link>
 </div>
 
