@@ -34,7 +34,7 @@ const messages = {
             faqs: 'FAQs',
             contact: 'Contact Us',
             disclaimerTitle: 'Legal Disclaimer:',
-            disclaimerText: 'Swychremit is an online platform owned and operated by Swychr Technology USA LLC...'
+            disclaimerText: 'Swychremit is an online platform owned and operated by Swychr Technology USA LLC. Swychr Technology USA LLC is a technology company and software provider; it is not a licensed bank, money transmitter, or financial institution. Swychremit does not accept, hold, custody, or transmit fiat currency or customer funds. All financial transactions, foreign exchange executions, on-ramping, custody, and regional payout (off-ramping) services are provided exclusively by independent, third-party regulated and licensed financial institutions and payment service providers in their respective jurisdictions. Swychremit utilizes blockchain technology and stablecoin (USDC) architecture strictly for backend cross-border routing efficiency. Availability of services is subject to local regulatory restrictions and successful compliance screening by our licensed partners.'
         }
     },
     fr: {
@@ -67,7 +67,7 @@ const messages = {
             faqs: 'FAQ',
             contact: 'Contactez-nous',
             disclaimerTitle: 'Avertissement Légal:',
-            disclaimerText: 'Swychremit est une plateforme en ligne appartenant à Swychr Technology USA LLC...'
+            disclaimerText: 'Swychremit est une plateforme en ligne appartenant à Swychr Technology USA LLC et exploitée par celle-ci. Swychr Technology USA LLC est une entreprise technologique et un fournisseur de logiciels ; ce n’est pas une banque agréée, un émetteur de monnaie ni une institution financière. Swychremit n’accepte, ne détient, ne garde ni ne transmet de monnaie fiduciaire ou de fonds de clients. Toutes les transactions financières, exécutions de change, intégrations (on-ramping), garde et paiements régionaux (off-ramping) sont assurés exclusivement par des institutions financières et prestataires de services de paiement tiers indépendants, réglementés et agréés dans leurs juridictions respectives. Swychremit utilise la technologie blockchain et l’architecture des stablecoins (USDC) strictement pour l’efficacité du routage transfrontalier interne. La disponibilité des services est soumise aux restrictions réglementaires locales et au contrôle de conformité par nos partenaires agréés.'
         }
     },
     es: {
@@ -100,7 +100,7 @@ const messages = {
             faqs: 'Preguntas Frecuentes',
             contact: 'Contáctenos',
             disclaimerTitle: 'Aviso Legal:',
-            disclaimerText: 'Swychremit es una plataforma en línea propiedad de Swychr Technology USA LLC...'
+            disclaimerText: 'Swychremit es una plataforma en línea propiedad y operada por Swychr Technology USA LLC. Swychr Technology USA LLC es una empresa de tecnología y proveedor de software; no es un banco con licencia, transmisor de dinero ni institución financiera. Swychremit no acepta, mantiene, custodia ni transmite moneda fiduciaria o fondos de clientes. Todas las transacciones financieras, ejecuciones de divisas, rampa de entrada (on-ramping), custodia y servicios de pago regional (off-ramping) son proporcionados exclusivamente por instituciones financieras y proveedores de servicios de pago independientes, regulados y con licencia en sus respectivas jurisdicciones. Swychremit utiliza tecnología blockchain y arquitectura de stablecoins (USDC) estrictamente para la eficiencia del enrutamiento transfronterizo en el backend. La disponibilidad de los servicios está sujeta a las restricciones regulatorias locales y al análisis de cumplimiento por parte de nuestros socios autorizados.'
         }
     },
     pt: {
@@ -130,10 +130,10 @@ const messages = {
             security: 'Segurança',
             careers: 'Carreiras',
             support: 'SUPORTE',
-            faqs: 'Perguntas Frequentes',
+            faqs: 'Perguntas Frecuentes',
             contact: 'Fale Conosco',
             disclaimerTitle: 'Aviso Legal:',
-            disclaimerText: 'Swychremit é uma plataforma online de propriedade da Swychr Technology USA LLC...'
+            disclaimerText: 'Swychremit é uma plataforma online de propriedade e operada pela Swychr Technology USA LLC. A Swychr Technology USA LLC é uma empresa de tecnologia e provedora de software; não é um banco licenciado, transmissor de dinheiro ou instituição financeira. A Swychremit não aceita, detém, custodia ou transmite moeda fiduciária ou fundos de clientes. Todas as transações financeiras, execuções de câmbio, integração (on-ramping), custódia e serviços de pagamento regional (off-ramping) são fornecidos exclusivamente por instituições financeiras e provedores de serviços de pagamento independentes, regulamentados e licenciados em suas respectivas jurisdições. A Swychremit utiliza tecnologia blockchain e arquitetura de stablecoin (USDC) estritamente para eficiência de roteamento transfronteiriço no backend. A disponibilidade dos serviços está sujeita a restrições regulatórias locais e à verificação de conformidade por nossos parceiros licenciados.'
         }
     }
 }
