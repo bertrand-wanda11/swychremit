@@ -6,23 +6,23 @@
          <h3 class="column-title">{{ $t('footer.legal') }}</h3>
           <ul class="link-list">
            <li><router-link to="/terms">{{ $t('footer.terms') }}</router-link></li>
-          <li><router-link to="/terms">{{ $t('footer.privacy') }}</router-link></li>
+          <li><router-link to="/privacy">{{ $t('footer.privacy') }}</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
         <h3 class="column-title">{{ $t('footer.company') }}</h3>
           <ul class="link-list">
-            <li><router-link to="/terms">{{ $t('footer.ourStory') }}</router-link></li>
-           <li><router-link to="/terms">{{ $t('footer.blog') }}</router-link></li>
-            <li><router-link to="/terms">{{ $t('footer.security') }}</router-link></li>
-            <li><router-link to="/terms">{{ $t('footer.careers') }}</router-link></li>
+            <li><router-link to="/ourstory">{{ $t('footer.ourStory') }}</router-link></li>
+           <li><router-link to="/blog">{{ $t('footer.blog') }}</router-link></li>
+            <li><router-link to="/security">{{ $t('footer.security') }}</router-link></li>
+            <li><router-link to="/careers">{{ $t('footer.careers') }}</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
          <h3 class="column-title">{{ $t('footer.support') }}</h3>
           <ul class="link-list">
-               <li><router-link to="/terms">{{ $t('footer.faqs') }}</router-link></li>
-              <li><router-link to="/terms">{{ $t('footer.contact') }}</router-link></li>
+               <li><router-link to="/faq">{{ $t('footer.faqs') }}</router-link></li>
+              <li><router-link to="/contact">{{ $t('footer.contact') }}</router-link></li>
           </ul>
         </div>
       </div>
