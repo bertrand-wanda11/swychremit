@@ -1,6 +1,6 @@
 <template>
   <div class="download-page">
-    <div class="download-card">
+    <div class="download-card" v-reveal>
       <div class="badge">Swychremit  Mobile App</div>
       <h1>Get Swychremit on Your Phone</h1>
       <p class="lead">Send money globally with low fees, high speeds, and real-time tracking.</p>
@@ -10,20 +10,20 @@
       </div>
 
       <div class="store-buttons">
-        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn">
+        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
           <span class="store-icon"></span> App Store
         </a>
-        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn">
+        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
           <span class="store-icon">▶</span> Google Play
         </a>
       </div>
 
       <div class="features-row">
-        <div class="feat-box">
+        <div class="feat-box" v-reveal="0">
           <h3>⚡ Instant Transfers</h3>
           <p>Send directly to bank accounts and mobile money wallets in seconds.</p>
         </div>
-        <div class="feat-box">
+        <div class="feat-box" v-reveal="1">
           <h3>🔒 Fully Encrypted</h3>
           <p>Bank-grade security keeping your transactions protected 24/7.</p>
         </div>
@@ -43,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .download-card {
@@ -59,7 +59,7 @@
 
 .badge {
   display: inline-block;
-  background: #f3e8ff;
+  background: linear-gradient(120deg, #f3e8ff, #ece0ff);
   color: #8c1bc1;
   font-size: 0.8rem;
   font-weight: 700;
@@ -98,6 +98,12 @@ h1 {
   justify-content: center;
   color: #8c1bc1;
   font-weight: 700;
+  animation: qrPulse 3s ease-in-out infinite;
+}
+
+@keyframes qrPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(140, 27, 193, 0.12); }
+  50% { box-shadow: 0 0 0 10px rgba(140, 27, 193, 0); }
 }
 
 .store-buttons {
@@ -109,7 +115,7 @@ h1 {
 }
 
 .store-btn {
-  background: #8c1bc1;
+  background: linear-gradient(135deg, #7B1FA2, #8c1bc1);
   color: #ffffff;
   padding: 14px 28px;
   border-radius: 100px;
@@ -118,11 +124,12 @@ h1 {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: transform 200ms ease;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+  box-shadow: 0 6px 16px rgba(140, 27, 193, 0.22);
 }
 
 .store-btn:hover {
-  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(140, 27, 193, 0.32);
 }
 
 .features-row {

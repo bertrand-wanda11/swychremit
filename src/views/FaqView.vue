@@ -1,15 +1,15 @@
 <template>
   <div class="page-container">
-    <div class="content-card">
+    <div class="content-card" v-reveal>
       <div class="badge">Help Center</div>
       <h1>General FAQs</h1>
       <p class="lead">Answers to common questions about transfers, account management, and security.</p>
-      
-     
+
+
       <div class="search-wrapper">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
+        <input
+          type="text"
+          v-model="searchQuery"
           placeholder="Search questions (e.g., limits, verification, fees)..."
           class="faq-search-input"
         />
@@ -18,20 +18,23 @@
       <hr />
 
       <div class="faq-list">
-        <div 
-          v-for="(faq, index) in filteredFaqs" 
-          :key="index" 
+        <div
+          v-for="(faq, index) in filteredFaqs"
+          :key="index"
           class="faq-box"
           :class="{ active: openIndex === index }"
           @click="toggleFaq(index)"
+          v-reveal="index % 6"
         >
           <div class="faq-header">
             <h3>{{ faq.question }}</h3>
-            <span class="faq-toggle-icon">{{ openIndex === index ? '−' : '+' }}</span>
+            <span class="faq-toggle-icon" :class="{ 'is-open': openIndex === index }">+</span>
           </div>
-          <div v-show="openIndex === index || searchQuery" class="faq-body">
-            <p>{{ faq.answer }}</p>
-          </div>
+          <transition name="faq-expand">
+            <div v-show="openIndex === index || searchQuery" class="faq-body">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </transition>
         </div>
 
         <div v-if="filteredFaqs.length === 0" class="no-results">
@@ -89,31 +92,37 @@ const filteredFaqs = computed(() => {
   padding: 60px 20px; 
   display: flex; 
   justify-content: center; 
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Inter', sans-serif; 
 }
 
-.content-card { 
-  background: #fff; 
-  max-width: 850px; 
-  width: 100%; 
-  padding: 40px; 
-  border-radius: 20px; 
-  border: 1px solid #f0e6f5; 
+.content-card {
+  background: #fff;
+  max-width: 850px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #f0e6f5;
   box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   box-sizing: border-box;
 }
 
 
-.badge { 
-  display: inline-block; 
-  background: #f3e8ff; 
-  color: #8c1bc1; 
-  font-size: 0.75rem; 
-  font-weight: 700; 
-  padding: 6px 14px; 
-  border-radius: 100px; 
-  text-transform: uppercase; 
-  margin-bottom: 12px; 
+.badge {
+  display: inline-block;
+  background: linear-gradient(120deg, #f3e8ff, #ece0ff);
+  color: #8c1bc1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  animation: badgeIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes badgeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 { 
@@ -167,17 +176,19 @@ hr {
   gap: 12px;
 }
 
-.faq-box { 
-  background: #faf5ff; 
-  padding: 18px 20px; 
-  border-radius: 14px; 
-  border: 1px solid #f0d8ff; 
+.faq-box {
+  background: #faf5ff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid #f0d8ff;
   cursor: pointer;
-  transition: background-color 180ms ease, border-color 180ms ease;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease;
 }
 
 .faq-box:hover {
   border-color: #8c1bc1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(140, 27, 193, 0.08);
 }
 
 .faq-box.active {
@@ -207,12 +218,29 @@ hr {
   color: #8c1bc1;
   flex-shrink: 0;
   line-height: 1;
+  display: inline-block;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-toggle-icon.is-open {
+  transform: rotate(135deg);
 }
 
 .faq-body {
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid #f3e8ff;
+}
+
+.faq-expand-enter-active,
+.faq-expand-leave-active {
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.faq-expand-enter-from,
+.faq-expand-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 .faq-box p {

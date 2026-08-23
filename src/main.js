@@ -145,7 +145,85 @@ const i18n = createI18n({
     messages
 })
 
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            revealObserver.unobserve(entry.target)
+        }
+    })
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' })
+
 const app = createApp(App)
 app.use(router)
 app.use(i18n)
+
+app.directive('reveal', {
+    mounted(el, binding) {
+        el.classList.add('reveal')
+        const delay = typeof binding.value === 'number' ? binding.value : 0
+        if (delay) {
+            el.style.transitionDelay = `${Math.min(delay * 70, 700)}ms`
+        }
+        revealObserver.observe(el)
+    },
+    unmounted(el) {
+        revealObserver.unobserve(el)
+    }
+})
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+app.directive('magnetic', {
+    mounted(el, binding) {
+        if (prefersReducedMotion) return
+        const strength = typeof binding.value === 'number' ? binding.value : 14
+        el.classList.add('magnetic-el')
+        const handleMove = (e) => {
+            const rect = el.getBoundingClientRect()
+            const relX = e.clientX - rect.left - rect.width / 2
+            const relY = e.clientY - rect.top - rect.height / 2
+            el.style.transform = `translate(${(relX / rect.width) * strength}px, ${(relY / rect.height) * strength}px)`
+        }
+        const handleLeave = () => {
+            el.style.transform = ''
+        }
+        el.addEventListener('mousemove', handleMove)
+        el.addEventListener('mouseleave', handleLeave)
+        el._magneticCleanup = () => {
+            el.removeEventListener('mousemove', handleMove)
+            el.removeEventListener('mouseleave', handleLeave)
+        }
+    },
+    unmounted(el) {
+        if (el._magneticCleanup) el._magneticCleanup()
+    }
+})
+
+app.directive('tilt', {
+    mounted(el, binding) {
+        if (prefersReducedMotion) return
+        const strength = typeof binding.value === 'number' ? binding.value : 8
+        el.classList.add('tilt-el')
+        const handleMove = (e) => {
+            const rect = el.getBoundingClientRect()
+            const px = (e.clientX - rect.left) / rect.width - 0.5
+            const py = (e.clientY - rect.top) / rect.height - 0.5
+            el.style.transform = `perspective(900px) rotateX(${(-py * strength).toFixed(2)}deg) rotateY(${(px * strength).toFixed(2)}deg) translateZ(0)`
+        }
+        const handleLeave = () => {
+            el.style.transform = ''
+        }
+        el.addEventListener('mousemove', handleMove)
+        el.addEventListener('mouseleave', handleLeave)
+        el._tiltCleanup = () => {
+            el.removeEventListener('mousemove', handleMove)
+            el.removeEventListener('mouseleave', handleLeave)
+        }
+    },
+    unmounted(el) {
+        if (el._tiltCleanup) el._tiltCleanup()
+    }
+})
+
 app.mount('#app')

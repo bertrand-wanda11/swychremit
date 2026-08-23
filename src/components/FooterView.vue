@@ -1,6 +1,8 @@
 <template>
   <footer class="site-footer" @click="closeRegionDropdown">
-    <div class="footer-container">
+    <span class="footer-blob footer-blob-a" aria-hidden="true"></span>
+    <span class="footer-blob footer-blob-b" aria-hidden="true"></span>
+    <div class="footer-container" v-reveal>
       <div class="footer-links-grid">
         <div class="footer-column">
          <h3 class="column-title">{{ $t('footer.legal') }}</h3>
@@ -40,23 +42,25 @@
           </button>
 
           <!-- Language Dropdown Panel -->
-          <div class="region-options-panel" v-if="isRegionOpen">
-            <div class="region-panel-heading">Select Language</div>
-            
-            <div 
-              v-for="lang in availableLanguages" 
-              :key="lang.code"
-              class="region-option-item"
-              :class="{ 'active-region': selectedLanguage.code === lang.code }"
-              @click="selectLanguage(lang)"
-            >
-              <img :src="lang.flag" :alt="lang.name" class="dropdown-flag-img" />
-              <p class="region-text-main">
-                {{ lang.name }} 
-                <span class="lang-subtext">{{ lang.nativeName }}</span>
-              </p>
+          <transition name="pop-in">
+            <div class="region-options-panel" v-if="isRegionOpen">
+              <div class="region-panel-heading">Select Language</div>
+
+              <div
+                v-for="lang in availableLanguages"
+                :key="lang.code"
+                class="region-option-item"
+                :class="{ 'active-region': selectedLanguage.code === lang.code }"
+                @click="selectLanguage(lang)"
+              >
+                <img :src="lang.flag" :alt="lang.name" class="dropdown-flag-img" />
+                <p class="region-text-main">
+                  {{ lang.name }}
+                  <span class="lang-subtext">{{ lang.nativeName }}</span>
+                </p>
+              </div>
             </div>
-          </div>
+          </transition>
         </div>
       </div>
 
@@ -142,10 +146,35 @@ export default {
 
 .site-footer {
   width: 100%;
-  background-color: #7B1FA2; 
+  background: linear-gradient(155deg, var(--clr-purple-800), var(--clr-purple-600) 55%, var(--clr-purple-700));
   padding: 5rem 2rem 4rem 2rem;
   display: flex;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.footer-blob-a {
+  width: 380px;
+  height: 380px;
+  top: -160px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
+}
+
+.footer-blob-b {
+  width: 420px;
+  height: 420px;
+  bottom: -200px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(0,208,156,0.28), transparent 70%);
 }
 
 .footer-container {
@@ -153,6 +182,8 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-links-grid {
@@ -190,12 +221,14 @@ export default {
   text-decoration: none;
   font-size: 1.05rem;
   font-weight: 500;
-  opacity: 0.9;
-  transition: opacity 0.15s ease;
+  opacity: 0.85;
+  display: inline-block;
+  transition: opacity 200ms ease, transform 200ms var(--ease-out-expo);
 }
 
 .link-list a:hover {
   opacity: 1;
+  transform: translateX(4px);
   text-decoration: underline;
 }
 
@@ -246,6 +279,18 @@ export default {
   padding: 0.4rem 0;
   z-index: 1200;
   border: 1px solid #e2e8f0;
+  transform-origin: bottom left;
+}
+
+.pop-in-enter-active,
+.pop-in-leave-active {
+  transition: opacity 160ms var(--ease-out-expo), transform 160ms var(--ease-out-expo);
+}
+
+.pop-in-enter-from,
+.pop-in-leave-to {
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
 }
 
 .region-panel-heading {

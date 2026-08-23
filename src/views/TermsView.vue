@@ -2,20 +2,25 @@
   <div class="terms-page">
     <header class="terms-hero">
       <div class="terms-hero-container">
-        <span class="terms-tagline">Legal Agreement</span>
-        <h1 class="terms-main-title">TERMS AND CONDITIONS (T&amp;Cs)</h1>
-        <p class="terms-update-date">Last Updated: July 14, 2026</p>
+        <span class="terms-tagline reveal is-visible">Legal Agreement</span>
+        <h1 class="terms-main-title reveal is-visible" style="transition-delay: 70ms">TERMS AND CONDITIONS (T&amp;Cs)</h1>
+        <p class="terms-update-date reveal is-visible" style="transition-delay: 140ms">Last Updated: July 14, 2026</p>
       </div>
     </header>
 
     <main class="terms-split-container">
-      
+
       <aside class="terms-sidebar-nav">
         <div class="sticky-wrapper">
           <h4 class="nav-header">Agreement Sections</h4>
           <ul class="nav-links-list">
             <li v-for="(section, index) in termsSections" :key="'nav-' + index">
-              <a :href="'#' + section.id" class="nav-anchor-link" @click.prevent="scrollToSection(section.id)">
+              <a
+                :href="'#' + section.id"
+                class="nav-anchor-link"
+                :class="{ 'is-active': activeSection === section.id }"
+                @click.prevent="scrollToSection(section.id)"
+              >
                 {{ section.title }}
               </a>
             </li>
@@ -24,7 +29,7 @@
       </aside>
 
       <article class="terms-content-body">
-        <div class="terms-intro-block">
+        <div class="terms-intro-block" v-reveal>
           <p>
             These Terms and Conditions (“Terms”) constitute a legally binding agreement between you (“User”, “Sender”, or “you”) and <strong>Swychr Technology USA LLC</strong> (“Swychr”, “Swychremit”, “we”, “us”, or “our”). These Terms govern your access to and use of the <strong>Swychremit</strong> website, platform, and cross-border money transfer routing technology (collectively, the “Services”).
           </p>
@@ -33,7 +38,7 @@
           </p>
         </div>
 
-        <section v-for="(section, index) in termsSections" :key="'sec-' + index" :id="section.id" class="content-section">
+        <section v-for="(section, index) in termsSections" :key="'sec-' + index" :id="section.id" class="content-section" v-reveal="index % 4">
           <h2 class="section-block-title">{{ section.title }}</h2>
           <div class="section-block-text" v-html="section.content"></div>
         </section>
@@ -125,8 +130,26 @@ export default {
             <p>These Terms shall be governed by and construed in accordance with the laws of the State of Wyoming, without regard to its conflict of law principles. Any dispute arising out of or relating to these Terms shall be settled through binding arbitration administered by the American Arbitration Association (AAA).</p>
           `
         }
-      ]
+      ],
+      activeSection: null
     };
+  },
+  mounted() {
+    this.sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.activeSection = entry.target.id;
+        }
+      });
+    }, { rootMargin: "-120px 0px -70% 0px" });
+
+    this.termsSections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) this.sectionObserver.observe(el);
+    });
+  },
+  beforeUnmount() {
+    if (this.sectionObserver) this.sectionObserver.disconnect();
   },
   methods: {
     scrollToSection(id) {
@@ -144,13 +167,13 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 
 .terms-page {
   width: 100%;
   background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
 }
 
@@ -241,13 +264,23 @@ export default {
   font-weight: 600;
   color: #6c5e7e;
   text-decoration: none;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease;
   line-height: 1.4;
+  display: block;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  margin-left: -12px;
 }
 
 .nav-anchor-link:hover {
   color: #3b1565;
-  padding-left: 4px;
+  padding-left: 14px;
+}
+
+.nav-anchor-link.is-active {
+  color: #7B1FA2;
+  border-left-color: #7B1FA2;
+  font-weight: 700;
 }
 
 

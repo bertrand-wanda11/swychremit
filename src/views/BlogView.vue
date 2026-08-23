@@ -3,10 +3,12 @@
     
 
     <header class="blog-hero">
+      <span class="hero-blob hero-blob-a" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob-b" aria-hidden="true"></span>
       <div class="hero-content">
-        <span class="blog-badge">Swychremit Insights</span>
-        <h1>Glance through our blog and view the amazing contents of SwyChr</h1>
-        <p class="hero-subtext">
+        <span class="blog-badge reveal is-visible">Swychremit Insights</span>
+        <h1 class="reveal is-visible" style="transition-delay: 80ms">Glance through our blog and view the amazing contents of SwyChr</h1>
+        <p class="hero-subtext reveal is-visible" style="transition-delay: 160ms">
           Welcome to the Swychremit Blog. Stay updated on cross-border remittances, virtual card tips, and fintech news across Africa and worldwide.
         </p>
       </div>
@@ -38,10 +40,11 @@
 
       <!-- 📰 Articles Grid -->
       <div class="articles-grid">
-        <article 
-          v-for="post in filteredPosts" 
-          :key="post.id" 
+        <article
+          v-for="(post, index) in filteredPosts"
+          :key="post.id"
           class="post-card"
+          v-reveal="index % 6"
         >
           <div class="post-image-wrapper">
             <span class="category-tag">{{ post.category }}</span>
@@ -64,7 +67,7 @@
         </article>
       </div>
 
-      <section class="newsletter-banner">
+      <section class="newsletter-banner" v-reveal>
         <div class="newsletter-box">
           <h2>Subscribe to Swychremit Pulse</h2>
           <p>Get the latest FX insights, financial guides, and product releases sent straight to your inbox.</p>
@@ -176,16 +179,53 @@ const handleSubscribe = () => {
 .blog-container {
   min-height: 100vh;
   background-color: #fafafa;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #1a1a2e;
 }
 
 
 .blog-hero {
   background: linear-gradient(135deg, #1a0a2e 0%, #3b1160 50%, #8c1bc1 100%);
+  background-size: 200% 200%;
+  animation: heroGradientShift 12s ease-in-out infinite;
   color: #ffffff;
   padding: 80px 20px 60px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes heroGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.hero-blob-a {
+  width: 320px;
+  height: 320px;
+  top: -100px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(255,255,255,0.14), transparent 70%);
+}
+
+.hero-blob-b {
+  width: 300px;
+  height: 300px;
+  bottom: -140px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(0,208,156,0.25), transparent 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -308,6 +348,11 @@ const handleSubscribe = () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.post-card:hover .post-img {
+  transform: scale(1.08);
 }
 
 .category-tag {
@@ -418,12 +463,24 @@ const handleSubscribe = () => {
   border-radius: 100px;
   font-weight: 700;
   cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease;
+}
+
+.subscribe-form button:hover {
+  background: #7916a8;
+  transform: translateY(-2px);
 }
 
 .success-msg {
   color: #15803d !important;
   font-weight: 700;
   margin-top: 12px;
+  animation: successPop 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes successPop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (max-width: 768px) {

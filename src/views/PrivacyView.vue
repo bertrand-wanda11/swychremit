@@ -2,20 +2,25 @@
   <div class="privacy-page">
     <header class="privacy-hero">
       <div class="privacy-hero-container">
-        <span class="privacy-tagline">Data Protection</span>
-        <h1 class="privacy-main-title">PRIVACY POLICY</h1>
-        <p class="privacy-update-date">Last Updated: July 14, 2026</p>
+        <span class="privacy-tagline reveal is-visible">Data Protection</span>
+        <h1 class="privacy-main-title reveal is-visible" style="transition-delay: 70ms">PRIVACY POLICY</h1>
+        <p class="privacy-update-date reveal is-visible" style="transition-delay: 140ms">Last Updated: July 14, 2026</p>
       </div>
     </header>
 
     <main class="privacy-split-container">
-      
+
       <aside class="privacy-sidebar-nav">
         <div class="sticky-wrapper">
           <h4 class="nav-header">Policy Sections</h4>
           <ul class="nav-links-list">
             <li v-for="(section, index) in privacySections" :key="'nav-' + index">
-              <a :href="'#' + section.id" class="nav-anchor-link" @click.prevent="scrollToSection(section.id)">
+              <a
+                :href="'#' + section.id"
+                class="nav-anchor-link"
+                :class="{ 'is-active': activeSection === section.id }"
+                @click.prevent="scrollToSection(section.id)"
+              >
                 {{ section.title }}
               </a>
             </li>
@@ -24,13 +29,13 @@
       </aside>
 
       <article class="privacy-content-body">
-        <div class="privacy-intro-block">
+        <div class="privacy-intro-block" v-reveal>
           <p>
             <strong>Swychr Technology USA LLC</strong> (“Swychr”, “we”, “us”, or “our”) respects your privacy and is committed to protecting your personal data. This Privacy Policy details how we handle information gathered through our remittance platform, <strong class="brand-accent">Swychremit</strong>.
           </p>
         </div>
 
-        <section v-for="(section, index) in privacySections" :key="'sec-' + index" :id="section.id" class="content-section">
+        <section v-for="(section, index) in privacySections" :key="'sec-' + index" :id="section.id" class="content-section" v-reveal="index % 4">
           <h2 class="section-block-title">{{ section.title }}</h2>
           <div class="section-block-text" v-html="section.content"></div>
         </section>
@@ -101,8 +106,26 @@ export default {
             <p>We implement robust technical security protocols, including End-to-End SSL encryption, secure API integrations, and multi-factor authentication (MFA) to safeguard data transit between your device, our platform, and our financial partners.</p>
           `
         }
-      ]
+      ],
+      activeSection: null
     };
+  },
+  mounted() {
+    this.sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.activeSection = entry.target.id;
+        }
+      });
+    }, { rootMargin: "-120px 0px -70% 0px" });
+
+    this.privacySections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) this.sectionObserver.observe(el);
+    });
+  },
+  beforeUnmount() {
+    if (this.sectionObserver) this.sectionObserver.disconnect();
   },
   methods: {
     scrollToSection(id) {
@@ -121,13 +144,13 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 
 .privacy-page {
   width: 100%;
   background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
 }
 
@@ -219,13 +242,23 @@ export default {
   font-weight: 600;
   color: #6c5e7e;
   text-decoration: none;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease;
   line-height: 1.4;
+  display: block;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  margin-left: -12px;
 }
 
 .nav-anchor-link:hover {
   color: #3b1565;
-  padding-left: 4px;
+  padding-left: 14px;
+}
+
+.nav-anchor-link.is-active {
+  color: #7B1FA2;
+  border-left-color: #7B1FA2;
+  font-weight: 700;
 }
 
 .privacy-content-body {
