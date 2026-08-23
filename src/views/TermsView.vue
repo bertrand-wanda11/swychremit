@@ -167,13 +167,13 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 
 .terms-page {
   width: 100%;
   background-color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   box-sizing: border-box;
 }
 

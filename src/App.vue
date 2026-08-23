@@ -151,7 +151,7 @@ export default {
 }
 </script>
 
-<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+<style>@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   --clr-purple-900: #2f0a4e;
@@ -201,7 +201,7 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Manrope', sans-serif !important;
 }
 
 html {

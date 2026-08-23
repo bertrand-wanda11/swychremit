@@ -179,7 +179,7 @@ const handleSubscribe = () => {
 .blog-container {
   min-height: 100vh;
   background-color: #fafafa;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   color: #1a1a2e;
 }
 

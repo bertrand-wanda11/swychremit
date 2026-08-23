@@ -32,7 +32,7 @@
 </script>
 
 <style scoped>
-.page-container { min-height: 80vh; background: #fafafa; padding: 60px 20px; display: flex; justify-content: center; font-family: 'Inter', sans-serif; }
+.page-container { min-height: 80vh; background: #fafafa; padding: 60px 20px; display: flex; justify-content: center; font-family: 'Manrope', sans-serif; }
 .content-card { background: #fff; max-width: 850px; width: 100%; padding: 40px; border-radius: 20px; border: 1px solid #f0e6f5; }
 .badge { display: inline-block; background: linear-gradient(120deg, #f3e8ff, #ece0ff); color: #8c1bc1; font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; text-transform: uppercase; margin-bottom: 12px; }
 h1 { font-size: 2rem; color: #1a1a2e; margin-bottom: 8px; }

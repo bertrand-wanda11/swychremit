@@ -10,7 +10,7 @@ const messages = {
             badge: '⚡ Real-time secure financial network transfers',
             title: 'Send money globally for less',
             subtitle: 'Send your love where it matters most. Save on regular family support, emergency care, or school fees with guaranteed low rates.',
-            metrics: { countries: 'Supported Countries', rating: 'App Store Rating' },
+            metrics: { countries: 'Supported Countries', support: 'Customer Support' },
             calc: { send: 'You send exactly', receive: 'Recipient gets', btn: 'Download the App to get started' }
         },
         features: {
@@ -43,7 +43,7 @@ const messages = {
             badge: '⚡ Transferts sécurisés en temps réel',
             title: 'Envoyez de l’argent dans le monde à moindre coût',
             subtitle: 'Envoyez votre amour là où il compte le plus. Économisez sur le soutien familial, les urgences ou la scolarité.',
-            metrics: { countries: 'Pays pris en charge', rating: 'Évaluation App Store' },
+            metrics: { countries: 'Pays pris en charge', support: 'Support Client' },
             calc: { send: 'Vous envoyez exactement', receive: 'Le destinataire reçoit', btn: 'Téléchargez l’application pour commencer' }
         },
         features: {
@@ -76,7 +76,7 @@ const messages = {
             badge: '⚡ Transferencias de red financiera seguras en tiempo real',
             title: 'Envía dinero a todo el mundo por menos',
             subtitle: 'Envía tu amor a donde más importa. Ahorra en apoyo familiar regular, emergencias o matrículas escolares.',
-            metrics: { countries: 'Países admitidos', rating: 'Calificación de App Store' },
+            metrics: { countries: 'Países admitidos', support: 'Atención al Cliente' },
             calc: { send: 'Envías exactamente', receive: 'El destinatario recibe', btn: 'Descarga la app para comenzar' }
         },
         features: {
@@ -109,7 +109,7 @@ const messages = {
             badge: '⚡ Transferências de rede financeira seguras em tempo real',
             title: 'Envie dinheiro globalmente por menos',
             subtitle: 'Envie o seu amor para onde mais importa. Poupe no apoio familiar regular, emergências ou propinas.',
-            metrics: { countries: 'Países Suportados', rating: 'Avaliação da App Store' },
+            metrics: { countries: 'Países Suportados', support: 'Suporte ao Cliente' },
             calc: { send: 'Você envia exatamente', receive: 'O destinatário recebe', btn: 'Baixe o aplicativo para começar' }
         },
         features: {

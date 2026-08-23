@@ -27,8 +27,8 @@
             <span>{{ $t('hero.metrics.countries') }}</span>
           </div>
           <div class="metric-item">
-            <strong>{{ ratingCount.toFixed(1) }} ★</strong>
-            <span>{{ $t('hero.metrics.rating') }}</span>
+            <strong>24/7</strong>
+            <span>{{ $t('hero.metrics.support') }}</span>
           </div>
         </div>
 
@@ -268,7 +268,6 @@ export default {
       receiveAmount: 0,
 
       countriesCount: 0,
-      ratingCount: 0,
 
       sendFromNorthAmerica: [
         { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
@@ -338,7 +337,6 @@ export default {
   },
   mounted() {
     this.animateCountUp('countriesCount', 50, 1200);
-    this.animateCountUp('ratingCount', 4.8, 1200, 1);
   },
 
   methods: {

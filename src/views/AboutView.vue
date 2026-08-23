@@ -41,8 +41,8 @@
             <span>Average Delivery Time</span>
           </div>
           <div class="about-stat-box" v-reveal="2">
-            <h2>{{ rating.toFixed(1) }} ★</h2>
-            <span>Customer Rating</span>
+            <h2>24/7</h2>
+            <span>Customer Support</span>
           </div>
         </div>
       </section>
@@ -121,7 +121,6 @@
 import { ref, onMounted } from 'vue';
 
 const countries = ref(0);
-const rating = ref(0);
 
 const countUp = (target, setter, duration, decimals = 0) => {
   const start = performance.now();
@@ -137,7 +136,6 @@ const countUp = (target, setter, duration, decimals = 0) => {
 
 onMounted(() => {
   countUp(50, (v) => (countries.value = v), 1100);
-  countUp(4.8, (v) => (rating.value = v), 1100, 1);
 });
 </script>
 

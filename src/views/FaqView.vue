@@ -92,7 +92,7 @@ const filteredFaqs = computed(() => {
   padding: 60px 20px; 
   display: flex; 
   justify-content: center; 
-  font-family: 'Inter', sans-serif; 
+  font-family: 'Manrope', sans-serif; 
 }
 
 .content-card {
