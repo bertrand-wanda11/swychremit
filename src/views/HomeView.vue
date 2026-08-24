@@ -44,7 +44,7 @@
 
 
       <div class="hero-calculator-column">
-        <div class="calculator-panel-box" v-tilt="5">
+        <div class="calculator-panel-box" v-tilt="5" @click="closeDropdowns">
 
           <div class="calc-box-header">
             <span class="lock-icon">🔒</span>
@@ -54,30 +54,59 @@
             <label class="input-label-tag">{{ $t('hero.calc.send') }}</label>
 
             <div class="input-row-flex">
-              <input type="number" v-model="sendAmount" class="numeric-field" @input="calculateConversion" />
-              <div class="currency-selector-badge">
-                <span class="flag-emoji">🇺🇸</span> <strong>USD</strong>
+              <input type="number" v-model="sendAmount" class="numeric-field" @input="scheduleQuote" />
+              <div class="currency-select-wrapper" @click.stop>
+                <button type="button" class="currency-selector-badge clickable-badge" @click="toggleDropdown('from')">
+                  <span class="flag-emoji">{{ fromCountry.country_flag }}</span> <strong>{{ fromCountry.currency_code }}</strong> <span class="mini-arrow">▼</span>
+                </button>
+                <transition name="pop-in">
+                  <div class="currency-options-panel" v-if="openDropdown === 'from'">
+                    <div
+                      v-for="country in onrampCountries"
+                      :key="'from-' + country.country_code"
+                      class="currency-option-item"
+                      :class="{ 'active-currency': fromCountry.country_code === country.country_code }"
+                      @click="selectFromCountry(country)"
+                    >
+                      <span class="flag-emoji">{{ country.country_flag }}</span>
+                      <span class="currency-option-text">{{ country.country_name }} <span class="currency-option-code">{{ country.currency_code }}</span></span>
+                    </div>
+                  </div>
+                </transition>
               </div>
             </div>
           </div>
 
           <div class="calculation-breakdown-flow-ladder">
             <div class="ladder-step">
-              <span class="step-bullet"></span>
-              <p class="step-detail-text"><span>$2.99</span> Transfer Processing Fee</p>
-            </div>
-            <div class="ladder-step">
               <span class="step-bullet accent-bullet"></span>
-              <p class="step-detail-text"><span>1 USD = 1,485.50 NGN</span> Standard Mid-Market Rate</p>
+              <p class="step-detail-text"><span>{{ formattedRate }}</span> Standard Mid-Market Rate</p>
             </div>
+            <p v-if="quoteError" class="quote-error-note">Live rates are temporarily unavailable — showing our last known rate.</p>
           </div>
 
           <div class="currency-input-container-block target-block-theme">
             <label class="input-label-tag">{{ $t('hero.calc.receive') }}</label>
             <div class="input-row-flex">
               <input type="number" :value="receiveAmount" class="numeric-field" readonly />
-              <div class="currency-selector-badge clickable-badge">
-                <span class="flag-emoji">🇳🇬</span> <strong>NGN</strong> <span class="mini-arrow">▼</span>
+              <div class="currency-select-wrapper" @click.stop>
+                <button type="button" class="currency-selector-badge clickable-badge" @click="toggleDropdown('to')">
+                  <span class="flag-emoji">{{ toCountry.country_flag }}</span> <strong>{{ toCountry.currency_code }}</strong> <span class="mini-arrow">▼</span>
+                </button>
+                <transition name="pop-in">
+                  <div class="currency-options-panel" v-if="openDropdown === 'to'">
+                    <div
+                      v-for="country in offrampCountries"
+                      :key="'to-' + country.country_code"
+                      class="currency-option-item"
+                      :class="{ 'active-currency': toCountry.country_code === country.country_code }"
+                      @click="selectToCountry(country)"
+                    >
+                      <span class="flag-emoji">{{ country.country_flag }}</span>
+                      <span class="currency-option-text">{{ country.country_name }} <span class="currency-option-code">{{ country.currency_code }}</span></span>
+                    </div>
+                  </div>
+                </transition>
               </div>
             </div>
           </div>
@@ -257,6 +286,8 @@
 </template>
 
 <script>
+import { apiFetch } from '../services/api';
+
 export default {
   name: "HomeView",
 
@@ -264,8 +295,15 @@ export default {
     return {
       sendAmount: 1000,
       exchangeRate: 1485.50,
-      fee: 2.99,
       receiveAmount: 0,
+
+      onrampCountries: [],
+      offrampCountries: [],
+      fromCountry: { country_code: 'US', country_name: 'United States', country_flag: '🇺🇸', currency_code: 'USD' },
+      toCountry: { country_code: 'NG', country_name: 'Nigeria', country_flag: '🇳🇬', currency_code: 'NGN' },
+      openDropdown: null,
+      quoteError: false,
+      quoteDebounceTimer: null,
 
       countriesCount: 0,
 
@@ -330,22 +368,80 @@ export default {
         ...this.spreadsheetAsia,
         ...this.sendFromEurope.slice(0, 9)
       ];
+    },
+    formattedRate() {
+      const rate = Number(this.exchangeRate).toLocaleString(undefined, { maximumFractionDigits: 4 });
+      return `1 ${this.fromCountry.currency_code} = ${rate} ${this.toCountry.currency_code}`;
     }
   },
   created() {
-    this.calculateConversion();
+    this.loadFxCountries();
   },
   mounted() {
     this.animateCountUp('countriesCount', 50, 1200);
   },
 
   methods: {
-    calculateConversion() {
-      const netSend = this.sendAmount - this.fee;
-      if (netSend > 0) {
-        this.receiveAmount = parseFloat((netSend * this.exchangeRate).toFixed(2));
-      } else {
+    async loadFxCountries() {
+      try {
+        const response = await apiFetch('/api/web/fx_countries');
+        if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+        const json = await response.json();
+        this.onrampCountries = json?.data?.onramp_countries || [];
+        this.offrampCountries = json?.data?.offramp_countries || [];
+
+        if (this.onrampCountries.length) this.fromCountry = this.onrampCountries[0];
+        if (this.offrampCountries.length) this.toCountry = this.offrampCountries[0];
+      } catch (err) {
+        // Keep the static US/NG defaults set in data() and still try a quote below.
+      } finally {
+        this.fetchQuote();
+      }
+    },
+    toggleDropdown(which) {
+      this.openDropdown = this.openDropdown === which ? null : which;
+    },
+    closeDropdowns() {
+      this.openDropdown = null;
+    },
+    selectFromCountry(country) {
+      this.fromCountry = country;
+      this.openDropdown = null;
+      this.fetchQuote();
+    },
+    selectToCountry(country) {
+      this.toCountry = country;
+      this.openDropdown = null;
+      this.fetchQuote();
+    },
+    scheduleQuote() {
+      clearTimeout(this.quoteDebounceTimer);
+      this.quoteDebounceTimer = setTimeout(() => this.fetchQuote(), 400);
+    },
+    async fetchQuote() {
+      const amount = Number(this.sendAmount);
+      if (!amount || amount <= 0) {
         this.receiveAmount = 0;
+        return;
+      }
+
+      try {
+        const params = new URLSearchParams({
+          from_country_code: this.fromCountry.country_code,
+          to_country_code: this.toCountry.country_code,
+          amount: String(amount)
+        });
+        const response = await apiFetch(`/api/web/fx_quote?${params.toString()}`);
+        if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+        const json = await response.json();
+        const data = json?.data;
+        if (!data || !data.rate) throw new Error('Invalid quote response');
+
+        this.exchangeRate = data.rate;
+        this.receiveAmount = data.receive_amount;
+        this.quoteError = false;
+      } catch (err) {
+        this.quoteError = true;
       }
     },
     handleHeroMouseMove(e) {
@@ -675,6 +771,10 @@ export default {
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   transition: transform var(--dur-fast) ease;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: inherit;
+  cursor: pointer;
 }
 
 .clickable-badge:hover {
@@ -686,6 +786,68 @@ export default {
 }
 
 .flag-emoji { font-size: 1.2rem; }
+
+.currency-select-wrapper {
+  position: relative;
+}
+
+.currency-options-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 240px;
+  max-height: 260px;
+  overflow-y: auto;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.14);
+  padding: 0.4rem 0;
+  z-index: 20;
+  border: 1px solid #e2e8f0;
+  transform-origin: top right;
+}
+
+.currency-option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-align: left;
+}
+
+.currency-option-item:hover {
+  background-color: #f8fafc;
+}
+
+.active-currency {
+  background-color: #f3e8ff;
+  border-left: 3px solid #8c1bc1;
+}
+
+.currency-option-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.currency-option-code {
+  font-weight: 700;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.pop-in-enter-active,
+.pop-in-leave-active {
+  transition: opacity 160ms var(--ease-out-expo), transform 160ms var(--ease-out-expo);
+}
+
+.pop-in-enter-from,
+.pop-in-leave-to {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.96);
+}
 
 .calculation-breakdown-flow-ladder {
   padding: 1rem 1.5rem;
@@ -741,7 +903,11 @@ export default {
   font-weight: 700;
 }
 
-
+.quote-error-note {
+  font-size: 0.78rem;
+  color: #b45309;
+  margin: 4px 0 0;
+}
 
 .calc-submit-btn {
   display: flex !important;

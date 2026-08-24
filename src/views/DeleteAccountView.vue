@@ -1,17 +1,32 @@
 <template>
   <div class="page-container">
     <div class="content-card" v-reveal>
-      <div class="badge">Help Center</div>
-      <h1>Need a hand? Talk to us</h1>
+      <div class="badge">Account &amp; Data Deletion</div>
+      <h1>Delete Your Account</h1>
       <p class="lead">
-        Tell us what's going on and our support team will get back to you shortly. For instant answers,
-        check our <router-link to="/faq" class="inline-link">FAQs</router-link> first.
+        Use this form to request permanent deletion of your Swychremit account and associated personal data.
+        Once submitted, our team will verify your identity and process the request in line with our
+        <router-link to="/privacy" class="inline-link">Privacy Policy</router-link>.
       </p>
+
+      <div class="info-box">
+        <h3>What gets deleted</h3>
+        <ul>
+          <li>Your profile information (name, email, phone number)</li>
+          <li>Saved beneficiaries and payment methods</li>
+          <li>Device and app usage data linked to your account</li>
+        </ul>
+        <p class="info-note">
+          Transaction records may be retained for a limited period where required by law or financial
+          regulation, even after your account is deleted. Deletion typically completes within 30 days,
+          and we'll confirm by email once it's done.
+        </p>
+      </div>
 
       <hr />
 
       <transition name="form-swap" mode="out-in">
-        <form v-if="submitStatus !== 'success'" key="form" class="help-form" @submit.prevent="handleSubmit" novalidate>
+        <form v-if="submitStatus !== 'success'" key="form" class="delete-form" @submit.prevent="handleSubmit" novalidate>
           <div class="form-row">
             <div class="form-field">
               <label for="name">Full Name</label>
@@ -25,7 +40,7 @@
               />
             </div>
             <div class="form-field">
-              <label for="email">Email Address</label>
+              <label for="email">Account Email</label>
               <input
                 id="email"
                 v-model.trim="form.email"
@@ -37,57 +52,51 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-field">
-              <label for="phone">Phone Number <span class="optional-tag">(optional)</span></label>
-              <input
-                id="phone"
-                v-model.trim="form.phone"
-                type="tel"
-                placeholder="+1 555 000 1234"
-                :disabled="isSubmitting"
-              />
-            </div>
-            <div class="form-field">
-              <label for="subject">Subject</label>
-              <select id="subject" v-model="form.subject" :disabled="isSubmitting">
-                <option>General Inquiry</option>
-                <option>Account &amp; Verification</option>
-                <option>Transaction Issue</option>
-                <option>Billing &amp; Fees</option>
-                <option>Partnership</option>
-                <option>Other</option>
-              </select>
-            </div>
+          <div class="form-field">
+            <label for="phonenumber">Phone Number <span class="optional-tag">(optional)</span></label>
+            <input
+              id="phonenumber"
+              v-model.trim="form.phonenumber"
+              type="tel"
+              placeholder="+1 555 000 1234"
+              :disabled="isSubmitting"
+            />
           </div>
 
           <div class="form-field">
-            <label for="message">How can we help?</label>
+            <label for="reason">Reason for deletion <span class="optional-tag">(optional)</span></label>
             <textarea
-              id="message"
-              v-model.trim="form.message"
-              rows="5"
-              placeholder="Share as much detail as you can, including your transaction ID if this is about a transfer."
-              required
+              id="reason"
+              v-model.trim="form.reason"
+              rows="4"
+              placeholder="Let us know why you're leaving, it helps us improve."
               :disabled="isSubmitting"
             ></textarea>
           </div>
+
+          <label class="confirm-check">
+            <input type="checkbox" v-model="form.confirmed" required :disabled="isSubmitting" />
+            <span>I confirm I am the owner of this account and I understand this action is permanent.</span>
+          </label>
 
           <p v-if="submitStatus === 'error'" class="form-alert error-alert">
             {{ errorMessage }}
           </p>
 
-          <button type="submit" class="submit-btn" :disabled="isSubmitting" v-magnetic="8">
+          <button type="submit" class="submit-btn" :disabled="isSubmitting || !form.confirmed" v-magnetic="8">
             <span v-if="isSubmitting" class="spinner"></span>
-            {{ isSubmitting ? 'Sending...' : 'Submit Request' }}
+            {{ isSubmitting ? 'Submitting...' : 'Request Account Deletion' }}
           </button>
         </form>
 
         <div v-else key="success" class="success-panel">
           <div class="success-icon">✓</div>
-          <h2>Message received</h2>
-          <p>Thanks, {{ lastSubmittedName }}! Our support team will reach out to your inbox shortly.</p>
-          <button type="button" class="submit-btn ghost-btn" @click="resetForm">Send another message</button>
+          <h2>Request received</h2>
+          <p>
+            Thanks, {{ lastSubmittedName }}. We've received your account deletion request and will confirm
+            by email at {{ lastSubmittedEmail }} once it's processed.
+          </p>
+          <button type="button" class="submit-btn ghost-btn" @click="resetForm">Submit another request</button>
         </div>
       </transition>
     </div>
@@ -101,22 +110,23 @@ import { apiFetch } from '../services/api';
 const form = reactive({
   name: '',
   email: '',
-  phone: '',
-  subject: 'General Inquiry',
-  message: ''
+  phonenumber: '',
+  reason: '',
+  confirmed: false
 });
 
 const isSubmitting = ref(false);
 const submitStatus = ref(null);
 const errorMessage = ref('');
 const lastSubmittedName = ref('');
+const lastSubmittedEmail = ref('');
 
 const resetForm = () => {
   form.name = '';
   form.email = '';
-  form.phone = '';
-  form.subject = 'General Inquiry';
-  form.message = '';
+  form.phonenumber = '';
+  form.reason = '';
+  form.confirmed = false;
   submitStatus.value = null;
   errorMessage.value = '';
 };
@@ -127,16 +137,14 @@ const handleSubmit = async () => {
   errorMessage.value = '';
 
   try {
-    const response = await apiFetch('/api/web/leads', {
+    const response = await apiFetch('/api/web/account_deletion_requests', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: form.name,
         email: form.email,
-        phone: form.phone,
-        subject: form.subject,
-        message: form.message,
-        source: 'help_center'
+        phonenumber: form.phonenumber,
+        reason: form.reason
       })
     });
 
@@ -145,10 +153,11 @@ const handleSubmit = async () => {
     }
 
     lastSubmittedName.value = form.name;
+    lastSubmittedEmail.value = form.email;
     submitStatus.value = 'success';
   } catch (err) {
     submitStatus.value = 'error';
-    errorMessage.value = 'Something went wrong sending your message. Please try again, or email us directly at support@swychr.com.';
+    errorMessage.value = 'Something went wrong submitting your request. Please try again, or email us directly at support@swychr.com.';
   } finally {
     isSubmitting.value = false;
   }
@@ -212,6 +221,35 @@ h1 {
   text-decoration: underline;
 }
 
+.info-box {
+  background: #faf5ff;
+  border: 1px solid #f0d8ff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 30px;
+}
+
+.info-box h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+
+.info-box ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.info-note {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
 hr {
   border: 0;
   height: 1px;
@@ -219,7 +257,7 @@ hr {
   margin-bottom: 30px;
 }
 
-.help-form {
+.delete-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -250,7 +288,6 @@ hr {
 }
 
 .form-field input,
-.form-field select,
 .form-field textarea {
   width: 100%;
   padding: 14px 16px;
@@ -267,11 +304,10 @@ hr {
 
 .form-field textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .form-field input:focus,
-.form-field select:focus,
 .form-field textarea:focus {
   border-color: #8c1bc1;
   background: #ffffff;
@@ -279,10 +315,25 @@ hr {
 }
 
 .form-field input:disabled,
-.form-field select:disabled,
 .form-field textarea:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.confirm-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.confirm-check input {
+  margin-top: 3px;
+  accent-color: #8c1bc1;
+  cursor: pointer;
 }
 
 .form-alert {
@@ -330,7 +381,7 @@ hr {
 }
 
 .submit-btn:disabled {
-  opacity: 0.75;
+  opacity: 0.55;
   cursor: not-allowed;
 }
 

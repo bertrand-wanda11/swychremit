@@ -9,6 +9,7 @@
           <ul class="link-list">
            <li><router-link to="/terms">{{ $t('footer.terms') }}</router-link></li>
           <li><router-link to="/privacy">{{ $t('footer.privacy') }}</router-link></li>
+          <li><router-link to="/delete-account">{{ $t('footer.deleteAccount') }}</router-link></li>
           </ul>
         </div>
         <div class="footer-column">
