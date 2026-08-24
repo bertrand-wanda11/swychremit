@@ -313,8 +313,26 @@ export default {
       ],
 
       spreadsheetAfrica: [
-        { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
+       { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
+        { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
+        { name: "Congo (Brazzaville)", flagUrl: "https://flagcdn.com/w80/cg.png" },
+        
+
         { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
+        { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
+        { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
+        { name: "Cote D'Ivoire", flagUrl: "https://flagcdn.com/w80/ci.png" },
+        { name: "Guinea", flagUrl: "https://flagcdn.com/w80/gn.png" },
+        { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
+        { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
+        { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
+        { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
+  
+        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
+        { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
+        { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
+        { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
+        { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" }
       ],
 
       spreadsheetAsia: [
@@ -1253,7 +1271,7 @@ export default {
   width: 100%;
 }
 
-/* Responsive Overrides */
+
 @media (max-width: 992px) {
   .continent-row-block .destinations-flag-grid { grid-template-columns: repeat(3, 1fr) !important; }
 }
