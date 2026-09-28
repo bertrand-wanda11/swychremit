@@ -39,6 +39,11 @@ const router = createRouter({
             component: () => import('../views/PrivacyView.vue')
         },
         {
+            path: '/delete-account',
+            name: 'delete-account',
+            component: () => import('../views/DeleteAccountView.vue')
+        },
+        {
             path: '/ourstory',
             name: 'ourstory',
             component: () => import('../views/OurstoryView.vue')
