@@ -33,10 +33,10 @@
         </div>
 
         <div class="store-links-cluster reveal is-visible" style="transition-delay: 220ms">
-          <a href="#" class="store-badge-img">
+          <a href="https://apps.apple.com/gb/app/swychremit/id6804958570" class="store-badge-img">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" />
           </a>
-          <a href="#" class="store-badge-img">
+          <a href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en" class="store-badge-img">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" />
           </a>
         </div>
@@ -81,10 +81,15 @@
               </div>
             </div>
           </div>
-          <router-link to="/download" class="calc-submit-btn" v-magnetic="8">
-            {{ $t('hero.calc.btn') }}
-          </router-link>
-
+        <a 
+  href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="calc-submit-btn" 
+  v-magnetic="8"
+>
+  {{ $t('hero.calc.btn') }}
+</a>
         </div>
       </div>
 
@@ -249,7 +254,16 @@
         <span class="mission-graphic-float">🌍</span>
         <h2 class="mission-giant-title">Ready to send money smarter?</h2>
         <p class="mission-support-copy">Join thousands who trust Swychremit to move money across borders in seconds, with transparent fees and guaranteed rates.</p>
-        <router-link to="/download" class="mission-action-pill" v-magnetic="10">Get the App</router-link>
+
+              <a 
+  href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="mission-action-pill" 
+  v-magnetic="10"
+>
+Get the App
+</a>
       </div>
     </div>
   </section>

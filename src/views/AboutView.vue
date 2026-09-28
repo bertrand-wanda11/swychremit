@@ -109,7 +109,16 @@
           <span class="cta-graphic">🌍</span>
           <h2>Join thousands sending smarter</h2>
           <p>Download the app and send your first transfer in minutes.</p>
-          <router-link to="/download" class="about-cta-btn" v-magnetic="10">Get the App</router-link>
+     
+          <a 
+  href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="about-cta-btn" 
+  v-magnetic="10"
+>
+  Get the App
+</a>
         </div>
       </section>
 
