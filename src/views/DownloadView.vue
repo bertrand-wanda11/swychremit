@@ -10,10 +10,10 @@
       </div>
 
       <div class="store-buttons">
-        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
+        <a href="https://apps.apple.com/gb/app/swychremit/id6804958570" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
           <span class="store-icon"></span> App Store
         </a>
-        <a href="https://urlgeni.us/swychr" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
+        <a href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en" target="_blank" rel="noopener" class="store-btn" v-magnetic="10">
           <span class="store-icon">▶</span> Google Play
         </a>
       </div>
