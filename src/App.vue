@@ -57,13 +57,15 @@
         </router-link>
 
         <div class="drawer-action-wrapper" style="--i: 2">
-          <router-link
-            to="/download"
-            class="download-pill-btn full-width-btn"
-            @click="closeMobileMenu"
-          >
-            <span class="dl-icon">↓</span> {{ $t('nav.download') }}
-          </router-link>
+      <a
+  href="https://play.google.com/store/apps/details?id=com.swychr.swych_remit&hl=en"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="download-pill-btn full-width-btn"
+  @click="closeMobileMenu"
+>
+  <span class="dl-icon">↓</span> {{ $t('nav.download') }}
+</a>
         </div>
 
       </div>
