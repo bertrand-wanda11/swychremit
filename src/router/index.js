@@ -94,6 +94,11 @@ const router = createRouter({
             name: 'send-money-to',
             component: () => import('../views/CountryDestinationView.vue')
         },
+        {
+            path: '/send-money-from-:pathMatch(.*)*',
+            name: 'CountryCorridor',
+            component: () => import('@/views/CountryCtaView.vue')
+        }
     ]
 })
 
