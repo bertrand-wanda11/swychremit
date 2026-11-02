@@ -215,27 +215,40 @@
         <h1 class="destinations-title">Send From</h1>
       </div>
 
+  
       <div class="continent-row-block" v-reveal>
         <h3 class="continent-group-title">North America</h3>
         <div class="destinations-flag-grid">
-          <div v-for="(country, index) in sendFromNorthAmerica" :key="'na-sf-' + index" class="destination-badge-card" v-reveal="index % 5">
+          <router-link
+            v-for="(country, index) in sendFromNorthAmerica" 
+            :key="'na-sf-' + index" 
+            :to="`/send-money-from-${getSlug(country.name)}`"
+            class="destination-badge-card" 
+            v-reveal="index % 5"
+          >
             <div class="flag-circle-frame">
               <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
-          </div>
+            <span class="destination-action-link">Send money from {{ country.name }}</span>
+          </router-link>
         </div>
       </div>
 
       <div class="continent-row-block" v-reveal>
         <h3 class="continent-group-title">Europe</h3>
         <div class="destinations-flag-grid">
-          <div v-for="(country, index) in sendFromEurope" :key="'eu-sf-' + index" class="destination-badge-card" v-reveal="index % 5">
+          <router-link
+            v-for="(country, index) in sendFromEurope" 
+            :key="'eu-sf-' + index" 
+            :to="`/send-money-from-${getSlug(country.name)}`"
+            class="destination-badge-card" 
+            v-reveal="index % 5"
+          >
             <div class="flag-circle-frame">
               <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="destination-action-link">Send money from {{ country.name }}</a>
-          </div>
+            <span class="destination-action-link">Send money from {{ country.name }}</span>
+          </router-link>
         </div>
       </div>
 
@@ -243,34 +256,48 @@
   </section>
 
 
-  <section class="spreadsheet-grouped-section">
+ <section class="spreadsheet-grouped-section">
     <div class="destinations-container">
 
       <div class="destinations-header" v-reveal>
         <h1 class="destinations-title">Send To</h1>
       </div>
 
+   
       <div class="continent-row-block" v-reveal>
         <h3 class="continent-group-title">Africa</h3>
         <div class="destinations-flag-grid">
-          <div v-for="(country, index) in spreadsheetAfrica" :key="'af-s-' + index" class="destination-badge-card" v-reveal="index % 5">
+          <router-link
+            v-for="(country, index) in spreadsheetAfrica" 
+            :key="'af-s-' + index" 
+            :to="`/send-money-to-${getSlug(country.name)}`"
+            class="destination-badge-card" 
+            v-reveal="index % 5"
+          >
             <div class="flag-circle-frame">
               <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-          </div>
+            <span class="destination-action-link">Send money to {{ country.name }}</span>
+          </router-link>
         </div>
       </div>
 
+  
       <div class="continent-row-block" v-reveal>
         <h3 class="continent-group-title">Asia</h3>
         <div class="destinations-flag-grid">
-          <div v-for="(country, index) in spreadsheetAsia" :key="'as-s-' + index" class="destination-badge-card" v-reveal="index % 5">
+          <router-link
+            v-for="(country, index) in spreadsheetAsia" 
+            :key="'as-s-' + index" 
+            :to="`/send-money-to-${getSlug(country.name)}`"
+            class="destination-badge-card" 
+            v-reveal="index % 5"
+          >
             <div class="flag-circle-frame">
               <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
             </div>
-            <a href="#" class="destination-action-link">Send money to {{ country.name }}</a>
-          </div>
+            <span class="destination-action-link">Send money to {{ country.name }}</span>
+          </router-link>
         </div>
       </div>
 
@@ -365,11 +392,9 @@ export default {
       ],
 
       spreadsheetAfrica: [
-       { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
+        { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
         { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
         { name: "Congo (Brazzaville)", flagUrl: "https://flagcdn.com/w80/cg.png" },
-        
-
         { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
         { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
         { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
@@ -379,7 +404,6 @@ export default {
         { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
         { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
         { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
-  
         { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
         { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
         { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
@@ -392,6 +416,7 @@ export default {
       ],
     };
   },
+
   computed: {
     marqueeFlags() {
       return [
@@ -406,14 +431,25 @@ export default {
       return `1 ${this.fromCountry.currency_code} = ${rate} ${this.toCountry.currency_code}`;
     }
   },
+
   created() {
     this.loadFxCountries();
   },
+
   mounted() {
     this.animateCountUp('countriesCount', 50, 1200);
   },
 
   methods: {
+   
+    getSlug(name) {
+      return name
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')  
+        .trim()
+        .replace(/\s+/g, '-');     
+    },
+
     async loadFxCountries() {
       try {
         const response = await apiFetch('/api/web/fx_countries');
@@ -425,7 +461,7 @@ export default {
         if (this.onrampCountries.length) this.fromCountry = this.onrampCountries[0];
         if (this.offrampCountries.length) this.toCountry = this.offrampCountries[0];
       } catch (err) {
-        // Keep the static US/NG defaults set in data() and still try a quote below.
+        // Fallback to static defaults
       } finally {
         this.fetchQuote();
       }
@@ -1339,10 +1375,13 @@ export default {
 }
 
 .destination-badge-card {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
   transition: transform 260ms var(--ease-out-expo);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .destination-badge-card:hover {

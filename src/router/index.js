@@ -78,7 +78,22 @@ const router = createRouter({
             path: '/download',
             name: 'download',
             component: () => import('../views/DownloadView.vue')
-        }
+        },
+        {
+            path: '/blogpost',
+            name: 'blogpost',
+            component: () => import('../views/BlogPostView.vue')
+        },
+        {
+            path: '/send-money-from-:country',
+            name: 'country-cta',
+            component: () => import('../views/CountryCtaView.vue')
+        },
+        {
+            path: '/send-money-to-:country',
+            name: 'send-money-to',
+            component: () => import('../views/CountryDestinationView.vue')
+        },
     ]
 })
 
