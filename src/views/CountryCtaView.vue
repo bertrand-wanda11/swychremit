@@ -36,13 +36,13 @@
     </header>
 
     <main class="container page-body">
-      <!-- Overview & Context -->
+      <!-- Overview & Narrative -->
       <section class="content-section narrative-block">
         <p>{{ corridor.narrative }}</p>
         <p v-if="corridor.narrativeSecondary">{{ corridor.narrativeSecondary }}</p>
       </section>
 
-      <!-- Why Swychremit is Top-Rated -->
+      <!-- Value Propositions -->
       <section class="content-section">
         <h2 class="section-title">Why Choose Swychremit for {{ corridor.fromCountry }} to {{ corridor.toCountry }}?</h2>
         <div class="features-grid">
@@ -95,9 +95,9 @@
 </template>
 
 <script>
-const CORRIDORS = {
+const CORRIDOR_DICTIONARY = {
   // 1. Czech Republic to Cameroon
-  "send-money-from-czech-republic-to-cameroon": {
+  "czech-republic": {
     fromCountry: "Czech Republic",
     toCountry: "Cameroon",
     fromCurrency: "EUR",
@@ -131,8 +131,76 @@ const CORRIDORS = {
     ]
   },
 
-  // 2. Croatia to Cameroon
-  "send-money-from-croatia-to-cameroon": {
+  // 2. Austria to Cameroon
+  "austria": {
+    fromCountry: "Austria",
+    toCountry: "Cameroon",
+    fromCurrency: "EUR",
+    toCurrency: "XAF",
+    title: "How to Send Money from Austria to Cameroon?",
+    description: "The best way to send money to Cameroon from Austria is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
+    quickAnswer: "The fastest, most secure way to send money from Austria to Cameroon is using a digital remittance app like Swychremit. You can send your Euro (EUR) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
+    narrative: "Swychremit is the top-rated choice for the Cameroonian diaspora in Austria, offering fast and affordable cross-border transfers.",
+    narrativeSecondary: "Say goodbye to high fees and slow bank processing times with direct mobile money integrations.",
+    features: [
+      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Strict encryption and bank-level security ensure safe delivery of your money every single time." },
+      { icon: "🕒", title: "24/7 Customer Service", desc: "Available 24/7 for real human assistance whenever you need it." },
+      { icon: "💸", title: "Best EUR to XAF Exchange Rates", desc: "Lock in transparent exchange rates upfront with zero hidden charges." },
+      { icon: "⚡", title: "Instant Delivery", desc: "Most transfers to Cameroonian mobile wallets settle in under 5 minutes." }
+    ],
+    payoutMethods: [
+      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Instant transfers directly into MTN MoMo or Orange Money wallets across Cameroon." },
+      { badge: "Direct Rails", title: "Bank Deposits", desc: "Direct deposits into major Cameroonian commercial bank accounts." }
+    ],
+    steps: [
+      { title: "Download the Swychremit App", desc: "Create a free account and complete KYC verification in minutes." },
+      { title: "Enter Transfer Details", desc: "Select Cameroon, enter EUR amount, and preview the real-time XAF payout." },
+      { title: "Choose Payout Method", desc: "Choose MTN Mobile Money, Orange Money, or direct bank transfer." },
+      { title: "Confirm and Send", desc: "Pay securely with your Austrian debit/credit card or bank account and track live in-app." }
+    ],
+    faqs: [
+      { question: "How long does it take to send money to Cameroon from Austria?", answer: "Transfers sent to mobile wallets (MTN Mobile Money or Orange Money) typically deliver in minutes. Bank transfers may take 1-2 business days." },
+      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit is fully compliant and uses bank-level encryption to safeguard your funds." },
+      { question: "What happens if my transfer gets stuck?", answer: "Our 24/7 customer support team is available around the clock to assist you." }
+    ]
+  },
+
+  // 3. United Kingdom to Cameroon
+  "united-kingdom": {
+    fromCountry: "United Kingdom",
+    toCountry: "Cameroon",
+    fromCurrency: "GBP",
+    toCurrency: "XAF",
+    title: "How to Send Money from the United Kingdom to Cameroon?",
+    description: "The best way to send money to Cameroon from the UK is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
+    quickAnswer: "The fastest, most secure way to send money from the United Kingdom to Cameroon is using a digital remittance app like Swychremit. You can send British Pounds (GBP) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
+    narrative: "Swychremit is the preferred choice for the Cameroonian diaspora in the UK seeking affordable, instantaneous transfers to friends, family, and businesses.",
+    narrativeSecondary: "Bypass costly legacy wire services and high foreign exchange markups with direct mobile money payouts.",
+    features: [
+      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Protected by bank-level security and strict compliance to guarantee safe transfers every single time." },
+      { icon: "🕒", title: "24/7 Customer Service", desc: "Our UK and global customer support team is available 24/7 whenever you need help." },
+      { icon: "💷", title: "Best GBP to XAF Exchange Rates", desc: "Highly competitive, transparent exchange rates with upfront locked-in rates." },
+      { icon: "⚡", title: "Instant Delivery", desc: "Most mobile wallet remittances to Cameroon process and arrive in under 5 minutes." }
+    ],
+    payoutMethods: [
+      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Send directly to MTN MoMo or Orange Money. Recipients cash out at agent kiosks across Cameroon." },
+      { badge: "Direct Rails", title: "Bank Deposits", desc: "Transfer directly into major Cameroonian commercial bank accounts." }
+    ],
+    steps: [
+      { title: "Download the Swychremit App", desc: "Create a free account and complete KYC verification in minutes." },
+      { title: "Enter Transfer Details", desc: "Select Cameroon, enter GBP amount, and view live XAF payout." },
+      { title: "Choose Payout Method", desc: "Pick MTN MoMo, Orange Money, or a direct bank deposit." },
+      { title: "Confirm and Send", desc: "Pay with your UK debit card, credit card, or bank account and track in real-time." }
+    ],
+    faqs: [
+      { question: "How long does it take to send money to Cameroon from the UK?", answer: "Mobile money transfers (MTN MoMo or Orange Money) typically deliver within minutes. Bank transfers settle in 1–2 business days." },
+      { question: "Is it safe to use Swychremit?", answer: "Yes. Swychremit utilizes advanced encryption and complies with international remittance regulations." },
+      { question: "What happens if my transfer gets stuck?", answer: "Swychremit provides 24/7 customer service via in-app live chat for immediate support." }
+    ]
+  },
+
+  // 4. Croatia to Cameroon
+  "croatia": {
     fromCountry: "Croatia",
     toCountry: "Cameroon",
     fromCurrency: "EUR",
@@ -166,8 +234,8 @@ const CORRIDORS = {
     ]
   },
 
-  // 3. Cyprus to Cameroon
-  "send-money-from-cyprus-to-cameroon": {
+  // 5. Cyprus to Cameroon
+  "cyprus": {
     fromCountry: "Cyprus",
     toCountry: "Cameroon",
     fromCurrency: "EUR",
@@ -201,8 +269,8 @@ const CORRIDORS = {
     ]
   },
 
-  // 4. Denmark to Cameroon
-  "send-money-from-denmark-to-cameroon": {
+  // 6. Denmark to Cameroon
+  "denmark": {
     fromCountry: "Denmark",
     toCountry: "Cameroon",
     fromCurrency: "EUR",
@@ -236,8 +304,76 @@ const CORRIDORS = {
     ]
   },
 
-  // 5. France to South Africa
-  "send-money-from-france-to-south-africa": {
+  // 7. Belgium to Cameroon
+  "belgium": {
+    fromCountry: "Belgium",
+    toCountry: "Cameroon",
+    fromCurrency: "EUR",
+    toCurrency: "XAF",
+    title: "How to Send Money from Belgium to Cameroon?",
+    description: "The best way to send money to Cameroon from Belgium is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
+    quickAnswer: "The fastest, most secure way to send money from Belgium to Cameroon is using a digital remittance app like Swychremit. You can send your Euro (EUR) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
+    narrative: "Swychremit is the top-rated choice for the Cameroonian diaspora in Belgium looking to send funds home without unnecessary bank markups.",
+    narrativeSecondary: "Direct connections to local African mobile payment networks allow money transfers to arrive in minutes.",
+    features: [
+      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Bank-level security and strict encryption ensure your money reaches its destination safely every time." },
+      { icon: "🕒", title: "24/7 Customer Service", desc: "Real human help is available 24/7 through the app at any time of day or night." },
+      { icon: "💸", title: "Best EUR to XAF Exchange Rates", desc: "Lock in transparent exchange rates upfront so your recipient gets the exact promised amount." },
+      { icon: "⚡", title: "Instant Delivery", desc: "Most transfers to Cameroonian mobile wallets settle in under 5 minutes." }
+    ],
+    payoutMethods: [
+      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Send directly to MTN MoMo or Orange Money for instant cash-outs at local kiosks." },
+      { badge: "Direct Rails", title: "Bank Deposits", desc: "Transfer directly to major Cameroonian bank accounts for business or education expenses." }
+    ],
+    steps: [
+      { title: "Download the Swychremit App", desc: "Create a free account and finish quick identity verification (KYC)." },
+      { title: "Enter Transfer Details", desc: "Select Cameroon, input the amount in EUR, and confirm the real-time XAF conversion." },
+      { title: "Choose Payout Method", desc: "Select MTN Mobile Money, Orange Money, or direct bank transfer." },
+      { title: "Confirm and Send", desc: "Pay securely with your Belgian debit/credit card or bank account and track live in-app." }
+    ],
+    faqs: [
+      { question: "How long does it take to send money to Cameroon from Belgium?", answer: "Transfers sent to mobile wallets (MTN Mobile Money or Orange Money) typically deliver in minutes. Bank transfers may take 1-2 business days." },
+      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit uses advanced encryption to protect your data and ensure fully compliant cross-border transfers." },
+      { question: "What happens if my transfer gets stuck?", answer: "Our 24/7 live support team is always available to resolve any questions or issues immediately." }
+    ]
+  },
+
+  // 8. Bulgaria to Cameroon
+  "bulgaria": {
+    fromCountry: "Bulgaria",
+    toCountry: "Cameroon",
+    fromCurrency: "BGN",
+    toCurrency: "XAF",
+    title: "How to Send Money from Bulgaria to Cameroon?",
+    description: "The best way to send money to Cameroon from Bulgaria is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
+    quickAnswer: "The fastest, most secure way to send money from Bulgaria to Cameroon is using a digital remittance app like Swychremit. You can send Bulgarian Lev (BGN) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
+    narrative: "Swychremit provides the Bulgarian diaspora with a fast, secure, and cheap way to transfer money directly home to Cameroon.",
+    narrativeSecondary: "Avoid expensive intermediary bank wire systems and enjoy direct mobile wallet deposits.",
+    features: [
+      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Bank-level encryption and full compliance protect every transfer." },
+      { icon: "🕒", title: "24/7 Customer Service", desc: "Real human help is available 24/7 whenever you have questions." },
+      { icon: "💸", title: "Best BGN to XAF Rates", desc: "Transparent pricing and top exchange rates locked in upfront." },
+      { icon: "⚡", title: "Instant Delivery", desc: "Mobile money transfers settle directly into Cameroonian wallets in under 5 minutes." }
+    ],
+    payoutMethods: [
+      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Direct payout to MTN Mobile Money or Orange Money accounts across Cameroon." },
+      { badge: "Direct Rails", title: "Bank Deposits", desc: "Direct deposits to major Cameroonian bank accounts." }
+    ],
+    steps: [
+      { title: "Download the Swychremit App", desc: "Create an account and complete KYC verification." },
+      { title: "Enter Transfer Details", desc: "Select Cameroon, input the amount, and confirm the low-cost exchange rate." },
+      { title: "Choose Payout Method", desc: "Select MTN MoMo, Orange Money, or direct bank deposit." },
+      { title: "Confirm and Send", desc: "Pay securely with your Bulgarian card or bank account and track live." }
+    ],
+    faqs: [
+      { question: "How long does it take to send money to Cameroon from Bulgaria?", answer: "Transfers sent to mobile wallets (MTN MoMo or Orange Money) are delivered in minutes. Bank transfers may take 1-2 business days." },
+      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit uses advanced encryption to protect your financial data and ensure compliant transfers." },
+      { question: "What happens if my transfer gets stuck?", answer: "Swychremit offers 24/7 customer service via in-app live chat for immediate support." }
+    ]
+  },
+
+  // 9. France to South Africa
+  "france-to-south-africa": {
     fromCountry: "France",
     toCountry: "South Africa",
     fromCurrency: "EUR",
@@ -271,8 +407,8 @@ const CORRIDORS = {
     ]
   },
 
-  // 6. France to Benin
-  "send-money-from-france-to-benin": {
+  // 10. France to Benin
+  "france-to-benin": {
     fromCountry: "France",
     toCountry: "Benin",
     fromCurrency: "EUR",
@@ -307,8 +443,8 @@ const CORRIDORS = {
     ]
   },
 
-  // 7. France to Côte d'Ivoire
-  "send-money-from-france-to-cote-divoire": {
+  // 11. France to Côte d'Ivoire
+  "france-to-cote-divoire": {
     fromCountry: "France",
     toCountry: "Côte d'Ivoire",
     fromCurrency: "EUR",
@@ -342,76 +478,8 @@ const CORRIDORS = {
     ]
   },
 
-  // 8. Belgium to Cameroon
-  "send-money-from-belgium-to-cameroon": {
-    fromCountry: "Belgium",
-    toCountry: "Cameroon",
-    fromCurrency: "EUR",
-    toCurrency: "XAF",
-    title: "How to Send Money from Belgium to Cameroon?",
-    description: "The best way to send money to Cameroon from Belgium is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
-    quickAnswer: "The fastest, most secure way to send money from Belgium to Cameroon is using a digital remittance app like Swychremit. You can send your Euro (EUR) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
-    narrative: "Swychremit is the top-rated choice for the Cameroonian diaspora in Belgium looking to send funds home without unnecessary bank markups.",
-    narrativeSecondary: "Direct connections to local African mobile payment networks allow money transfers to arrive in minutes.",
-    features: [
-      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Bank-level security and strict encryption ensure your money reaches its destination safely every time." },
-      { icon: "🕒", title: "24/7 Customer Service", desc: "Real human help is available 24/7 through the app at any time of day or night." },
-      { icon: "💸", title: "Best EUR to XAF Exchange Rates", desc: "Lock in transparent exchange rates upfront so your recipient gets the exact promised amount." },
-      { icon: "⚡", title: "Instant Delivery", desc: "Most transfers to Cameroonian mobile wallets settle in under 5 minutes." }
-    ],
-    payoutMethods: [
-      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Send directly to MTN MoMo or Orange Money for instant cash-outs at local kiosks." },
-      { badge: "Direct Rails", title: "Bank Deposits", desc: "Transfer directly to major Cameroonian bank accounts for business or education expenses." }
-    ],
-    steps: [
-      { title: "Download the Swychremit App", desc: "Create a free account and finish quick identity verification (KYC)." },
-      { title: "Enter Transfer Details", desc: "Select Cameroon, input the amount in EUR, and confirm the real-time XAF conversion." },
-      { title: "Choose Payout Method", desc: "Select MTN Mobile Money, Orange Money, or direct bank transfer." },
-      { title: "Confirm and Send", desc: "Pay securely with your Belgian debit/credit card or bank account and track live in-app." }
-    ],
-    faqs: [
-      { question: "How long does it take to send money to Cameroon from Belgium?", answer: "Transfers sent to mobile wallets (MTN Mobile Money or Orange Money) typically deliver in minutes. Bank transfers may take 1-2 business days." },
-      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit uses advanced encryption to protect your data and ensure fully compliant cross-border transfers." },
-      { question: "What happens if my transfer gets stuck?", answer: "Our 24/7 live support team is always available to resolve any questions or issues immediately." }
-    ]
-  },
-
-  // 9. United Kingdom to Cameroon
-  "send-money-from-uk-to-cameroon": {
-    fromCountry: "United Kingdom",
-    toCountry: "Cameroon",
-    fromCurrency: "GBP",
-    toCurrency: "XAF",
-    title: "How to Send Money from the United Kingdom to Cameroon?",
-    description: "The best way to send money to Cameroon from the UK is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
-    quickAnswer: "The fastest, most secure way to send money from the United Kingdom to Cameroon is using a digital remittance app like Swychremit. You can send British Pounds (GBP) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
-    narrative: "Swychremit is the preferred choice for the Cameroonian diaspora in the UK seeking affordable, instantaneous transfers to friends, family, and businesses.",
-    narrativeSecondary: "Bypass costly legacy wire services and high foreign exchange markups with direct mobile money payouts.",
-    features: [
-      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Protected by bank-level security and strict compliance to guarantee safe transfers every single time." },
-      { icon: "🕒", title: "24/7 Customer Service", desc: "Our UK and global customer support team is available 24/7 whenever you need help." },
-      { icon: "💷", title: "Best GBP to XAF Exchange Rates", desc: "Highly competitive, transparent exchange rates with upfront locked-in rates." },
-      { icon: "⚡", title: "Instant Delivery", desc: "Most mobile wallet remittances to Cameroon process and arrive in under 5 minutes." }
-    ],
-    payoutMethods: [
-      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Send directly to MTN MoMo or Orange Money. Recipients cash out at agent kiosks across Cameroon." },
-      { badge: "Direct Rails", title: "Bank Deposits", desc: "Transfer directly into major Cameroonian commercial bank accounts." }
-    ],
-    steps: [
-      { title: "Download the Swychremit App", desc: "Create a free account and complete KYC verification in minutes." },
-      { title: "Enter Transfer Details", desc: "Select Cameroon, enter GBP amount, and view live XAF payout." },
-      { title: "Choose Payout Method", desc: "Pick MTN MoMo, Orange Money, or a direct bank deposit." },
-      { title: "Confirm and Send", desc: "Pay with your UK debit card, credit card, or bank account and track in real-time." }
-    ],
-    faqs: [
-      { question: "How long does it take to send money to Cameroon from the UK?", answer: "Mobile money transfers (MTN MoMo or Orange Money) typically deliver within minutes. Bank transfers settle in 1–2 business days." },
-      { question: "Is it safe to use Swychremit?", answer: "Yes. Swychremit utilizes advanced encryption and complies with international remittance regulations." },
-      { question: "What happens if my transfer gets stuck?", answer: "Swychremit provides 24/7 customer service via in-app live chat for immediate support." }
-    ]
-  },
-
-  // 10. United Kingdom to Gabon
-  "send-money-from-uk-to-gabon": {
+  // 12. United Kingdom to Gabon
+  "uk-to-gabon": {
     fromCountry: "United Kingdom",
     toCountry: "Gabon",
     fromCurrency: "GBP",
@@ -442,74 +510,6 @@ const CORRIDORS = {
       { question: "Is Swychremit safe for sending money to Gabon?", answer: "Yes. Swychremit uses advanced encryption and operates in compliance with international financial regulations." },
       { question: "How do I contact Swychremit if I need help with my transfer?", answer: "Swychremit provides 24/7 customer service via in-app live chat and email." }
     ]
-  },
-
-  // 11. Bulgaria to Cameroon
-  "send-money-from-bulgaria-to-cameroon": {
-    fromCountry: "Bulgaria",
-    toCountry: "Cameroon",
-    fromCurrency: "BGN",
-    toCurrency: "XAF",
-    title: "How to Send Money from Bulgaria to Cameroon?",
-    description: "The best way to send money to Cameroon from Bulgaria is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
-    quickAnswer: "The fastest, most secure way to send money from Bulgaria to Cameroon is using a digital remittance app like Swychremit. You can send Bulgarian Lev (BGN) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
-    narrative: "Swychremit provides the Bulgarian diaspora with a fast, secure, and cheap way to transfer money directly home to Cameroon.",
-    narrativeSecondary: "Avoid expensive intermediary bank wire systems and enjoy direct mobile wallet deposits.",
-    features: [
-      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Bank-level encryption and full compliance protect every transfer." },
-      { icon: "🕒", title: "24/7 Customer Service", desc: "Real human help is available 24/7 whenever you have questions." },
-      { icon: "💸", title: "Best BGN to XAF Rates", desc: "Transparent pricing and top exchange rates locked in upfront." },
-      { icon: "⚡", title: "Instant Delivery", desc: "Mobile money transfers settle directly into Cameroonian wallets in under 5 minutes." }
-    ],
-    payoutMethods: [
-      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Direct payout to MTN Mobile Money or Orange Money accounts across Cameroon." },
-      { badge: "Direct Rails", title: "Bank Deposits", desc: "Direct deposits to major Cameroonian bank accounts." }
-    ],
-    steps: [
-      { title: "Download the Swychremit App", desc: "Create an account and complete KYC verification." },
-      { title: "Enter Transfer Details", desc: "Select Cameroon, input the amount, and confirm the low-cost exchange rate." },
-      { title: "Choose Payout Method", desc: "Select MTN MoMo, Orange Money, or direct bank deposit." },
-      { title: "Confirm and Send", desc: "Pay securely with your Bulgarian card or bank account and track live." }
-    ],
-    faqs: [
-      { question: "How long does it take to send money to Cameroon from Bulgaria?", answer: "Transfers sent to mobile wallets (MTN MoMo or Orange Money) are delivered in minutes. Bank transfers may take 1-2 business days." },
-      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit uses advanced encryption to protect your financial data and ensure compliant transfers." },
-      { question: "What happens if my transfer gets stuck?", answer: "Swychremit offers 24/7 customer service via in-app live chat for immediate support." }
-    ]
-  },
-
-  // 12. Austria to Cameroon
-  "send-money-from-austria-to-cameroon": {
-    fromCountry: "Austria",
-    toCountry: "Cameroon",
-    fromCurrency: "EUR",
-    toCurrency: "XAF",
-    title: "How to Send Money from Austria to Cameroon?",
-    description: "The best way to send money to Cameroon from Austria is via Swychremit. Enjoy instant mobile money transfers, low fees, top exchange rates, and 24/7 support.",
-    quickAnswer: "The fastest, most secure way to send money from Austria to Cameroon is using a digital remittance app like Swychremit. You can send your Euro (EUR) instantly to local MTN Mobile Money and Orange Money wallets in CFA Francs (XAF) with zero hidden fees and access to 24/7 customer support.",
-    narrative: "Swychremit is the top-rated choice for the Cameroonian diaspora in Austria, offering fast and affordable cross-border transfers.",
-    narrativeSecondary: "Say goodbye to high fees and slow bank processing times with direct mobile money integrations.",
-    features: [
-      { icon: "🔒", title: "100% Reliable and Trusted", desc: "Strict encryption and bank-level security ensure safe delivery of your money every single time." },
-      { icon: "🕒", title: "24/7 Customer Service", desc: "Available 24/7 for real human assistance whenever you need it." },
-      { icon: "💸", title: "Best EUR to XAF Exchange Rates", desc: "Lock in transparent exchange rates upfront with zero hidden charges." },
-      { icon: "⚡", title: "Instant Delivery", desc: "Most transfers to Cameroonian mobile wallets settle in under 5 minutes." }
-    ],
-    payoutMethods: [
-      { badge: "Instant", title: "Mobile Money (MTN & Orange)", desc: "Instant transfers directly into MTN MoMo or Orange Money wallets across Cameroon." },
-      { badge: "Direct Rails", title: "Bank Deposits", desc: "Direct deposits into major Cameroonian commercial bank accounts." }
-    ],
-    steps: [
-      { title: "Download the Swychremit App", desc: "Create a free account and complete KYC verification in minutes." },
-      { title: "Enter Transfer Details", desc: "Select Cameroon, enter EUR amount, and preview the real-time XAF payout." },
-      { title: "Choose Payout Method", desc: "Choose MTN Mobile Money, Orange Money, or direct bank transfer." },
-      { title: "Confirm and Send", desc: "Pay securely with your Austrian debit/credit card or bank account and track live in-app." }
-    ],
-    faqs: [
-      { question: "How long does it take to send money to Cameroon from Austria?", answer: "Transfers sent to mobile wallets (MTN Mobile Money or Orange Money) typically deliver in minutes. Bank transfers may take 1-2 business days." },
-      { question: "Is it safe to use Swychremit?", answer: "Yes, Swychremit is fully compliant and uses bank-level encryption to safeguard your funds." },
-      { question: "What happens if my transfer gets stuck?", answer: "Our 24/7 customer support team is available around the clock to assist you." }
-    ]
   }
 };
 
@@ -524,7 +524,7 @@ export default {
     this.resolveCorridor();
   },
   watch: {
-    "$route.path": {
+    "$route.fullPath": {
       handler() {
         this.resolveCorridor();
       }
@@ -532,17 +532,37 @@ export default {
   },
   methods: {
     resolveCorridor() {
-      // Normalize path to match corridor keys (e.g., "/send-money-from-france-to-south-africa" -> "send-money-from-france-to-south-africa")
-      let slug = this.$route.path.replace(/^\/+|\/+$/g, "").toLowerCase();
+      // 1. Get raw param from route (e.g., :country in /send-money-from-:country)
+      let key = (this.$route.params.country || "").toLowerCase().trim();
 
-      // Fallback aliases for simplified routes like /send-money-to-cameroon
-      if (slug === "send-money-to-cameroon" || slug === "cameroon") {
-        slug = "send-money-from-czech-republic-to-cameroon";
+      // 2. If empty, parse from current path
+      if (!key) {
+        key = this.$route.path
+          .replace(/^\/+|\/+$/g, "")
+          .replace(/^send-money-from-/, "")
+          .toLowerCase();
       }
 
-      this.corridor = CORRIDORS[slug] || CORRIDORS["send-money-from-czech-republic-to-cameroon"];
+      // 3. Normalization aliases
+      const ALIASES = {
+        "uk": "united-kingdom",
+        "czech": "czech-republic",
+        "czechia": "czech-republic",
+        "united-kingdom-to-cameroon": "united-kingdom",
+        "uk-to-cameroon": "united-kingdom",
+        "austria-to-cameroon": "austria",
+        "belgium-to-cameroon": "belgium",
+        "bulgaria-to-cameroon": "bulgaria",
+        "croatia-to-cameroon": "croatia",
+        "cyprus-to-cameroon": "cyprus",
+        "denmark-to-cameroon": "denmark",
+        "united-kingdom-to-gabon": "uk-to-gabon"
+      };
 
-      // Update document title and description dynamically
+      const resolvedKey = ALIASES[key] || key;
+      this.corridor = CORRIDOR_DICTIONARY[resolvedKey] || CORRIDOR_DICTIONARY["czech-republic"];
+
+      // Update document title and meta description dynamically
       document.title = `${this.corridor.title} | Swychremit`;
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
