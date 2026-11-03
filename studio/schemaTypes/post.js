@@ -84,11 +84,22 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
+      name: 'category',
+      title: 'Category',
+      type: 'string',
       group: 'publishing',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      options: {
+        list: [
+          { title: 'Business', value: 'Business' },
+          { title: 'Payments', value: 'Payments' },
+          { title: 'Virtual Cards', value: 'Virtual Cards' },
+          { title: 'Company News', value: 'Company News' },
+          { title: 'Guides', value: 'Guides' },
+          { title: 'Compliance', value: 'Compliance' },
+        ],
+      },
+      initialValue: 'Business',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'author',

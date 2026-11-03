@@ -30,14 +30,8 @@
 
             <!-- Card Info -->
             <div class="card-body">
-              <div class="card-categories">
-                <span 
-                  v-for="(cat, idx) in (article.categories || ['PAYMENTS'])" 
-                  :key="idx" 
-                  class="cat-tag"
-                >
-                  {{ cat }}
-                </span>
+              <div class="card-categories" v-if="article.category">
+                <span class="cat-tag">{{ article.category }}</span>
               </div>
 
               <h2 class="card-heading">
@@ -120,18 +114,25 @@ export default {
       loading: true,
       articles: [],
        
-      categories: ['All', 'Business', 'Payments', 'Virtual Cards', 'Company News']
+ 
     };
   },
+
   computed: {
+    categories() {
+      const cats = new Set(
+        this.articles
+          .map((a) => a.category)
+          .filter(Boolean)
+      );
+      return ['All', ...Array.from(cats)];
+    },
     filteredArticles() {
       return this.articles.filter((article) => {
- 
         const matchesCategory =
           this.activeCategory === 'All' ||
-          article.category?.toLowerCase() === this.activeCategory.toLowerCase();
+          (article.category && article.category.toLowerCase() === this.activeCategory.toLowerCase());
 
-      
         const q = this.searchQuery.trim().toLowerCase();
         const matchesSearch =
           !q ||
@@ -141,25 +142,25 @@ export default {
 
         return matchesCategory && matchesSearch;
       });
-    }
+    },
   },
+
   async created() {
     await this.fetchArticles();
   },
   methods: {
     async fetchArticles() {
       this.loading = true;
-   const query = `*[_type == "post" && (site == "swychremit" || !defined(site))] | order(publishedAt desc) {
-  _id,
-  title,
-  "slug": slug.current,
-  "categories": categories[]->title,
-  "author": coalesce(author->name, author, "Swychremit Team"),
-  publishedAt,
-  "imageUrl": coalesce(mainImage.asset->url, coverImage.asset->url),
-  callout,
-  excerpt
-}`;
+const query = `*[_type == "post" && (site == "swychremit" || !defined(site))] | order(publishedAt desc) {
+        _id,
+        title,
+        "slug": slug.current,
+        category,
+        "author": coalesce(author->name, author, "Swychremit Team"),
+        publishedAt,
+        "imageUrl": coalesce(mainImage.asset->url, coverImage.asset->url),
+        excerpt
+      }`;
 
       try {
         this.articles = await sanityClient.fetch(query);
