@@ -80,8 +80,9 @@ const router = createRouter({
             component: () => import('../views/DownloadView.vue')
         },
         {
-            path: '/blogpost',
-            name: 'blogpost',
+            path: '/blog/:slug',
+            name: 'BlogPost',
+            alias: '/blogpost/:slug',
             component: () => import('../views/BlogPostView.vue')
         },
         {
