@@ -117,14 +117,14 @@ export default {
   methods: {
     async fetchArticles() {
       this.loading = true;
-      const query = `*[_type == "post"] | order(publishedAt desc) {
+     const query = `*[_type == "post" && (site == "swychremit" || !defined(site))] | order(publishedAt desc) {
         _id,
         title,
         "slug": slug.current,
         category,
-        author,
+        "author": coalesce(author->name, author, "Swychremit Team"),
         publishedAt,
-        "imageUrl": coverImage.asset->url,
+        "imageUrl": coalesce(mainImage.asset->url, coverImage.asset->url),
         excerpt
       }`;
 
