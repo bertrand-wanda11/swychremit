@@ -187,7 +187,6 @@ export default {
   overflow: hidden;
   margin-bottom: 36px;
 }
-
 .article-featured-image img {
   width: 100%;
   height: 100%;
