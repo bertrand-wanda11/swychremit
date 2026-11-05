@@ -207,31 +207,11 @@
     </div>
   </section>
 
-
+<!-- Send From Section -->
   <section class="send-from-grouped-section">
     <div class="destinations-container">
-
       <div class="destinations-header" v-reveal>
         <h1 class="destinations-title">Send From</h1>
-      </div>
-
-  
-      <div class="continent-row-block" v-reveal>
-        <h3 class="continent-group-title">North America</h3>
-        <div class="destinations-flag-grid">
-          <router-link
-            v-for="(country, index) in sendFromNorthAmerica" 
-            :key="'na-sf-' + index" 
-            :to="`/send-money-from-${getSlug(country.name)}`"
-            class="destination-badge-card" 
-            v-reveal="index % 5"
-          >
-            <div class="flag-circle-frame">
-              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-            </div>
-            <span class="destination-action-link">Send money from {{ country.name }}</span>
-          </router-link>
-        </div>
       </div>
 
       <div class="continent-row-block" v-reveal>
@@ -251,19 +231,16 @@
           </router-link>
         </div>
       </div>
-
     </div>
   </section>
 
-
- <section class="spreadsheet-grouped-section">
+  <!-- Send To Section -->
+  <section class="spreadsheet-grouped-section">
     <div class="destinations-container">
-
       <div class="destinations-header" v-reveal>
         <h1 class="destinations-title">Send To</h1>
       </div>
 
-   
       <div class="continent-row-block" v-reveal>
         <h3 class="continent-group-title">Africa</h3>
         <div class="destinations-flag-grid">
@@ -281,26 +258,6 @@
           </router-link>
         </div>
       </div>
-
-  
-      <div class="continent-row-block" v-reveal>
-        <h3 class="continent-group-title">Asia</h3>
-        <div class="destinations-flag-grid">
-          <router-link
-            v-for="(country, index) in spreadsheetAsia" 
-            :key="'as-s-' + index" 
-            :to="`/send-money-to-${getSlug(country.name)}`"
-            class="destination-badge-card" 
-            v-reveal="index % 5"
-          >
-            <div class="flag-circle-frame">
-              <img :src="country.flagUrl" :alt="country.name + ' flag'" class="native-flag-img" />
-            </div>
-            <span class="destination-action-link">Send money to {{ country.name }}</span>
-          </router-link>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -340,7 +297,8 @@ export default {
 
       onrampCountries: [],
       offrampCountries: [],
-      fromCountry: { country_code: 'US', country_name: 'United States', country_flag: '🇺🇸', currency_code: 'USD' },
+      // Default from UK/EU to Nigeria
+      fromCountry: { country_code: 'GB', country_name: 'United Kingdom', country_flag: '🇬🇧', currency_code: 'GBP' },
       toCountry: { country_code: 'NG', country_name: 'Nigeria', country_flag: '🇳🇬', currency_code: 'NGN' },
       openDropdown: null,
       quoteError: false,
@@ -348,82 +306,55 @@ export default {
 
       countriesCount: 0,
 
-      sendFromNorthAmerica: [
-        { name: "United States of America", flagUrl: "https://flagcdn.com/w80/us.png" },
-        { name: "Canada", flagUrl: "https://flagcdn.com/w80/ca.png" }
-      ],
-
+      // Exactly the 25 European sending countries from Aaron's workbook
       sendFromEurope: [
-        { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" },
         { name: "Austria", flagUrl: "https://flagcdn.com/w80/at.png" },
         { name: "Belgium", flagUrl: "https://flagcdn.com/w80/be.png" },
-        { name: "Bulgaria", flagUrl: "https://flagcdn.com/w80/bg.png" },
         { name: "Croatia", flagUrl: "https://flagcdn.com/w80/hr.png" },
         { name: "Cyprus", flagUrl: "https://flagcdn.com/w80/cy.png" },
-        { name: "Czech Republic (Czechia)", flagUrl: "https://flagcdn.com/w80/cz.png" },
-        { name: "Denmark", flagUrl: "https://flagcdn.com/w80/dk.png" },
         { name: "Estonia", flagUrl: "https://flagcdn.com/w80/ee.png" },
         { name: "Finland", flagUrl: "https://flagcdn.com/w80/fi.png" },
         { name: "France", flagUrl: "https://flagcdn.com/w80/fr.png" },
         { name: "Germany", flagUrl: "https://flagcdn.com/w80/de.png" },
         { name: "Greece", flagUrl: "https://flagcdn.com/w80/gr.png" },
-        { name: "Hungary", flagUrl: "https://flagcdn.com/w80/hu.png" },
-        { name: "Iceland", flagUrl: "https://flagcdn.com/w80/is.png" },
         { name: "Ireland", flagUrl: "https://flagcdn.com/w80/ie.png" },
         { name: "Italy", flagUrl: "https://flagcdn.com/w80/it.png" },
         { name: "Latvia", flagUrl: "https://flagcdn.com/w80/lv.png" },
-        { name: "Liechtenstein", flagUrl: "https://flagcdn.com/w80/li.png" },
         { name: "Lithuania", flagUrl: "https://flagcdn.com/w80/lt.png" },
         { name: "Luxembourg", flagUrl: "https://flagcdn.com/w80/lu.png" },
         { name: "Malta", flagUrl: "https://flagcdn.com/w80/mt.png" },
-        { name: "Monaco", flagUrl: "https://flagcdn.com/w80/mc.png" },
         { name: "Netherlands", flagUrl: "https://flagcdn.com/w80/nl.png" },
-        { name: "Norway", flagUrl: "https://flagcdn.com/w80/no.png" },
-        { name: "Poland", flagUrl: "https://flagcdn.com/w80/pl.png" },
         { name: "Portugal", flagUrl: "https://flagcdn.com/w80/pt.png" },
-        { name: "Romania", flagUrl: "https://flagcdn.com/w80/ro.png" },
-        { name: "San Marino", flagUrl: "https://flagcdn.com/w80/sm.png" },
         { name: "Slovakia", flagUrl: "https://flagcdn.com/w80/sk.png" },
         { name: "Slovenia", flagUrl: "https://flagcdn.com/w80/si.png" },
         { name: "Spain", flagUrl: "https://flagcdn.com/w80/es.png" },
-        { name: "Sweden", flagUrl: "https://flagcdn.com/w80/se.png" },
-        { name: "Switzerland", flagUrl: "https://flagcdn.com/w80/ch.png" },
-        { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" }
+        { name: "Andorra", flagUrl: "https://flagcdn.com/w80/ad.png" },
+        { name: "Monaco", flagUrl: "https://flagcdn.com/w80/mc.png" },
+        { name: "San Marino", flagUrl: "https://flagcdn.com/w80/sm.png" },
+        { name: "Vatican City", flagUrl: "https://flagcdn.com/w80/va.png" },
+        { name: "United Kingdom", flagUrl: "https://flagcdn.com/w80/gb.png" }
       ],
 
+      // Exactly the 9 receiving African countries from Aaron's workbook
       spreadsheetAfrica: [
         { name: "Cameroon", flagUrl: "https://flagcdn.com/w80/cm.png" },
-        { name: "Gabon", flagUrl: "https://flagcdn.com/w80/ga.png" },
-        { name: "Congo (Brazzaville)", flagUrl: "https://flagcdn.com/w80/cg.png" },
         { name: "Nigeria", flagUrl: "https://flagcdn.com/w80/ng.png" },
         { name: "Ghana", flagUrl: "https://flagcdn.com/w80/gh.png" },
+        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
         { name: "Burkina Faso", flagUrl: "https://flagcdn.com/w80/bf.png" },
         { name: "Cote D'Ivoire", flagUrl: "https://flagcdn.com/w80/ci.png" },
-        { name: "Guinea", flagUrl: "https://flagcdn.com/w80/gn.png" },
         { name: "Mali", flagUrl: "https://flagcdn.com/w80/ml.png" },
         { name: "Senegal", flagUrl: "https://flagcdn.com/w80/sn.png" },
-        { name: "Togo", flagUrl: "https://flagcdn.com/w80/tg.png" },
-        { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" },
-        { name: "Kenya", flagUrl: "https://flagcdn.com/w80/ke.png" },
-        { name: "Uganda", flagUrl: "https://flagcdn.com/w80/ug.png" },
-        { name: "Tanzania", flagUrl: "https://flagcdn.com/w80/tz.png" },
-        { name: "Rwanda", flagUrl: "https://flagcdn.com/w80/rw.png" },
-        { name: "South Africa", flagUrl: "https://flagcdn.com/w80/za.png" }
-      ],
-
-      spreadsheetAsia: [
-        { name: "India", flagUrl: "https://flagcdn.com/w80/in.png" },
-      ],
+        { name: "Benin", flagUrl: "https://flagcdn.com/w80/bj.png" }
+      ]
     };
   },
 
-  computed: {
+ computed: {
     marqueeFlags() {
       return [
-        ...this.sendFromNorthAmerica,
         ...this.spreadsheetAfrica,
-        ...this.spreadsheetAsia,
-        ...this.sendFromEurope.slice(0, 9)
+        ...this.sendFromEurope.slice(0, 15)
       ];
     },
     formattedRate() {
@@ -431,7 +362,7 @@ export default {
       return `1 ${this.fromCountry.currency_code} = ${rate} ${this.toCountry.currency_code}`;
     }
   },
-
+  
   created() {
     this.loadFxCountries();
   },
