@@ -97,7 +97,7 @@ export default {
     async fetchPost() {
       this.loading = true;
       const slug = this.$route.params.slug;
-      
+
       const query = `*[_type == "post" && slug.current == $slug][0] {
         _id,
         title,
@@ -107,11 +107,16 @@ export default {
         publishedAt,
         "imageUrl": coalesce(mainImage.asset->url, coverImage.asset->url),
         callout,
-        body
+        body,
+        seoTitle,
+        seoDescription
       }`;
 
       try {
         this.post = await sanityClient.fetch(query, { slug });
+        if (this.post) {
+          this.applySEOMeta(this.post);
+        }
       } catch (err) {
         console.error('Error fetching post:', err);
       } finally {
@@ -122,6 +127,73 @@ export default {
       if (!dateString) return '';
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return new Date(dateString).toLocaleDateString(undefined, options);
+    },
+    applySEOMeta(post) {
+      // 1. Page Title
+      const pageTitle = post.seoTitle || `${post.title} | Swychremit`;
+      document.title = pageTitle;
+
+      // 2. Standard Meta Description
+      const desc = post.seoDescription || '';
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.setAttribute('name', 'description');
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.setAttribute('content', desc);
+
+      // 3. Open Graph Social Tags
+      const setOG = (property, content) => {
+        let el = document.querySelector(`meta[property="${property}"]`);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute('property', property);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', content || '');
+      };
+
+      setOG('og:title', pageTitle);
+      setOG('og:description', desc);
+      setOG('og:url', `https://swychremit.com/blog/${post.slug}`);
+      if (post.imageUrl) {
+        setOG('og:image', post.imageUrl);
+      }
+
+      // 4. JSON-LD Structured Data (Google BlogPosting Schema)
+      let schemaScript = document.getElementById('jsonld-article');
+      if (!schemaScript) {
+        schemaScript = document.createElement('script');
+        schemaScript.id = 'jsonld-article';
+        schemaScript.type = 'application/ld+json';
+        document.head.appendChild(schemaScript);
+      }
+
+      schemaScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": desc,
+        "image": post.imageUrl ? [post.imageUrl] : [],
+        "datePublished": post.publishedAt,
+        "author": {
+          "@type": "Person",
+          "name": post.author || "Swychremit Team"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Swychremit",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://swychremit.com/logo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://swychremit.com/blog/${post.slug}`
+        }
+      });
     }
   }
 };

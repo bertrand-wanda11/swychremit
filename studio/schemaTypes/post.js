@@ -116,12 +116,13 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
 
-
     defineField({
       name: 'seoTitle',
       title: 'SEO Title',
       type: 'string',
       group: 'seo',
+      validation: (Rule) =>
+        Rule.max(60).warning('Titles longer than 60 characters get cut off on Google search results.'),
     }),
     defineField({
       name: 'seoDescription',
@@ -129,6 +130,10 @@ export default defineType({
       type: 'text',
       rows: 3,
       group: 'seo',
+      validation: (Rule) => [
+        Rule.min(120).warning('Descriptions under 120 characters are usually too short for rich search previews.'),
+        Rule.max(160).warning('Descriptions over 160 characters will be truncated on Google.'),
+      ],
     }),
     defineField({
       name: 'focusKeywords',
